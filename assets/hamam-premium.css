@@ -800,7 +800,7 @@
 
 .hamam-service-pillars__head {
   text-align: center;
-  margin-bottom: clamp(1.25rem, 2.5vw, 1.75rem);
+  margin-bottom: clamp(2.75rem, 5.5vw, 4rem);
 }
 
 .hamam-service-pillars__head .hamam-display {
