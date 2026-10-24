@@ -9,6 +9,10 @@
   --hamam-font-body: "elza", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
+body {
+  overflow-x: hidden;
+}
+
 .hamam-home {
   font-family: var(--hamam-font-body);
 }

@@ -85,47 +85,6 @@
         "view_all_link": "shopify://collections"
       }
     },
-    "hamam_reviews": {
-      "type": "hamam-testimonials",
-      "blocks": {
-        "r1": {
-          "type": "review",
-          "settings": {
-            "quote": "The console is absolutely stunning — a true statement piece in our hallway.",
-            "name": "Sarah M."
-          }
-        },
-        "r2": {
-          "type": "review",
-          "settings": {
-            "quote": "Impeccable quality and the delivery team were careful and professional throughout.",
-            "name": "James T."
-          }
-        },
-        "r3": {
-          "type": "review",
-          "settings": {
-            "quote": "Beautiful natural stone — each piece feels unique and thoughtfully finished.",
-            "name": "Elena R."
-          }
-        }
-      },
-      "block_order": ["r1", "r2", "r3"],
-      "settings": {
-        "heading": "What our customers say"
-      }
-    },
-    "hamam_press": {
-      "type": "hamam-press-bar",
-      "blocks": {
-        "p1": { "type": "logo", "settings": { "name": "Vogue Living" } },
-        "p2": { "type": "logo", "settings": { "name": "Elle Decor" } },
-        "p3": { "type": "logo", "settings": { "name": "House & Garden" } },
-        "p4": { "type": "logo", "settings": { "name": "AD" } }
-      },
-      "block_order": ["p1", "p2", "p3", "p4"],
-      "settings": {}
-    },
     "hamam_editorial": {
       "type": "hamam-blog-duo",
       "settings": {
@@ -147,8 +106,6 @@
     "hamam_usp",
     "hamam_new_in",
     "hamam_collections",
-    "hamam_reviews",
-    "hamam_press",
     "hamam_editorial",
     "hamam_prefooter"
   ]
