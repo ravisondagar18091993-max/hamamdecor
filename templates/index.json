@@ -105,48 +105,44 @@
     "hamam_collections": {
       "type": "hamam-collection-tiles",
       "blocks": {
-        "c1": {
+        "collection_rcagU8": {
           "type": "collection",
           "settings": {
-            "title": "Consoles",
-            "link": "shopify://collections/all"
+            "image": "shopify://shop_images/rene-travertine-coffee-table-15.jpg",
+            "title": "Coffee Tables",
+            "link": ""
           }
         },
-        "c2": {
+        "collection_NpwQii": {
           "type": "collection",
           "settings": {
-            "title": "Tables",
-            "link": "shopify://collections/all"
+            "image": "shopify://shop_images/bullet-rectangular-black-marble-console-table-21.jpg",
+            "title": "Console Tables",
+            "link": ""
           }
         },
-        "c3": {
+        "collection_YEidcc": {
           "type": "collection",
           "settings": {
-            "title": "Pedestals",
-            "link": "shopify://collections/all"
+            "image": "shopify://shop_images/red-travertine-round-dining-table-15.jpg",
+            "title": "Entry Tables",
+            "link": ""
           }
         },
-        "c4": {
+        "collection_dyyxYt": {
           "type": "collection",
           "settings": {
-            "title": "Objects",
-            "link": "shopify://collections/all"
-          }
-        },
-        "c5": {
-          "type": "collection",
-          "settings": {
-            "title": "New in",
-            "link": "shopify://collections/all"
+            "image": "shopify://shop_images/cube-travertine-side-table-7.jpg",
+            "title": "Side Tables",
+            "link": ""
           }
         }
       },
       "block_order": [
-        "c1",
-        "c2",
-        "c3",
-        "c4",
-        "c5"
+        "collection_rcagU8",
+        "collection_NpwQii",
+        "collection_YEidcc",
+        "collection_dyyxYt"
       ],
       "settings": {
         "heading": "Discover our collections",
