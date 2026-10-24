@@ -105,6 +105,14 @@
     "hamam_collections": {
       "type": "hamam-collection-tiles",
       "blocks": {
+        "collection_YEidcc": {
+          "type": "collection",
+          "settings": {
+            "image": "shopify://shop_images/red-travertine-round-dining-table-15.jpg",
+            "title": "Entry Tables",
+            "link": ""
+          }
+        },
         "collection_NpwQii": {
           "type": "collection",
           "settings": {
@@ -123,6 +131,7 @@
         }
       },
       "block_order": [
+        "collection_YEidcc",
         "collection_NpwQii",
         "collection_rcagU8"
       ],
