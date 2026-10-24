@@ -6,7 +6,7 @@
   --hamam-font-heading: "the-seasons", sans-serif;
   --hamam-font-heading-weight: 400;
   --hamam-font-heading-weight-bold: 700;
-  --hamam-font-body: "elza", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --hamam-font-body: "elza", sans-serif;
 }
 
 body {
