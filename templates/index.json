@@ -85,6 +85,45 @@
         "view_all_link": "shopify://collections"
       }
     },
+    "hamam_services": {
+      "type": "hamam-service-pillars",
+      "blocks": {
+        "s1": {
+          "type": "pillar",
+          "settings": {
+            "icon": "delivery",
+            "title": "Complimentary delivery | UK & EU",
+            "text": "Complimentary curbside delivery. White-glove service available as an upgrade."
+          }
+        },
+        "s2": {
+          "type": "pillar",
+          "settings": {
+            "icon": "custom",
+            "title": "Custom order",
+            "text": "Tailored pieces for interiors and private clients."
+          }
+        },
+        "s3": {
+          "type": "pillar",
+          "settings": {
+            "icon": "support",
+            "title": "Dedicated support",
+            "text": "Personal WhatsApp assistance from order to delivery."
+          }
+        },
+        "s4": {
+          "type": "pillar",
+          "settings": {
+            "icon": "payment",
+            "title": "Secure payments",
+            "text": "Stripe & PayPal"
+          }
+        }
+      },
+      "block_order": ["s1", "s2", "s3", "s4"],
+      "settings": {}
+    },
     "hamam_editorial": {
       "type": "hamam-blog-duo",
       "settings": {
@@ -106,6 +145,7 @@
     "hamam_usp",
     "hamam_new_in",
     "hamam_collections",
+    "hamam_services",
     "hamam_editorial",
     "hamam_prefooter"
   ]

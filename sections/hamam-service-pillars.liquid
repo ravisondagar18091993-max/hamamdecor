@@ -1,0 +1,106 @@
+<section
+  class="hamam-section hamam-service-pillars"
+  id="hamam-service-{{ section.id }}"
+  data-section-id="{{ section.id }}"
+>
+  <div class="hamam-container--wide">
+    <div class="hamam-service-pillars__panel">
+      <ul class="hamam-service-pillars__grid" role="list">
+        {% for block in section.blocks %}
+          <li class="hamam-service-pillars__item" {{ block.shopify_attributes }}>
+            <div class="hamam-service-pillars__icon-wrap">
+              {% render 'hamam-service-icon', icon: block.settings.icon %}
+            </div>
+            {% if block.settings.title != blank %}
+              <h3 class="hamam-service-pillars__title">{{ block.settings.title }}</h3>
+            {% endif %}
+            {% if block.settings.text != blank %}
+              <p class="hamam-service-pillars__text">{{ block.settings.text }}</p>
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Hamam — Service pillars",
+  "tag": "section",
+  "class": "hamam-service-pillars-section",
+  "max_blocks": 6,
+  "settings": [],
+  "blocks": [
+    {
+      "type": "pillar",
+      "name": "Pillar",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "default": "delivery",
+          "options": [
+            { "value": "delivery", "label": "Delivery" },
+            { "value": "custom", "label": "Custom order" },
+            { "value": "support", "label": "Support" },
+            { "value": "payment", "label": "Payment" }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Complimentary delivery"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Description",
+          "default": "Short description for this service."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hamam — Service pillars",
+      "blocks": [
+        {
+          "type": "pillar",
+          "settings": {
+            "icon": "delivery",
+            "title": "Complimentary delivery | UK & EU",
+            "text": "Complimentary curbside delivery. White-glove service available as an upgrade."
+          }
+        },
+        {
+          "type": "pillar",
+          "settings": {
+            "icon": "custom",
+            "title": "Custom order",
+            "text": "Tailored pieces for interiors and private clients."
+          }
+        },
+        {
+          "type": "pillar",
+          "settings": {
+            "icon": "support",
+            "title": "Dedicated support",
+            "text": "Personal WhatsApp assistance from order to delivery."
+          }
+        },
+        {
+          "type": "pillar",
+          "settings": {
+            "icon": "payment",
+            "title": "Secure payments",
+            "text": "Stripe & PayPal"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

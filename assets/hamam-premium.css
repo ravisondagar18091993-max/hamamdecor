@@ -769,6 +769,116 @@
   letter-spacing: 0.04em;
 }
 
+/* Service pillars — after collections */
+.hamam-service-pillars {
+  padding: 0 0 clamp(2.5rem, 5vw, 4rem);
+  background: var(--hamam-bg);
+}
+
+.hamam-service-pillars__panel {
+  background: linear-gradient(180deg, #fffefb 0%, var(--hamam-card, #fff) 48%, #f6f4ee 100%);
+  border: 1px solid rgba(26, 26, 26, 0.06);
+  border-radius: 3px;
+  padding: clamp(2rem, 4vw, 2.75rem) clamp(1rem, 3vw, 2rem);
+  box-shadow: 0 12px 40px rgba(26, 26, 26, 0.04);
+}
+
+.hamam-service-pillars__grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .hamam-service-pillars__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2rem 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hamam-service-pillars__grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0;
+  }
+
+  .hamam-service-pillars__item {
+    position: relative;
+    padding: 0 1.75rem;
+    text-align: center;
+  }
+
+  .hamam-service-pillars__item:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    top: 12%;
+    right: 0;
+    width: 1px;
+    height: 76%;
+    background: linear-gradient(
+      180deg,
+      transparent,
+      rgba(26, 26, 26, 0.1) 20%,
+      rgba(26, 26, 26, 0.1) 80%,
+      transparent
+    );
+  }
+}
+
+.hamam-service-pillars__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 16rem;
+  margin-inline: auto;
+}
+
+.hamam-service-pillars__icon-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 4.25rem;
+  height: 4.25rem;
+  margin-bottom: 1.15rem;
+  color: var(--hamam-dark);
+  border: 1px solid rgba(200, 118, 98, 0.35);
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 25%, #fff 0%, rgba(249, 248, 243, 0.9) 100%);
+  transition:
+    transform 0.35s var(--hamam-ease),
+    border-color 0.35s var(--hamam-ease),
+    color 0.35s var(--hamam-ease);
+}
+
+.hamam-service-pillars__item:hover .hamam-service-pillars__icon-wrap {
+  transform: translateY(-3px);
+  border-color: var(--hamam-accent);
+  color: var(--hamam-accent);
+}
+
+.hamam-service-pillars__title {
+  font-family: var(--hamam-sans);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #a8876b;
+  margin: 0 0 0.65rem;
+  line-height: 1.45;
+}
+
+.hamam-service-pillars__text {
+  font-family: var(--hamam-sans);
+  font-size: 0.875rem;
+  line-height: 1.55;
+  color: var(--hamam-muted);
+  margin: 0;
+}
+
 /* Story split */
 .hamam-story {
   display: grid;

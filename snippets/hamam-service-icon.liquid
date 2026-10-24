@@ -1,0 +1,37 @@
+{%- doc -%}
+  Line icons for Hamam service pillars.
+
+  @param {string} icon - delivery | custom | support | payment
+{%- enddoc -%}
+
+{%- case icon -%}
+  {%- when 'delivery' -%}
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+      <path d="M3 22V8.5a1 1 0 0 1 1-1H19a1 1 0 0 1 1 1V14h5.2a1 1 0 0 1 .8.4l2.5 3.3a1 1 0 0 1 .2.6V22a1 1 0 0 1-1 1h-1.2a3.3 3.3 0 0 1-6.5 0H11.7a3.3 3.3 0 0 1-6.5 0H4a1 1 0 0 1-1-1Z" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round"/>
+      <circle cx="9.5" cy="22" r="1.75" stroke="currentColor" stroke-width="1.25"/>
+      <circle cx="23.5" cy="22" r="1.75" stroke="currentColor" stroke-width="1.25"/>
+      <path d="M20 14V10H4v12" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"/>
+    </svg>
+  {%- when 'custom' -%}
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+      <circle cx="16" cy="11" r="4.25" stroke="currentColor" stroke-width="1.25"/>
+      <path d="M8 26c0-4.4 3.6-8 8-8s8 3.6 8 8" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"/>
+      <path d="M22 14.5 24 12l2 2.5" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  {%- when 'support' -%}
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+      <path d="M9 14a7 7 0 0 1 14 0v3.5a2.5 2.5 0 0 1-2.5 2.5H18l-2.5 3v-3H11.5A2.5 2.5 0 0 1 9 17.5V14Z" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round"/>
+      <path d="M12 10.5h1.8M18.2 10.5H20" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"/>
+      <circle cx="16" cy="9" r="2.25" stroke="currentColor" stroke-width="1.25"/>
+    </svg>
+  {%- when 'payment' -%}
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+      <rect x="4" y="9" width="24" height="16" rx="2" stroke="currentColor" stroke-width="1.25"/>
+      <path d="M4 14h24" stroke="currentColor" stroke-width="1.25"/>
+      <path d="M8 20h6" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"/>
+    </svg>
+  {%- else -%}
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+      <path d="M5.5 1 10 5.5 5.5 10 1 5.5 5.5 1Z" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" transform="translate(10.5 10.5) scale(1.1)"/>
+    </svg>
+{%- endcase -%}
