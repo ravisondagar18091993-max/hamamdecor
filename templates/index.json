@@ -85,15 +85,6 @@
         "view_all_link": "shopify://collections"
       }
     },
-    "hamam_story": {
-      "type": "hamam-split-showcase",
-      "settings": {
-        "reverse_layout": false,
-        "heading": "Handcrafted stone furniture for distinctive interiors",
-        "button_label": "About us",
-        "button_link": "shopify://pages/about"
-      }
-    },
     "hamam_reviews": {
       "type": "hamam-testimonials",
       "blocks": {
@@ -156,7 +147,6 @@
     "hamam_usp",
     "hamam_new_in",
     "hamam_collections",
-    "hamam_story",
     "hamam_reviews",
     "hamam_press",
     "hamam_editorial",
