@@ -32,6 +32,7 @@
                   widths: '400,600,800',
                   sizes: '(min-width: 900px) 25vw, 50vw'
                 %}
+                {% render 'hamam-product-card-hover' %}
                 {% if product.compare_at_price_max > product.price_min %}
                   <span class="hamam-product-card__badge">{{ section.settings.sale_label }}</span>
                 {% endif %}

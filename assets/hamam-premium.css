@@ -571,14 +571,64 @@
   margin-bottom: 0.85rem;
 }
 
-.hamam-product-card__link:hover .hamam-product-card__media img {
+.hamam-product-card__link:hover .hamam-product-card__media img,
+.hamam-product-card__link:focus-visible .hamam-product-card__media img {
   transform: scale(1.03);
+}
+
+.hamam-product-card__hover {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(22, 24, 28, 0.32);
+  opacity: 0;
+  transition: opacity 0.35s var(--hamam-ease);
+  pointer-events: none;
+}
+
+.hamam-product-card__link:hover .hamam-product-card__hover,
+.hamam-product-card__link:focus-visible .hamam-product-card__hover {
+  opacity: 1;
+}
+
+.hamam-product-card__hover-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  color: #fff;
+  font-family: var(--hamam-sans);
+  font-size: 1.625rem;
+  font-weight: 300;
+  line-height: 1;
+  transform: scale(0.92);
+  transition: transform 0.35s var(--hamam-ease);
+}
+
+.hamam-product-card__link:hover .hamam-product-card__hover-icon,
+.hamam-product-card__link:focus-visible .hamam-product-card__hover-icon {
+  transform: scale(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hamam-product-card__hover,
+  .hamam-product-card__hover-icon,
+  .hamam-product-card__media img {
+    transition: none;
+  }
 }
 
 .hamam-product-card__badge {
   position: absolute;
   top: 0.65rem;
   right: 0.65rem;
+  z-index: 2;
   font-family: var(--hamam-sans);
   font-size: 0.625rem;
   font-weight: 600;
