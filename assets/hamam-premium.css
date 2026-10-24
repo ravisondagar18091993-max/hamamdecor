@@ -109,7 +109,7 @@
   margin-top: 0.15rem;
 }
 
-.hamam-row-head--collections .hamam-display {
+.hamam-row-head--collections .hamam-row-head__intro {
   flex: 1;
   min-width: 0;
 }

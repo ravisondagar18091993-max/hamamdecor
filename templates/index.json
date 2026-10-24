@@ -78,6 +78,7 @@
       "block_order": ["c1", "c2", "c3", "c4", "c5"],
       "settings": {
         "heading": "Discover our collections",
+        "subheading": "Explore consoles, tables, pedestals and curated objects for every room.",
         "autoplay": true,
         "autoplay_speed": 4500,
         "view_all_label": "View all",

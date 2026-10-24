@@ -1,7 +1,12 @@
 <section class="hamam-collections" id="hamam-collections-{{ section.id }}" data-section-id="{{ section.id }}">
   <div class="hamam-container--wide">
     <header class="hamam-row-head hamam-row-head--collections">
-      <h2 class="hamam-display">{{ section.settings.heading }}</h2>
+      <div class="hamam-row-head__intro">
+        <h2 class="hamam-display">{{ section.settings.heading }}</h2>
+        {% if section.settings.subheading != blank %}
+          <p class="hamam-row-head__subtitle">{{ section.settings.subheading }}</p>
+        {% endif %}
+      </div>
       <div class="hamam-row-head__controls">
         {% if section.settings.view_all_label != blank %}
           <a class="hamam-text-link" href="{{ section.settings.view_all_link | default: '/collections' }}">
@@ -68,6 +73,11 @@
       "id": "heading",
       "label": "Heading",
       "default": "Discover our collections"
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subtitle"
     },
     {
       "type": "checkbox",
