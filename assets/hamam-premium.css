@@ -746,7 +746,16 @@
 }
 
 /* Header polish on homepage */
-.hamam-home.template-index #header-group {
-  background: var(--hamam-card);
-  box-shadow: 0 1px 0 rgba(26, 26, 26, 0.06);
+.hamam-home #header-group,
+#header-group .hamam-header-wrap {
+  background: transparent;
+  box-shadow: none;
+}
+
+.hamam-header__utilities .button-unstyled {
+  width: 42px;
+  height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }

@@ -1,0 +1,247 @@
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+  href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Source+Sans+3:wght@400;500;600&display=swap"
+  rel="stylesheet"
+>
+{{ 'hamam-header.css' | asset_url | stylesheet_tag }}
+
+<script
+  src="{{ 'cart-icon.js' | asset_url }}"
+  type="module"
+  fetchpriority="low"
+></script>
+
+<header
+  class="hamam-header-wrap hamam-header-section"
+  id="hamam-header-{{ section.id }}"
+  data-section-id="{{ section.id }}"
+  style="--hamam-header-serif: 'Cinzel', 'Playfair Display', serif; --hamam-header-sans: 'Source Sans 3', system-ui, sans-serif;"
+>
+  {% if section.settings.show_announcement and section.settings.announcement_text != blank %}
+    <div class="hamam-header__announce">
+      {% if section.settings.announcement_link != blank %}
+        <a href="{{ section.settings.announcement_link }}">{{ section.settings.announcement_text }}</a>
+      {% else %}
+        {{ section.settings.announcement_text }}
+      {% endif %}
+    </div>
+  {% endif %}
+
+  <div class="hamam-header__main">
+    <div class="hamam-header__main-inner">
+      {% if section.settings.phone != blank %}
+        <a class="hamam-header__phone" href="tel:{{ section.settings.phone | replace: ' ', '' }}">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path stroke="currentColor" stroke-width="1.5" d="M6.5 4h2l1.2 4.2-1.6 1a12 12 0 0 0 5.7 5.7l1-1.6L19 15v2a1.5 1.5 0 0 1-1.5 1.5A15 15 0 0 1 4.5 6.5 1.5 1.5 0 0 1 6 5Z"/>
+          </svg>
+          <span>{{ section.settings.phone }}</span>
+        </a>
+      {% else %}
+        <span></span>
+      {% endif %}
+
+      <a class="hamam-header__brand" href="{{ routes.root_url }}">
+        {% if section.settings.logo != blank %}
+          {{
+            section.settings.logo
+            | image_url: width: 400
+            | image_tag: class: 'hamam-header__logo-img', alt: shop.name, widths: '200,300,400', loading: 'eager'
+          }}
+        {% else %}
+          <span class="hamam-header__logo-text">{{ section.settings.logo_text | default: shop.name }}</span>
+        {% endif %}
+        {% if section.settings.tagline != blank %}
+          <span class="hamam-header__tagline">{{ section.settings.tagline }}</span>
+        {% endif %}
+      </a>
+
+      <div class="hamam-header__utilities">
+        {% if section.settings.show_search %}
+          <div class="hamam-header__icon-btn">
+            {% render 'search', style: 'modal', display_style: 'icon' %}
+          </div>
+        {% endif %}
+
+        {% if shop.customer_accounts_enabled %}
+          <a
+            class="hamam-header__icon-btn"
+            href="{% if customer %}{{ routes.account_url }}{% else %}{{ routes.account_login_url }}{% endif %}"
+            aria-label="{{ 'content.account_title' | t }}"
+          >
+            <span class="svg-wrapper" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 15 17" fill="none">
+                <path stroke="currentColor" stroke-linejoin="round" stroke-width="1.25" d="M10.375 3.813a3.063 3.063 0 1 1-6.125 0 3.063 3.063 0 0 1 6.125 0ZM7.313 9.5c-3.667 0-6.24 2.691-6.563 6.125h13.125C13.552 12.191 10.979 9.5 7.312 9.5Z"/>
+              </svg>
+            </span>
+          </a>
+        {% endif %}
+
+        <a href="{{ routes.cart_url }}" class="hamam-header__icon-btn" aria-label="{{ 'content.cart_title' | t }}">
+          <cart-icon class="header-actions__cart-icon" data-testid="cart-icon">
+            <span class="svg-wrapper" aria-hidden="true">
+              {{ 'icon-cart.svg' | inline_asset_content }}
+            </span>
+            {% render 'cart-bubble', limit: 100 %}
+          </cart-icon>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  {% if section.settings.menu != blank %}
+    <div class="hamam-header__nav-bar">
+      <div class="hamam-header__nav-inner">
+        <nav class="hamam-header__nav-desktop" aria-label="{{ 'content.menu' | t }}">
+          <ul class="hamam-header__menu">
+            {% for link in section.settings.menu.links %}
+              <li>
+                <a href="{{ link.url }}">{{ link.title }}</a>
+              </li>
+            {% endfor %}
+          </ul>
+        </nav>
+        <button
+          type="button"
+          class="hamam-header__menu-toggle"
+          aria-expanded="false"
+          aria-controls="hamam-drawer-{{ section.id }}"
+          data-hamam-menu-open
+        >
+          <span class="svg-wrapper" aria-hidden="true">{{ 'icon-menu.svg' | inline_asset_content }}</span>
+          <span class="visually-hidden">{{ 'content.menu' | t }}</span>
+        </button>
+      </div>
+    </div>
+  {% endif %}
+
+  <div
+    class="hamam-header__drawer"
+    id="hamam-drawer-{{ section.id }}"
+    data-hamam-drawer
+    hidden
+  >
+    <div class="hamam-header__drawer-panel" role="dialog" aria-modal="true" aria-label="{{ 'content.menu' | t }}">
+      <button type="button" class="hamam-header__drawer-close" data-hamam-menu-close aria-label="{{ 'accessibility.close' | t }}">
+        ×
+      </button>
+      <ul class="hamam-header__menu">
+        {% for link in section.settings.menu.links %}
+          <li>
+            <a href="{{ link.url }}">{{ link.title }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</header>
+
+<script>
+  (function () {
+    var root = document.getElementById('hamam-header-{{ section.id }}');
+    if (!root) return;
+    var drawer = root.querySelector('[data-hamam-drawer]');
+    var openBtn = root.querySelector('[data-hamam-menu-open]');
+    var closeBtn = root.querySelector('[data-hamam-menu-close]');
+    if (!drawer || !openBtn) return;
+
+    function open() {
+      drawer.hidden = false;
+      drawer.classList.add('is-open');
+      openBtn.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function close() {
+      drawer.classList.remove('is-open');
+      drawer.hidden = true;
+      openBtn.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+
+    openBtn.addEventListener('click', open);
+    if (closeBtn) closeBtn.addEventListener('click', close);
+    drawer.addEventListener('click', function (e) {
+      if (e.target === drawer) close();
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && drawer.classList.contains('is-open')) close();
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Hamam — Header",
+  "class": "hamam-header-section-wrapper",
+  "enabled_on": {
+    "groups": ["header"]
+  },
+  "settings": [
+    {
+      "type": "header",
+      "content": "Top announcement bar"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_announcement",
+      "label": "Show announcement bar",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "announcement_text",
+      "label": "Announcement text",
+      "default": "Call us on: 01691 610952  |  Visit: Shropshire, SY11 4JH"
+    },
+    {
+      "type": "url",
+      "id": "announcement_link",
+      "label": "Announcement link (optional)"
+    },
+    {
+      "type": "header",
+      "content": "Logo row"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo image (optional)"
+    },
+    {
+      "type": "text",
+      "id": "logo_text",
+      "label": "Logo text (if no image)",
+      "default": "Hamam Decor"
+    },
+    {
+      "type": "text",
+      "id": "tagline",
+      "label": "Tagline under logo",
+      "default": "Handcrafted stone"
+    },
+    {
+      "type": "text",
+      "id": "phone",
+      "label": "Phone number",
+      "default": "01691 610952"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_search",
+      "label": "Show search",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Navigation"
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Menu",
+      "default": "main-menu"
+    }
+  ]
+}
+{% endschema %}
