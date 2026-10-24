@@ -225,15 +225,19 @@
         "v2": {
           "type": "video_item",
           "settings": {
+            "video": "shopify://files/videos/a3c5aaface6643adafd3423e0ebd0f2c.HD-1080p-4.8Mbps-77368937.mp4",
             "video_url": "",
-            "title": "Stone selection"
+            "cover_image": "shopify://shop_images/a3c5aaface6643adafd3423e0ebd0f2c.thumbnail.0000000000.jpg",
+            "title": ""
           }
         },
         "v3": {
           "type": "video_item",
           "settings": {
+            "video": "shopify://files/videos/973b13a2e4f04d3584384e03dce78967.HD-1080p-4.8Mbps-77368957.mp4",
             "video_url": "",
-            "title": "Hand finishing"
+            "cover_image": "shopify://shop_images/973b13a2e4f04d3584384e03dce78967.thumbnail.0000000000.jpg",
+            "title": ""
           }
         },
         "v4": {
