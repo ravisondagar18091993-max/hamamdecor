@@ -9,8 +9,8 @@
   --hamam-muted: #6f6a63;
   --hamam-accent: #c87662;
   --hamam-accent-hover: #b56855;
-  --hamam-serif: "Playfair Display", "Times New Roman", serif;
-  --hamam-sans: "Source Sans 3", system-ui, sans-serif;
+  --hamam-serif: var(--hamam-font-heading, "the-seasons", sans-serif);
+  --hamam-sans: var(--hamam-font-body, "elza", sans-serif);
   --hamam-ease: cubic-bezier(0.25, 0.46, 0.45, 0.94);
   --hamam-radius-pill: 999px;
   --hamam-shadow: 0 8px 28px rgba(26, 26, 26, 0.06);
@@ -653,9 +653,9 @@
 }
 
 .hamam-review-card__quote {
-  font-family: var(--hamam-serif);
+  font-family: var(--hamam-sans);
   font-size: 1rem;
-  font-style: italic;
+  font-style: normal;
   line-height: 1.55;
   color: var(--hamam-text);
   margin: 0 0 1.25rem;
