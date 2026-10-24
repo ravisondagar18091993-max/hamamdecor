@@ -58,7 +58,8 @@
     "hamam_new_in": {
       "type": "hamam-product-carousel",
       "settings": {
-        "heading": "New in",
+        "heading": "Signature Designs",
+        "subheading": "Handcrafted stone furniture for distinctive interiors.",
         "collection": "all",
         "products_to_show": 8,
         "view_all_label": "View all",

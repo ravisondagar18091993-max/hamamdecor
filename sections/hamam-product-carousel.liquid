@@ -5,7 +5,12 @@
 >
   <div class="hamam-container--wide">
     <header class="hamam-row-head">
-      <h2 class="hamam-display">{{ section.settings.heading }}</h2>
+      <div class="hamam-row-head__intro">
+        <h2 class="hamam-display">{{ section.settings.heading }}</h2>
+        {% if section.settings.subheading != blank %}
+          <p class="hamam-row-head__subtitle">{{ section.settings.subheading }}</p>
+        {% endif %}
+      </div>
       <a class="hamam-text-link" href="{{ section.settings.collection.url | default: '/collections/all' }}">
         {{ section.settings.view_all_label }}
       </a>
@@ -59,6 +64,11 @@
       "id": "heading",
       "label": "Heading",
       "default": "Best sellers"
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subtitle"
     },
     {
       "type": "collection",

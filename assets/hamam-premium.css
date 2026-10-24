@@ -73,11 +73,31 @@
 
 .hamam-row-head {
   display: flex;
-  align-items: baseline;
+  align-items: flex-start;
   justify-content: space-between;
   gap: 1rem;
   margin-bottom: 1.75rem;
   flex-wrap: wrap;
+}
+
+.hamam-row-head__intro {
+  flex: 1;
+  min-width: min(100%, 20rem);
+}
+
+.hamam-row-head__subtitle {
+  font-family: var(--hamam-sans);
+  font-size: 16px;
+  line-height: 1.55;
+  font-weight: 400;
+  color: var(--hamam-muted);
+  margin: 0.5rem 0 0;
+  max-width: 38rem;
+}
+
+.hamam-row-head .hamam-text-link {
+  margin-top: 0.15rem;
+  flex-shrink: 0;
 }
 
 .hamam-row-head--center {
