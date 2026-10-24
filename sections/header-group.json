@@ -15,10 +15,11 @@
       "type": "hamam-header",
       "settings": {
         "show_announcement": true,
-        "announcement_text": "Call us on: 01691 610952  |  Visit: Shropshire, SY11 4JH",
+        "announcement_text": "CRAFTED TO ORDER · AVAILABLE ACROSS THE UK & EUROPE",
+        "announcement_link": "",
         "logo_text": "Hamam Decor",
         "tagline": "",
-        "phone": "01691 610952",
+        "phone": "Customer Service: +44 2038 649988",
         "show_search": true,
         "menu": "main-menu"
       }

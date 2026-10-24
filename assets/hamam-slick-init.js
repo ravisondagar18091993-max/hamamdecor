@@ -125,8 +125,7 @@
         $el.data('autoplay') === 1 ||
         $el.data('autoplay') === '1';
       var autoplaySpeed = parseInt($el.data('autoplay-speed'), 10) || 4500;
-      var desktopShow = Math.min(5, count);
-      var tabletShow = Math.min(3, count);
+      var desktopShow = Math.min(4, count);
       var canLoop = count > desktopShow;
 
       $el.slick({
@@ -141,15 +140,13 @@
         pauseOnHover: true,
         pauseOnFocus: true,
         waitForAnimate: true,
-        centerMode: false,
-        variableWidth: false,
         responsive: [
           {
             breakpoint: 1100,
             settings: {
-              slidesToShow: tabletShow,
-              infinite: count > tabletShow,
-              autoplay: autoplayOn && count > tabletShow,
+              slidesToShow: Math.min(3, count),
+              infinite: count > Math.min(3, count),
+              autoplay: autoplayOn && count > Math.min(3, count),
             },
           },
           {
@@ -167,7 +164,7 @@
     });
   }
 
-  function bindCollectionArrows($slider, showArrows) {
+  function bindCollectionArrows($slider, canLoop) {
     var $section = $slider.closest('.hamam-collections');
     if (!$section.length) return;
 
@@ -178,7 +175,7 @@
     $prev.off('click.hamamCollections');
     $next.off('click.hamamCollections');
 
-    if (!showArrows) {
+    if (!canLoop) {
       $arrows.attr('hidden', '');
       return;
     }

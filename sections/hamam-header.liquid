@@ -1,3 +1,11 @@
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+  href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Source+Sans+3:wght@400;500;600&display=swap"
+  rel="stylesheet"
+>
+{{ 'hamam-header.css' | asset_url | stylesheet_tag }}
+
 <script
   src="{{ 'cart-icon.js' | asset_url }}"
   type="module"
@@ -8,21 +16,20 @@
   class="hamam-header-wrap hamam-header-section"
   id="hamam-header-{{ section.id }}"
   data-section-id="{{ section.id }}"
+  style="--hamam-header-serif: 'Cinzel', 'Playfair Display', serif; --hamam-header-sans: 'Source Sans 3', system-ui, sans-serif;"
 >
   {% if section.settings.show_announcement and section.settings.announcement_text != blank %}
     <div class="hamam-header__announce">
-      <div class="hamam-container--wide hamam-header__announce-inner">
-        {% if section.settings.announcement_link != blank %}
-          <a href="{{ section.settings.announcement_link }}">{{ section.settings.announcement_text }}</a>
-        {% else %}
-          {{ section.settings.announcement_text }}
-        {% endif %}
-      </div>
+      {% if section.settings.announcement_link != blank %}
+        <a href="{{ section.settings.announcement_link }}">{{ section.settings.announcement_text }}</a>
+      {% else %}
+        {{ section.settings.announcement_text }}
+      {% endif %}
     </div>
   {% endif %}
 
   <div class="hamam-header__main">
-    <div class="hamam-container--wide hamam-header__main-inner">
+    <div class="hamam-header__main-inner">
       {% if section.settings.phone != blank %}
         <a class="hamam-header__phone" href="tel:{{ section.settings.phone | replace: ' ', '' }}">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -84,7 +91,7 @@
 
   {% if section.settings.menu != blank %}
     <div class="hamam-header__nav-bar">
-      <div class="hamam-container--wide hamam-header__nav-inner">
+      <div class="hamam-header__nav-inner">
         <nav class="hamam-header__nav-desktop" aria-label="{{ 'content.menu' | t }}">
           <ul class="hamam-header__menu">
             {% for link in section.settings.menu.links %}
@@ -211,7 +218,7 @@
       "type": "text",
       "id": "tagline",
       "label": "Tagline under logo",
-      "default": ""
+      "default": "Handcrafted stone"
     },
     {
       "type": "text",
