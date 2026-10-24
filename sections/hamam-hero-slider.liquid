@@ -1,56 +1,104 @@
 <section
   id="hamam-hero-{{ section.id }}"
-  class="hamam-section hamam-hero hamam-hero-section"
+  class="hamam-section hamam-hero hamam-hero-section hamam-hero--elp"
   data-section-id="{{ section.id }}"
+  data-hero-section
 >
   <div
     class="hamam-hero-slider hamam-slick hamam-hero-slider--luxury"
     data-hamam-slick="hero"
     data-autoplay="{{ section.settings.autoplay }}"
     data-speed="{{ section.settings.autoplay_speed }}"
+    data-hero-slider
   >
     {% for block in section.blocks %}
-      {% assign hero_fallback = 'hero' %}
-      {% if forloop.index == 2 %}
-        {% assign hero_fallback = 'hero-2' %}
-      {% endif %}
-      <div class="hamam-hero__slide" {{ block.shopify_attributes }}>
+      {% liquid
+        assign hero_fallback = 'hero-night'
+        if forloop.index == 1
+          assign hero_fallback = 'hero-night'
+        elsif forloop.index == 2
+          assign hero_fallback = 'hero-2'
+        else
+          assign hero_fallback = 'hero'
+        endif
+        assign product_fb = 'product-' | append: forloop.index
+      %}
+      <div class="hamam-hero__slide" {{ block.shopify_attributes }} data-hero-slide>
         <div class="hamam-hero__media">
-          {% render 'hamam-img',
-            image: block.settings.image,
-            fallback: hero_fallback,
-            alt: block.settings.heading,
-            width: 2400,
-            widths: '800,1200,1600,2000,2400',
-            sizes: '100vw',
-            loading: 'eager',
-            fetchpriority: 'high'
-          %}
+          {% if forloop.first %}
+            {% render 'hamam-img',
+              image: block.settings.image,
+              fallback: hero_fallback,
+              alt: block.settings.heading,
+              width: 2400,
+              widths: '800,1200,1600,2000,2400',
+              sizes: '100vw',
+              loading: 'eager',
+              fetchpriority: 'high'
+            %}
+          {% else %}
+            {% render 'hamam-img',
+              image: block.settings.image,
+              fallback: hero_fallback,
+              alt: block.settings.heading,
+              width: 2400,
+              widths: '800,1200,1600,2000,2400',
+              sizes: '100vw',
+              loading: 'lazy'
+            %}
+          {% endif %}
         </div>
         <div class="hamam-hero__overlay"></div>
+
         <div class="hamam-container hamam-hero__content">
           <div class="hamam-hero__content-inner">
             {% if block.settings.eyebrow != blank %}
-              <p class="hamam-kicker">{{ block.settings.eyebrow }}</p>
+              <p class="hamam-hero__kicker">{{ block.settings.eyebrow }}</p>
             {% endif %}
             {% if block.settings.heading != blank %}
               <h2 class="hamam-hero__title">{{ block.settings.heading }}</h2>
             {% endif %}
-            {% if block.settings.subheading != blank %}
-              <p class="hamam-hero__lead">{{ block.settings.subheading }}</p>
-            {% endif %}
             {% if block.settings.button_label != blank %}
               <div class="hamam-hero__actions">
-                <a class="hamam-btn hamam-btn--accent" href="{{ block.settings.button_link | default: '#' }}">
-                  {{ block.settings.button_label }}
+                <a class="hamam-hero__cta" href="{{ block.settings.button_link | default: '#' }}">
+                  <span class="hamam-hero__cta-mark" aria-hidden="true">›</span>
+                  <span>{{ block.settings.button_label }}</span>
                 </a>
               </div>
             {% endif %}
           </div>
         </div>
+
+        {% if section.settings.show_featured_product %}
+          {% if block.settings.show_product_pill %}
+            <div class="hamam-hero__product-wrap">
+              {% render 'hamam-hero-featured-product',
+                product: block.settings.product,
+                fallback_image_key: product_fb,
+                dummy_title: block.settings.dummy_product_title,
+                dummy_price: block.settings.dummy_product_price
+              %}
+            </div>
+          {% endif %}
+        {% endif %}
       </div>
     {% endfor %}
   </div>
+
+  {% if section.blocks.size > 1 %}
+    <div class="hamam-container hamam-hero__chrome">
+      <div class="hamam-hero__segments" data-hero-segments aria-hidden="true">
+        {% for block in section.blocks %}
+          <button
+            type="button"
+            class="hamam-hero__segment{% if forloop.first %} is-active{% endif %}"
+            data-hero-segment="{{ forloop.index0 }}"
+            aria-label="Slide {{ forloop.index }}"
+          ></button>
+        {% endfor %}
+      </div>
+    </div>
+  {% endif %}
 </section>
 
 {% schema %}
@@ -74,6 +122,12 @@
       "max": 9000,
       "step": 500,
       "default": 6000
+    },
+    {
+      "type": "checkbox",
+      "id": "show_featured_product",
+      "label": "Show featured product pill",
+      "default": true
     }
   ],
   "blocks": [
@@ -90,18 +144,13 @@
           "type": "text",
           "id": "eyebrow",
           "label": "Eyebrow",
-          "default": "Hamam Decor"
+          "default": "Garden wall lights"
         },
         {
           "type": "text",
           "id": "heading",
           "label": "Heading",
-          "default": "Bring the outside in"
-        },
-        {
-          "type": "textarea",
-          "id": "subheading",
-          "label": "Subheading"
+          "default": "Set the perfect garden ambience"
         },
         {
           "type": "text",
@@ -113,6 +162,33 @@
           "type": "url",
           "id": "button_link",
           "label": "Button link"
+        },
+        {
+          "type": "header",
+          "content": "Featured product (bottom right)"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_product_pill",
+          "label": "Show product pill on this slide",
+          "default": true
+        },
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Product"
+        },
+        {
+          "type": "text",
+          "id": "dummy_product_title",
+          "label": "Demo title (if no product)",
+          "default": "Black Victorian Hanging Wall Lantern"
+        },
+        {
+          "type": "text",
+          "id": "dummy_product_price",
+          "label": "Demo price (if no product)",
+          "default": "£199.00"
         }
       ]
     }
@@ -124,19 +200,23 @@
         {
           "type": "slide",
           "settings": {
-            "eyebrow": "Hamam Decor",
-            "heading": "Bring the outside in",
+            "eyebrow": "Garden wall lights",
+            "heading": "Set the perfect garden ambience",
             "button_label": "Shop now",
-            "button_link": "shopify://collections/all"
+            "button_link": "shopify://collections/all",
+            "dummy_product_title": "Black Victorian Hanging Wall Lantern",
+            "dummy_product_price": "£199.00"
           }
         },
         {
           "type": "slide",
           "settings": {
-            "eyebrow": "New collection",
-            "heading": "Sculptural stone forms",
-            "button_label": "Explore",
-            "button_link": "shopify://collections/all"
+            "eyebrow": "Handcrafted consoles",
+            "heading": "Bring the outside in",
+            "button_label": "Shop now",
+            "button_link": "shopify://collections/all",
+            "dummy_product_title": "Travertine Console Table",
+            "dummy_product_price": "£2,450.00"
           }
         }
       ]

@@ -15,26 +15,33 @@
         "slide_1": {
           "type": "slide",
           "settings": {
-            "eyebrow": "Hamam Decor",
-            "heading": "Bring the outside in",
+            "eyebrow": "Garden wall lights",
+            "heading": "Set the perfect garden ambience",
             "button_label": "Shop now",
-            "button_link": "shopify://collections/all"
+            "button_link": "shopify://collections/all",
+            "show_product_pill": true,
+            "dummy_product_title": "Black Victorian Hanging Wall Lantern",
+            "dummy_product_price": "£199.00"
           }
         },
         "slide_2": {
           "type": "slide",
           "settings": {
-            "eyebrow": "New collection",
-            "heading": "Sculptural stone forms",
-            "button_label": "Explore",
-            "button_link": "shopify://collections/all"
+            "eyebrow": "Handcrafted consoles",
+            "heading": "Bring the outside in",
+            "button_label": "Shop now",
+            "button_link": "shopify://collections/all",
+            "show_product_pill": true,
+            "dummy_product_title": "Travertine Console Table",
+            "dummy_product_price": "£2,450.00"
           }
         }
       },
       "block_order": ["slide_1", "slide_2"],
       "settings": {
         "autoplay": true,
-        "autoplay_speed": 6000
+        "autoplay_speed": 6000,
+        "show_featured_product": true
       }
     },
     "hamam_usp": {

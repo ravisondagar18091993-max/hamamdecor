@@ -1,0 +1,45 @@
+{%- doc -%}
+  Featured product pill for hero slides (bottom-right).
+
+  @param {product} [product]
+  @param {string} [fallback_image_key] - hamam-img fallback key
+  @param {string} [dummy_title]
+  @param {string} [dummy_price]
+{%- enddoc -%}
+
+{%- liquid
+  assign show_card = true
+  if product != blank
+    assign card_url = product.url
+    assign card_title = product.title
+    assign card_image = product.featured_image
+  else
+    assign card_url = '/collections/all'
+    assign card_title = dummy_title | default: 'Travertine Console Table'
+    assign card_image = blank
+  endif
+  assign fb = fallback_image_key | default: 'product-1'
+-%}
+
+<a class="hamam-hero__product" href="{{ card_url }}">
+  <span class="hamam-hero__product-thumb">
+    {% render 'hamam-img',
+      image: card_image,
+      fallback: fb,
+      alt: card_title,
+      widths: '120,160',
+      sizes: '64px',
+      width: 160
+    %}
+  </span>
+  <span class="hamam-hero__product-meta">
+    <span class="hamam-hero__product-title">{{ card_title }}</span>
+    <span class="hamam-hero__product-price">
+      {% if product != blank %}
+        {% render 'price', product_resource: product, show_sale_price_first: true %}
+      {% else %}
+        {{ dummy_price | default: '£2,450.00' }}
+      {% endif %}
+    </span>
+  </span>
+</a>

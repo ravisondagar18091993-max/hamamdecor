@@ -48,8 +48,8 @@
       $el.slick({
         slidesToShow: 1,
         slidesToScroll: 1,
-        arrows: infinite,
-        dots: infinite,
+        arrows: false,
+        dots: false,
         fade: true,
         speed: 800,
         autoplay: autoplay && infinite,
@@ -57,7 +57,35 @@
         pauseOnHover: true,
         infinite: infinite,
       });
+
+      bindHeroSegments($el);
     });
+  }
+
+  function bindHeroSegments($slider) {
+    var section = $slider.closest('[data-hero-section]');
+    if (!section.length) return;
+
+    var segments = section.find('[data-hero-segment]');
+
+    function setActive(index) {
+      segments.removeClass('is-active');
+      segments.filter('[data-hero-segment="' + index + '"]').addClass('is-active');
+    }
+
+    $slider.on('init afterChange', function (_event, _slick, currentSlide) {
+      var idx = typeof currentSlide === 'number' ? currentSlide : 0;
+      setActive(idx);
+    });
+
+    segments.on('click', function () {
+      var index = parseInt(this.getAttribute('data-hero-segment'), 10);
+      if (!Number.isNaN(index)) {
+        $slider.slick('slickGoTo', index);
+      }
+    });
+
+    setActive(0);
   }
 
   function initProducts($root) {
