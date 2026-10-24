@@ -14,8 +14,8 @@
         {% endif %}
       </div>
       {% if section.settings.button_label != blank %}
-        <a class="hamam-video-gallery__btn" href="{{ section.settings.button_link | default: '#' }}">
-          <span class="hamam-video-gallery__btn-mark" aria-hidden="true">›</span>
+        <a class="hamam-pill-btn" href="{{ section.settings.button_link | default: '#' }}">
+          <span class="hamam-pill-btn__mark" aria-hidden="true">›</span>
           <span>{{ section.settings.button_label }}</span>
         </a>
       {% endif %}

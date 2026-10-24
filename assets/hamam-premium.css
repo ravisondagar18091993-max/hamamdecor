@@ -95,7 +95,8 @@
   max-width: 38rem;
 }
 
-.hamam-row-head .hamam-text-link {
+.hamam-row-head .hamam-text-link,
+.hamam-row-head .hamam-pill-btn {
   margin-top: 0.15rem;
   flex-shrink: 0;
 }
@@ -174,6 +175,36 @@
 
 .hamam-text-link:hover {
   color: var(--hamam-accent);
+}
+
+.hamam-pill-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.85rem 1.65rem;
+  border-radius: var(--hamam-radius-pill);
+  background: #b87366;
+  color: #fff;
+  font-family: var(--hamam-sans);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.hamam-pill-btn:hover {
+  background: #a66559;
+  transform: translateY(-1px);
+  color: #fff;
+}
+
+.hamam-pill-btn__mark {
+  font-size: 1.1rem;
+  line-height: 1;
 }
 
 .hamam-btn {
@@ -949,34 +980,9 @@
   min-width: min(100%, 18rem);
 }
 
-.hamam-video-gallery__btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.65rem;
-  padding: 0.85rem 1.65rem;
-  border-radius: var(--hamam-radius-pill);
-  background: #b87366;
-  color: #fff;
-  font-family: var(--hamam-sans);
-  font-size: 0.75rem;
-  font-weight: 500;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  text-decoration: none;
+.hamam-video-gallery__head .hamam-pill-btn {
   flex-shrink: 0;
   margin-top: 0.15rem;
-  transition: background 0.25s ease, transform 0.25s ease;
-}
-
-.hamam-video-gallery__btn:hover {
-  background: #a66559;
-  transform: translateY(-1px);
-  color: #fff;
-}
-
-.hamam-video-gallery__btn-mark {
-  font-size: 1.1rem;
-  line-height: 1;
 }
 
 .hamam-video-gallery__layout {

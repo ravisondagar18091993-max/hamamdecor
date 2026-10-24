@@ -11,8 +11,9 @@
           <p class="hamam-row-head__subtitle">{{ section.settings.subheading }}</p>
         {% endif %}
       </div>
-      <a class="hamam-text-link" href="{{ section.settings.collection.url | default: '/collections/all' }}">
-        {{ section.settings.view_all_label }}
+      <a class="hamam-pill-btn" href="{{ section.settings.collection.url | default: '/collections/all' }}">
+        <span class="hamam-pill-btn__mark" aria-hidden="true">›</span>
+        <span>{{ section.settings.view_all_label }}</span>
       </a>
     </header>
 
