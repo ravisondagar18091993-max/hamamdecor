@@ -151,15 +151,6 @@
         "blog": "news",
         "view_all_label": "View all"
       }
-    },
-    "hamam_prefooter": {
-      "type": "hamam-prefooter-cta",
-      "settings": {
-        "heading": "Ready to elevate your interior?",
-        "phone": "+44 0000 000000",
-        "email": "hello@hamamdecor.uk",
-        "show_social": true
-      }
     }
   },
   "order": [
@@ -169,7 +160,6 @@
     "hamam_collections",
     "hamam_services",
     "hamam_video_gallery",
-    "hamam_editorial",
-    "hamam_prefooter"
+    "hamam_editorial"
   ]
 }

@@ -29,7 +29,8 @@ body {
 .hamam-section .hamam-prefooter__title,
 .hamam-section .hamam-press__text,
 .hamam-service-pillars__head h2.hamam-display,
-.hamam-video-gallery h2.hamam-display {
+.hamam-video-gallery h2.hamam-display,
+.hamam-footer__headline {
   font-family: var(--hamam-font-heading);
   font-style: normal;
 }

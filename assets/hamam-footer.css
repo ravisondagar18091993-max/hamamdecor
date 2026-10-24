@@ -1,0 +1,223 @@
+/* Hamam footer — English Lamp Posts style */
+.hamam-footer-section {
+  margin: 0;
+}
+
+.hamam-footer {
+  background: #000;
+  color: #fff;
+  font-family: var(--hamam-font-body);
+}
+
+.hamam-footer__inner {
+  position: relative;
+  padding: clamp(3rem, 6vw, 4.5rem) var(--hamam-page-pad) clamp(2rem, 4vw, 2.75rem);
+}
+
+.hamam-footer__social {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0.65rem;
+  margin-bottom: clamp(1.5rem, 3vw, 2.25rem);
+}
+
+.hamam-footer__social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  color: #fff;
+  text-decoration: none;
+  opacity: 0.92;
+  transition: opacity 0.2s ease;
+}
+
+.hamam-footer__social-link:hover {
+  opacity: 1;
+}
+
+.hamam-footer__social-icon {
+  width: 1.125rem;
+  height: 1.125rem;
+  fill: currentColor;
+}
+
+.hamam-footer__social-icon path {
+  fill: currentColor;
+}
+
+.hamam-footer__main {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  padding-bottom: clamp(2.5rem, 5vw, 3.5rem);
+}
+
+@media (min-width: 900px) {
+  .hamam-footer__main {
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 2fr);
+    gap: clamp(2rem, 4vw, 3.5rem);
+    align-items: start;
+  }
+}
+
+.hamam-footer__headline {
+  font-family: var(--hamam-font-heading);
+  font-weight: var(--hamam-font-heading-weight, 400);
+  font-size: clamp(1.65rem, 3.2vw, 2.35rem);
+  line-height: 1.15;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  margin: 0;
+  max-width: 14ch;
+  color: #fff;
+}
+
+.hamam-footer__subhead {
+  font-size: 1rem;
+  line-height: 1.55;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.92);
+  margin: 1rem 0 0;
+  max-width: 26rem;
+}
+
+.hamam-footer__contact {
+  margin-top: clamp(1.75rem, 3vw, 2.5rem);
+  display: flex;
+  flex-direction: column;
+  gap: 1.35rem;
+}
+
+.hamam-footer__contact-label {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin: 0 0 0.35rem;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.hamam-footer__contact-value {
+  margin: 0;
+  font-size: 1.0625rem;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.hamam-footer__contact-value a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.hamam-footer__contact-value a:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.hamam-footer__menus {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 600px) {
+  .hamam-footer__menus {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0;
+  }
+}
+
+.hamam-footer__menu-col {
+  padding: 0;
+}
+
+@media (min-width: 600px) {
+  .hamam-footer__menu-col {
+    padding: 0 clamp(1rem, 2vw, 1.75rem);
+    border-left: 1px solid rgba(255, 255, 255, 0.22);
+  }
+
+  .hamam-footer__menu-col:first-child {
+    border-left: none;
+    padding-left: 0;
+  }
+}
+
+.hamam-footer__menu-title {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin: 0 0 1rem;
+  color: #fff;
+}
+
+.hamam-footer__menu-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.hamam-footer__menu-list a {
+  font-size: 0.9375rem;
+  font-weight: 400;
+  line-height: 1.45;
+  color: rgba(255, 255, 255, 0.92);
+  text-decoration: none;
+}
+
+.hamam-footer__menu-list a:hover {
+  color: #fff;
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+
+.hamam-footer__bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem 1.5rem;
+  padding-top: 1.35rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.hamam-footer__copyright {
+  margin: 0;
+  font-size: 0.75rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.72);
+  max-width: 42rem;
+}
+
+.hamam-footer__payments {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.hamam-footer__payment-icon {
+  display: block;
+  height: 1.5rem;
+  width: auto;
+}
+
+@media (max-width: 599px) {
+  .hamam-footer__social {
+    justify-content: flex-start;
+  }
+
+  .hamam-footer__headline {
+    max-width: none;
+  }
+}

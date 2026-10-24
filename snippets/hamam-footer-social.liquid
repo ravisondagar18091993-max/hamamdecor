@@ -1,0 +1,19 @@
+{%- doc -%}
+  @param {string} url
+  @param {string} icon - x, facebook, instagram, youtube
+  @param {string} label
+{%- enddoc -%}
+
+{% if url != blank %}
+  <a
+    class="hamam-footer__social-link"
+    href="{{ url }}"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="{{ label }}"
+  >
+    <svg class="hamam-footer__social-icon" aria-hidden="true" focusable="false" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+      {%- render 'icon', icon: icon -%}
+    </svg>
+  </a>
+{% endif %}

@@ -1,0 +1,255 @@
+<div class="hamam-footer" id="hamam-footer-{{ section.id }}" data-section-id="{{ section.id }}" role="contentinfo">
+  <div class="hamam-page-wrap hamam-footer__inner">
+    <div class="hamam-footer__social" aria-label="{{ 'blocks.social_media_links' | t | default: 'Social media' }}">
+      {% render 'hamam-footer-social', url: section.settings.social_x, icon: 'x', label: 'X' %}
+      {% render 'hamam-footer-social', url: section.settings.social_facebook, icon: 'facebook', label: 'Facebook' %}
+      {% render 'hamam-footer-social', url: section.settings.social_instagram, icon: 'instagram', label: 'Instagram' %}
+      {% render 'hamam-footer-social', url: section.settings.social_youtube, icon: 'youtube', label: 'YouTube' %}
+    </div>
+
+    <div class="hamam-footer__main">
+      <div class="hamam-footer__brand">
+        {% if section.settings.heading != blank %}
+          <h2 class="hamam-footer__headline">{{ section.settings.heading }}</h2>
+        {% endif %}
+        {% if section.settings.subheading != blank %}
+          <p class="hamam-footer__subhead">{{ section.settings.subheading }}</p>
+        {% endif %}
+
+        <div class="hamam-footer__contact">
+          {% if section.settings.phone != blank %}
+            <div class="hamam-footer__contact-block">
+              {% if section.settings.phone_label != blank %}
+                <p class="hamam-footer__contact-label">{{ section.settings.phone_label }}</p>
+              {% endif %}
+              <p class="hamam-footer__contact-value">
+                <a href="tel:{{ section.settings.phone | replace: ' ', '' }}">{{ section.settings.phone }}</a>
+              </p>
+            </div>
+          {% endif %}
+          {% if section.settings.email != blank %}
+            <div class="hamam-footer__contact-block">
+              {% if section.settings.email_label != blank %}
+                <p class="hamam-footer__contact-label">{{ section.settings.email_label }}</p>
+              {% endif %}
+              <p class="hamam-footer__contact-value">
+                <a href="mailto:{{ section.settings.email }}">{{ section.settings.email }}</a>
+              </p>
+            </div>
+          {% endif %}
+        </div>
+      </div>
+
+      <div class="hamam-footer__menus">
+        <div class="hamam-footer__menu-col">
+          {% if section.settings.menu_shop_title != blank %}
+            <p class="hamam-footer__menu-title">{{ section.settings.menu_shop_title }}</p>
+          {% endif %}
+          <ul class="hamam-footer__menu-list" role="list">
+            {% if section.settings.menu_shop != blank %}
+              {% for link in section.settings.menu_shop.links %}
+                <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+              {% endfor %}
+            {% else %}
+              <li><a href="{{ routes.all_products_collection_url }}">All products</a></li>
+              <li><a href="{{ routes.collections_url }}">Collections</a></li>
+            {% endif %}
+          </ul>
+        </div>
+
+        <div class="hamam-footer__menu-col">
+          {% if section.settings.menu_about_title != blank %}
+            <p class="hamam-footer__menu-title">{{ section.settings.menu_about_title }}</p>
+          {% endif %}
+          <ul class="hamam-footer__menu-list" role="list">
+            {% if section.settings.menu_about != blank %}
+              {% for link in section.settings.menu_about.links %}
+                <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+              {% endfor %}
+            {% else %}
+              <li><a href="/pages/about">About us</a></li>
+              <li><a href="/policies/shipping-policy">Delivery &amp; returns</a></li>
+            {% endif %}
+          </ul>
+        </div>
+
+        <div class="hamam-footer__menu-col">
+          {% if section.settings.menu_links_title != blank %}
+            <p class="hamam-footer__menu-title">{{ section.settings.menu_links_title }}</p>
+          {% endif %}
+          <ul class="hamam-footer__menu-list" role="list">
+            {% if section.settings.menu_links != blank %}
+              {% for link in section.settings.menu_links.links %}
+                <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+              {% endfor %}
+            {% else %}
+              {% if section.settings.blog != blank %}
+                <li><a href="{{ section.settings.blog.url }}">{{ section.settings.blog.title }}</a></li>
+              {% endif %}
+              <li><a href="/policies/terms-of-service">Terms &amp; conditions</a></li>
+              <li><a href="/policies/privacy-policy">Privacy policy</a></li>
+            {% endif %}
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="hamam-footer__bar">
+      <p class="hamam-footer__copyright">
+        &copy; {{ 'now' | date: '%Y' }} {{ shop.name }}. {{ section.settings.copyright_text }}
+        {% if section.settings.credit_text != blank %}
+          {{ section.settings.credit_text }}
+        {% endif %}
+      </p>
+      {% if section.settings.show_payment_icons %}
+        <ul class="hamam-footer__payments" role="list">
+          {%- for type in shop.enabled_payment_types -%}
+            <li>{{ type | payment_type_svg_tag: class: 'hamam-footer__payment-icon' }}</li>
+          {%- endfor -%}
+        </ul>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Hamam — Footer",
+  "tag": "section",
+  "class": "hamam-footer-section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Call to action"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Headline",
+      "default": "Ready to elevate your interior?"
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Get expert advice on choosing the perfect stone and furniture for your home."
+    },
+    {
+      "type": "text",
+      "id": "phone_label",
+      "label": "Phone label",
+      "default": "Call us on"
+    },
+    {
+      "type": "text",
+      "id": "phone",
+      "label": "Phone number",
+      "default": "+44 0000 000000"
+    },
+    {
+      "type": "text",
+      "id": "email_label",
+      "label": "Email label",
+      "default": "Email us"
+    },
+    {
+      "type": "text",
+      "id": "email",
+      "label": "Email address",
+      "default": "hello@hamamdecor.uk"
+    },
+    {
+      "type": "header",
+      "content": "Menus"
+    },
+    {
+      "type": "text",
+      "id": "menu_shop_title",
+      "label": "Column 1 title",
+      "default": "Shop by"
+    },
+    {
+      "type": "link_list",
+      "id": "menu_shop",
+      "label": "Column 1 menu"
+    },
+    {
+      "type": "text",
+      "id": "menu_about_title",
+      "label": "Column 2 title",
+      "default": "About us"
+    },
+    {
+      "type": "link_list",
+      "id": "menu_about",
+      "label": "Column 2 menu"
+    },
+    {
+      "type": "text",
+      "id": "menu_links_title",
+      "label": "Column 3 title",
+      "default": "Useful links"
+    },
+    {
+      "type": "link_list",
+      "id": "menu_links",
+      "label": "Column 3 menu"
+    },
+    {
+      "type": "blog",
+      "id": "blog",
+      "label": "Blog (fallback link when column 3 menu is empty)"
+    },
+    {
+      "type": "header",
+      "content": "Social"
+    },
+    {
+      "type": "url",
+      "id": "social_x",
+      "label": "X (Twitter)"
+    },
+    {
+      "type": "url",
+      "id": "social_facebook",
+      "label": "Facebook"
+    },
+    {
+      "type": "url",
+      "id": "social_instagram",
+      "label": "Instagram"
+    },
+    {
+      "type": "url",
+      "id": "social_youtube",
+      "label": "YouTube"
+    },
+    {
+      "type": "header",
+      "content": "Bottom bar"
+    },
+    {
+      "type": "text",
+      "id": "copyright_text",
+      "label": "Copyright suffix",
+      "default": "All rights reserved."
+    },
+    {
+      "type": "text",
+      "id": "credit_text",
+      "label": "Credit line (optional)"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_payment_icons",
+      "label": "Show payment icons",
+      "default": true
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hamam — Footer"
+    }
+  ]
+}
+{% endschema %}
