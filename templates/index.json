@@ -29,6 +29,7 @@
         "slide_2": {
           "type": "slide",
           "settings": {
+            "image": "shopify://shop_images/ayak_fotograflar_2.jpg",
             "eyebrow": "Handcrafted consoles",
             "heading": "travertıne collectıon",
             "button_label": "Shop now",
