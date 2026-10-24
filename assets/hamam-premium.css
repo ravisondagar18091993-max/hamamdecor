@@ -182,19 +182,16 @@
 }
 
 .hamam-hero__frame {
+  position: relative;
   height: 100%;
   display: flex;
   align-items: center;
-  padding-bottom: 3.5rem;
+  padding-bottom: clamp(3.5rem, 8vh, 5rem);
   pointer-events: none;
 }
 
 .hamam-hero__grid {
   width: 100%;
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(260px, 300px);
-  align-items: end;
-  gap: 2rem 1.5rem;
   pointer-events: none;
 }
 
@@ -303,11 +300,13 @@
   transform: scaleY(1.35);
 }
 
-/* Featured product pill — right column, aligned with header icons */
+/* Featured product pill — bottom right (above slider segments) */
 .hamam-hero__product-wrap {
-  justify-self: end;
-  align-self: end;
-  width: 100%;
+  position: absolute;
+  right: 0;
+  bottom: clamp(3rem, 5.5vh, 3.75rem);
+  z-index: 3;
+  width: min(300px, 100%);
   max-width: 300px;
   pointer-events: auto;
 }
@@ -377,26 +376,22 @@
 }
 
 @media (max-width: 900px) {
-  .hamam-hero__grid {
-    grid-template-columns: 1fr;
-    align-items: start;
-    gap: 1.5rem;
-  }
-
   .hamam-hero__copy {
-    align-self: start;
     max-width: none;
   }
 
   .hamam-hero__product-wrap {
-    justify-self: stretch;
+    left: 0;
+    right: 0;
     max-width: none;
+    width: auto;
+    bottom: 3.5rem;
   }
 
   .hamam-hero__frame {
     align-items: flex-start;
     padding-top: 1.5rem;
-    padding-bottom: 4rem;
+    padding-bottom: 6.5rem;
   }
 
   .hamam-hero__shell {

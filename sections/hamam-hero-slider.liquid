@@ -69,18 +69,18 @@
                   </div>
                 {% endif %}
               </div>
-
-              {% if section.settings.show_featured_product and block.settings.show_product_pill %}
-                <div class="hamam-hero__product-wrap">
-                  {% render 'hamam-hero-featured-product',
-                    product: block.settings.product,
-                    fallback_image_key: product_fb,
-                    dummy_title: block.settings.dummy_product_title,
-                    dummy_price: block.settings.dummy_product_price
-                  %}
-                </div>
-              {% endif %}
             </div>
+
+            {% if section.settings.show_featured_product and block.settings.show_product_pill %}
+              <div class="hamam-hero__product-wrap">
+                {% render 'hamam-hero-featured-product',
+                  product: block.settings.product,
+                  fallback_image_key: product_fb,
+                  dummy_title: block.settings.dummy_product_title,
+                  dummy_price: block.settings.dummy_product_price
+                %}
+              </div>
+            {% endif %}
           </div>
         </div>
       </div>
