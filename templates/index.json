@@ -105,6 +105,14 @@
     "hamam_collections": {
       "type": "hamam-collection-tiles",
       "blocks": {
+        "collection_NpwQii": {
+          "type": "collection",
+          "settings": {
+            "image": "shopify://shop_images/bullet-rectangular-black-marble-console-table-21.jpg",
+            "title": "Console Tables",
+            "link": ""
+          }
+        },
         "collection_rcagU8": {
           "type": "collection",
           "settings": {
@@ -115,6 +123,7 @@
         }
       },
       "block_order": [
+        "collection_NpwQii",
         "collection_rcagU8"
       ],
       "settings": {
