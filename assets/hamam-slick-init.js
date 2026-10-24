@@ -119,15 +119,44 @@
       var count = slideCount($el);
       if (count < 1) return;
 
+      var autoplayOn =
+        $el.data('autoplay') === true ||
+        $el.data('autoplay') === 'true' ||
+        $el.data('autoplay') === 1 ||
+        $el.data('autoplay') === '1';
+      var autoplaySpeed = parseInt($el.data('autoplay-speed'), 10) || 4500;
+      var desktopShow = Math.min(4, count);
+      var canLoop = count > desktopShow;
+
       $el.slick({
-        slidesToShow: Math.min(5, count),
+        slidesToShow: desktopShow,
         slidesToScroll: 1,
         arrows: false,
         dots: false,
-        infinite: false,
+        infinite: canLoop,
+        autoplay: autoplayOn && canLoop,
+        autoplaySpeed: autoplaySpeed,
+        speed: 650,
+        pauseOnHover: true,
+        pauseOnFocus: true,
+        waitForAnimate: true,
         responsive: [
-          { breakpoint: 1100, settings: { slidesToShow: Math.min(3, count) } },
-          { breakpoint: 600, settings: { slidesToShow: 1 } },
+          {
+            breakpoint: 1100,
+            settings: {
+              slidesToShow: Math.min(3, count),
+              infinite: count > Math.min(3, count),
+              autoplay: autoplayOn && count > Math.min(3, count),
+            },
+          },
+          {
+            breakpoint: 600,
+            settings: {
+              slidesToShow: 1,
+              infinite: count > 1,
+              autoplay: autoplayOn && count > 1,
+            },
+          },
         ],
       });
     });

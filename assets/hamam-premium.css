@@ -997,7 +997,11 @@
 }
 
 .hamam-collection-slider:not(.slick-initialized) {
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.hamam-collection-slider.slick-initialized {
+  overflow: hidden;
 }
 
 .hamam-review-slider:not(.slick-initialized) {

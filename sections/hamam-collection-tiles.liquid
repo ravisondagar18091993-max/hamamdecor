@@ -4,7 +4,12 @@
       <h2 class="hamam-display">{{ section.settings.heading }}</h2>
     </header>
 
-    <div class="hamam-collection-slider hamam-slick" data-hamam-slick="collections">
+    <div
+      class="hamam-collection-slider hamam-slick"
+      data-hamam-slick="collections"
+      data-autoplay="{{ section.settings.autoplay }}"
+      data-autoplay-speed="{{ section.settings.autoplay_speed }}"
+    >
       {% for block in section.blocks %}
         {% assign fb = 'collection-' | append: forloop.index %}
         <div class="hamam-collection-tile" {{ block.shopify_attributes }}>
@@ -38,6 +43,21 @@
       "id": "heading",
       "label": "Heading",
       "default": "Discover our collections"
+    },
+    {
+      "type": "checkbox",
+      "id": "autoplay",
+      "label": "Auto-advance slides",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "autoplay_speed",
+      "label": "Autoplay interval (ms)",
+      "min": 3000,
+      "max": 9000,
+      "step": 500,
+      "default": 4500
     }
   ],
   "blocks": [
