@@ -20,9 +20,18 @@
             "button_label": "Shop now",
             "button_link": "shopify://collections/all"
           }
+        },
+        "slide_2": {
+          "type": "slide",
+          "settings": {
+            "eyebrow": "New collection",
+            "heading": "Sculptural stone forms",
+            "button_label": "Explore",
+            "button_link": "shopify://collections/all"
+          }
         }
       },
-      "block_order": ["slide_1"],
+      "block_order": ["slide_1", "slide_2"],
       "settings": {
         "autoplay": true,
         "autoplay_speed": 6000

@@ -6,28 +6,27 @@
   <div class="hamam-container--wide">
     <header class="hamam-row-head">
       <h2 class="hamam-display">{{ section.settings.heading }}</h2>
-      {% if section.settings.collection != blank and section.settings.view_all_label != blank %}
-        <a class="hamam-text-link" href="{{ section.settings.collection.url }}">{{ section.settings.view_all_label }}</a>
-      {% endif %}
+      <a class="hamam-text-link" href="{{ section.settings.collection.url | default: '/collections/all' }}">
+        {{ section.settings.view_all_label }}
+      </a>
     </header>
 
     <div class="hamam-product-slider hamam-slick" data-hamam-slick="products">
-      {% assign product_count = 0 %}
+      {% assign rendered = 0 %}
       {% if section.settings.collection != blank %}
-        {% for product in section.settings.collection.products limit: section.settings.products_to_show %}
-          {% assign product_count = product_count | plus: 1 %}
+        {% for product in section.settings.collection.products limit: 4 %}
+          {% assign rendered = rendered | plus: 1 %}
+          {% assign fb = 'product-' | append: forloop.index %}
           <div class="hamam-product-card">
             <a class="hamam-product-card__link" href="{{ product.url }}" aria-label="{{ product.title }}">
               <div class="hamam-product-card__media">
-                {% if product.featured_image %}
-                  {{
-                    product.featured_image
-                    | image_url: width: 900
-                    | image_tag: loading: 'lazy', widths: '400,600,800,900', sizes: '(min-width: 900px) 25vw, 50vw', alt: product.title
-                  }}
-                {% else %}
-                  <div class="hamam-ph" aria-hidden="true"></div>
-                {% endif %}
+                {% render 'hamam-img',
+                  image: product.featured_image,
+                  fallback: fb,
+                  alt: product.title,
+                  widths: '400,600,800',
+                  sizes: '(min-width: 900px) 25vw, 50vw'
+                %}
                 {% if product.compare_at_price_max > product.price_min %}
                   <span class="hamam-product-card__badge">{{ section.settings.sale_label }}</span>
                 {% endif %}
@@ -41,15 +40,10 @@
         {% endfor %}
       {% endif %}
 
-      {% if product_count == 0 %}
-        {% for i in (1..4) %}
-          <div class="hamam-product-card">
-            <div class="hamam-product-card__media"><div class="hamam-ph" aria-hidden="true"></div></div>
-            <h3 class="hamam-product-card__title">Sample product {{ i }}</h3>
-            <div class="hamam-product-card__price">{% render 'price', product_resource: blank %}</div>
-          </div>
-        {% endfor %}
-      {% endif %}
+      {% assign pad_start = rendered | plus: 1 %}
+      {% for i in (pad_start..4) %}
+        {% render 'hamam-dummy-product', index: i %}
+      {% endfor %}
     </div>
   </div>
 </section>
@@ -78,7 +72,7 @@
       "min": 4,
       "max": 16,
       "step": 1,
-      "default": 8
+      "default": 4
     },
     {
       "type": "text",

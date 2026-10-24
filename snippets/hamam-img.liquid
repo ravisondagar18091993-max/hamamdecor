@@ -1,0 +1,52 @@
+{%- doc -%}
+  Renders a Shopify image or a bundled Hamam dummy fallback.
+
+  @param {image} [image] - Theme image object
+  @param {string} fallback - Dummy key without prefix (e.g. hero, product-1, collection-2)
+  @param {string} [alt]
+  @param {string} [class]
+  @param {string} [sizes]
+  @param {string} [widths]
+  @param {number} [width]
+  @param {string} [loading] - lazy | eager
+  @param {string} [fetchpriority]
+{%- enddoc -%}
+
+{%- liquid
+  assign dummy_file = 'hamam-dummy-' | append: fallback | append: '.jpg'
+  assign img_width = width | default: 1600
+  assign img_loading = loading | default: 'lazy'
+  assign img_class = class | default: ''
+  assign img_alt = alt | default: ''
+  assign img_sizes = sizes | default: '100vw'
+  assign img_widths = widths | default: '400,800,1200,1600'
+-%}
+
+{%- if image != blank -%}
+  {%- if fetchpriority != blank -%}
+    {{
+      image
+      | image_url: width: img_width
+      | image_tag: loading: img_loading, widths: img_widths, sizes: img_sizes, alt: img_alt, class: img_class, fetchpriority: fetchpriority
+    }}
+  {%- else -%}
+    {{
+      image
+      | image_url: width: img_width
+      | image_tag: loading: img_loading, widths: img_widths, sizes: img_sizes, alt: img_alt, class: img_class
+    }}
+  {%- endif -%}
+{%- else -%}
+  <img
+    src="{{ dummy_file | asset_url }}"
+    alt="{{ img_alt }}"
+    class="{{ img_class }}"
+    loading="{{ img_loading }}"
+    {% if fetchpriority != blank %}
+      fetchpriority="{{ fetchpriority }}"
+    {% endif %}
+    width="{{ img_width }}"
+    height="auto"
+    decoding="async"
+  >
+{%- endif -%}

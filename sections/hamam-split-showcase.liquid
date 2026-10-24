@@ -19,15 +19,14 @@
     </div>
   </div>
   <div class="hamam-story__media">
-    {% if section.settings.image != blank %}
-      {{
-        section.settings.image
-        | image_url: width: 1600
-        | image_tag: loading: 'lazy', widths: '600,900,1200,1600', sizes: '(min-width: 900px) 50vw, 100vw', alt: section.settings.heading
-      }}
-    {% else %}
-      <div class="hamam-ph hamam-ph--tall" aria-hidden="true"></div>
-    {% endif %}
+    {% render 'hamam-img',
+      image: section.settings.image,
+      fallback: 'story',
+      alt: section.settings.heading,
+      widths: '600,900,1200,1600',
+      sizes: '(min-width: 900px) 50vw, 100vw',
+      width: 1600
+    %}
   </div>
 </section>
 

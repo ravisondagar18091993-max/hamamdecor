@@ -1,0 +1,9 @@
+<article class="hamam-editorial-card">
+  <a class="hamam-editorial-card__link" href="/blogs/news">
+    <div class="hamam-editorial-card__media">
+      {% assign fb = 'editorial-' | append: index %}
+      {% render 'hamam-img', fallback: fb, alt: title, widths: '500,800,1000', sizes: '(min-width: 900px) 50vw, 100vw', width: 1000 %}
+    </div>
+    <h3 class="hamam-editorial-card__title">{{ title }}</h3>
+  </a>
+</article>

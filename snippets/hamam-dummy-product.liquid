@@ -1,0 +1,24 @@
+{%- doc -%}
+  Demo product card when the store has no products yet.
+
+  @param {number} index - 1..4
+{%- enddoc -%}
+
+{%- liquid
+  assign titles = 'Travertine Console|Limestone Pedestal|Stone Coffee Table|Marble Side Table' | split: '|'
+  assign prices = '£2,450|£1,890|£3,200|£1,650' | split: '|'
+  assign idx = index | minus: 1
+  assign title = titles[idx]
+  assign price = prices[idx]
+  assign fallback = 'product-' | append: index
+-%}
+
+<div class="hamam-product-card">
+  <a class="hamam-product-card__link" href="/collections/all" aria-label="{{ title }}">
+    <div class="hamam-product-card__media">
+      {% render 'hamam-img', fallback: fallback, alt: title, widths: '400,600,800', sizes: '(min-width: 900px) 25vw, 50vw' %}
+    </div>
+    <h3 class="hamam-product-card__title">{{ title }}</h3>
+    <p class="hamam-product-card__price hamam-product-card__price--demo">{{ price }}</p>
+  </a>
+</div>

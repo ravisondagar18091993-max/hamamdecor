@@ -6,18 +6,17 @@
 
     <div class="hamam-collection-slider hamam-slick" data-hamam-slick="collections">
       {% for block in section.blocks %}
+        {% assign fb = 'collection-' | append: forloop.index %}
         <div class="hamam-collection-tile" {{ block.shopify_attributes }}>
-          <a class="hamam-collection-tile__link" href="{{ block.settings.link | default: '#' }}">
+          <a class="hamam-collection-tile__link" href="{{ block.settings.link | default: '/collections/all' }}">
             <div class="hamam-collection-tile__media">
-              {% if block.settings.image != blank %}
-                {{
-                  block.settings.image
-                  | image_url: width: 800
-                  | image_tag: loading: 'lazy', widths: '300,500,800', sizes: '(min-width: 1100px) 20vw, 40vw', alt: block.settings.title
-                }}
-              {% else %}
-                <div class="hamam-ph" aria-hidden="true"></div>
-              {% endif %}
+              {% render 'hamam-img',
+                image: block.settings.image,
+                fallback: fb,
+                alt: block.settings.title,
+                widths: '300,500,800',
+                sizes: '(min-width: 1100px) 20vw, 40vw'
+              %}
               <span class="hamam-collection-tile__title">{{ block.settings.title }}</span>
             </div>
           </a>
