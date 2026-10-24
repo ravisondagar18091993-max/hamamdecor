@@ -717,8 +717,14 @@
   background: var(--hamam-bg);
 }
 
+.hamam-collections .hamam-container--wide {
+  width: 100%;
+  max-width: var(--hamam-page-max, 1440px);
+}
+
 .hamam-collection-tile {
-  padding: 0 0.35rem;
+  padding: 0 0.3rem;
+  box-sizing: border-box;
 }
 
 .hamam-collection-tile__link {
@@ -1053,11 +1059,33 @@
 }
 
 .hamam-collection-slider:not(.slick-initialized) {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(5, minmax(0, 1fr));
 }
 
 .hamam-collection-slider.slick-initialized {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
   overflow: hidden;
+}
+
+.hamam-collection-slider.slick-initialized .slick-list {
+  overflow: hidden;
+  margin: 0;
+}
+
+.hamam-collection-slider.slick-initialized .slick-track {
+  display: flex;
+  align-items: stretch;
+}
+
+.hamam-collection-slider.slick-initialized .slick-slide {
+  height: auto;
+  box-sizing: border-box;
+}
+
+.hamam-collection-slider.slick-initialized .slick-slide > div {
+  height: 100%;
 }
 
 .hamam-review-slider:not(.slick-initialized) {
