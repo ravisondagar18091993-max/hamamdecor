@@ -1370,6 +1370,19 @@
   margin: 0;
 }
 
+.hamam-editorial-card__excerpt {
+  font-family: var(--hamam-sans);
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.55;
+  color: var(--hamam-muted);
+  margin: 0.5rem 0 0;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
 /* Prefooter CTA */
 .hamam-prefooter {
   background: var(--hamam-dark);

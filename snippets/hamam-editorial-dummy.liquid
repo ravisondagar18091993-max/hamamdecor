@@ -1,6 +1,7 @@
 {%- doc -%}
   @param {number} index
   @param {string} title
+  @param {string} [description]
 {%- enddoc -%}
 
 <article class="hamam-editorial-card">
@@ -16,5 +17,8 @@
       %}
     </div>
     <h3 class="hamam-editorial-card__title">{{ title }}</h3>
+    {% if description != blank %}
+      <p class="hamam-editorial-card__excerpt">{{ description }}</p>
+    {% endif %}
   </a>
 </article>

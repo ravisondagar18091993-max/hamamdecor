@@ -33,13 +33,29 @@
                 %}
               </div>
               <h3 class="hamam-editorial-card__title">{{ article.title }}</h3>
+              {% assign editorial_excerpt = article.excerpt_or_content | strip_html | strip %}
+              {% if editorial_excerpt != blank %}
+                <p class="hamam-editorial-card__excerpt">{{ editorial_excerpt }}</p>
+              {% endif %}
             </a>
           </article>
         {% endfor %}
       {% else %}
-        {% render 'hamam-editorial-dummy', index: 1, title: 'Stone in the modern home' %}
-        {% render 'hamam-editorial-dummy', index: 2, title: 'Caring for natural surfaces' %}
-        {% render 'hamam-editorial-dummy', index: 3, title: 'Designing with travertine' %}
+        {% render 'hamam-editorial-dummy',
+          index: 1,
+          title: 'Stone in the modern home',
+          description: 'How natural stone brings warmth and quiet luxury to contemporary interiors.'
+        %}
+        {% render 'hamam-editorial-dummy',
+          index: 2,
+          title: 'Caring for natural surfaces',
+          description: 'Simple routines to protect marble, travertine, and limestone for years to come.'
+        %}
+        {% render 'hamam-editorial-dummy',
+          index: 3,
+          title: 'Designing with travertine',
+          description: 'Texture, tone, and placement ideas for baths, kitchens, and living spaces.'
+        %}
       {% endif %}
     </div>
   </div>
