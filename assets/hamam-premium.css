@@ -825,6 +825,17 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: 2rem;
+  width: 100%;
+}
+
+.hamam-service-pillars__item {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 16rem;
+  margin-inline: auto;
 }
 
 @media (min-width: 768px) {
@@ -836,49 +847,38 @@
 
 @media (min-width: 1024px) {
   .hamam-service-pillars__grid {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    column-gap: clamp(1.25rem, 2.2vw, 2rem);
+    display: flex;
+    flex-direction: row;
     align-items: stretch;
+    justify-content: center;
+    gap: 0;
+    width: 100%;
   }
 
   .hamam-service-pillars__item {
     position: relative;
+    flex: 1 1 0;
+    min-width: 0;
     max-width: none;
+    width: auto;
     margin-inline: 0;
-    width: 100%;
-    padding: 0;
-    text-align: center;
+    padding: 0 clamp(1rem, 2vw, 1.65rem);
   }
 
-  .hamam-service-pillars__item:not(:first-child)::before {
-    content: "";
-    position: absolute;
-    left: calc(-0.5 * clamp(1.25rem, 2.2vw, 2rem));
-    top: 10%;
-    width: 1px;
-    height: 80%;
-    background: linear-gradient(
-      180deg,
-      transparent,
-      rgba(255, 255, 255, 0.28) 18%,
-      rgba(255, 255, 255, 0.28) 82%,
-      transparent
-    );
-    pointer-events: none;
+  .hamam-service-pillars__item + .hamam-service-pillars__item {
+    border-left: 1px solid rgba(255, 255, 255, 0.28);
   }
 
   .hamam-service-pillars__title {
+    width: 100%;
     min-height: calc(3 * 1.45em);
   }
-}
 
-.hamam-service-pillars__item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  max-width: 16rem;
-  margin-inline: auto;
+  .hamam-service-pillars__text {
+    width: 100%;
+    max-width: 15rem;
+    margin-inline: auto;
+  }
 }
 
 .hamam-service-pillars__icon-wrap {
