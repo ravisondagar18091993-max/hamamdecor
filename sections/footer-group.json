@@ -20,14 +20,20 @@
         "phone": "+44 0000 000000",
         "email_label": "Email us",
         "email": "hello@hamamdecor.uk",
-        "menu_shop_title": "Shop by",
-        "menu_about_title": "About us",
-        "menu_links_title": "Useful links",
+        "menu_shop_title": "Our Policies",
+        "menu_shop": "footer-1",
+        "menu_about_title": "Header",
+        "menu_about": "footer-2",
+        "menu_links_title": "Collections",
+        "menu_links": "footer-3",
+        "blog": "",
+        "show_social": true,
         "social_x": "https://x.com/",
         "social_facebook": "https://www.facebook.com/",
         "social_instagram": "https://www.instagram.com/",
         "social_youtube": "https://www.youtube.com/",
         "copyright_text": "All rights reserved.",
+        "credit_text": "",
         "show_payment_icons": true
       }
     }
