@@ -159,6 +159,33 @@
           },
         ],
       });
+
+      bindCollectionArrows($el, canLoop);
+    });
+  }
+
+  function bindCollectionArrows($slider, canLoop) {
+    var $section = $slider.closest('.hamam-collections');
+    if (!$section.length) return;
+
+    var $arrows = $section.find('[data-hamam-collection-arrows]');
+    var $prev = $section.find('[data-hamam-collection-prev]');
+    var $next = $section.find('[data-hamam-collection-next]');
+
+    $prev.off('click.hamamCollections');
+    $next.off('click.hamamCollections');
+
+    if (!canLoop) {
+      $arrows.attr('hidden', '');
+      return;
+    }
+
+    $arrows.removeAttr('hidden');
+    $prev.on('click.hamamCollections', function () {
+      $slider.slick('slickPrev');
+    });
+    $next.on('click.hamamCollections', function () {
+      $slider.slick('slickNext');
     });
   }
 

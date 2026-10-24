@@ -1,7 +1,32 @@
 <section class="hamam-collections" id="hamam-collections-{{ section.id }}" data-section-id="{{ section.id }}">
   <div class="hamam-container--wide">
-    <header class="hamam-row-head">
+    <header class="hamam-row-head hamam-row-head--collections">
       <h2 class="hamam-display">{{ section.settings.heading }}</h2>
+      <div class="hamam-row-head__controls">
+        {% if section.settings.view_all_label != blank %}
+          <a class="hamam-text-link" href="{{ section.settings.view_all_link | default: '/collections' }}">
+            {{ section.settings.view_all_label }}
+          </a>
+        {% endif %}
+        <div class="hamam-carousel-arrows" data-hamam-collection-arrows>
+          <button
+            type="button"
+            class="hamam-carousel-arrows__btn"
+            data-hamam-collection-prev
+            aria-label="Previous collections"
+          >
+            <span class="hamam-carousel-arrows__icon" aria-hidden="true">‹</span>
+          </button>
+          <button
+            type="button"
+            class="hamam-carousel-arrows__btn"
+            data-hamam-collection-next
+            aria-label="Next collections"
+          >
+            <span class="hamam-carousel-arrows__icon" aria-hidden="true">›</span>
+          </button>
+        </div>
+      </div>
     </header>
 
     <div
@@ -58,6 +83,17 @@
       "max": 9000,
       "step": 500,
       "default": 4500
+    },
+    {
+      "type": "text",
+      "id": "view_all_label",
+      "label": "View all link label",
+      "default": "View all"
+    },
+    {
+      "type": "url",
+      "id": "view_all_link",
+      "label": "View all link"
     }
   ],
   "blocks": [

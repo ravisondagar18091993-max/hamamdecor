@@ -79,7 +79,9 @@
       "settings": {
         "heading": "Discover our collections",
         "autoplay": true,
-        "autoplay_speed": 4500
+        "autoplay_speed": 4500,
+        "view_all_label": "View all",
+        "view_all_link": "shopify://collections"
       }
     },
     "hamam_story": {

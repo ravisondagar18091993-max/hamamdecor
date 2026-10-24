@@ -100,6 +100,62 @@
   flex-shrink: 0;
 }
 
+.hamam-row-head__controls {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: clamp(1rem, 3vw, 1.75rem);
+  flex-shrink: 0;
+  margin-top: 0.15rem;
+}
+
+.hamam-row-head--collections .hamam-display {
+  flex: 1;
+  min-width: 0;
+}
+
+.hamam-carousel-arrows {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.hamam-carousel-arrows__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  border: 1px solid rgba(26, 26, 26, 0.18);
+  border-radius: 50%;
+  background: var(--hamam-card, #fff);
+  color: var(--hamam-dark);
+  cursor: pointer;
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.hamam-carousel-arrows__btn:hover {
+  border-color: var(--hamam-dark);
+  background: var(--hamam-dark);
+  color: #fff;
+}
+
+.hamam-carousel-arrows__icon {
+  font-family: var(--hamam-sans);
+  font-size: 1.35rem;
+  font-weight: 300;
+  line-height: 1;
+  margin-top: -0.1rem;
+}
+
+.hamam-carousel-arrows[hidden] {
+  display: none !important;
+}
+
 .hamam-row-head--center {
   justify-content: center;
   text-align: center;
