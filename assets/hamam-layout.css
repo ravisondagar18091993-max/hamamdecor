@@ -26,7 +26,8 @@ body {
 .hamam-section .hamam-collection-tile__title,
 .hamam-section .hamam-editorial-card__title,
 .hamam-section .hamam-prefooter__title,
-.hamam-section .hamam-press__text {
+.hamam-section .hamam-press__text,
+.hamam-video-gallery h2.hamam-display {
   font-family: var(--hamam-font-heading);
   font-style: normal;
 }

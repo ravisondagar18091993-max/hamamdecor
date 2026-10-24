@@ -124,6 +124,22 @@
       "block_order": ["s1", "s2", "s3", "s4"],
       "settings": {}
     },
+    "hamam_video_gallery": {
+      "type": "hamam-video-gallery",
+      "blocks": {
+        "v1": { "type": "video_item", "settings": { "title": "The atelier" } },
+        "v2": { "type": "video_item", "settings": { "title": "Stone selection" } },
+        "v3": { "type": "video_item", "settings": { "title": "Hand finishing" } },
+        "v4": { "type": "video_item", "settings": { "title": "In your home" } }
+      },
+      "block_order": ["v1", "v2", "v3", "v4"],
+      "settings": {
+        "heading": "See the craft",
+        "subheading": "Watch how natural stone is shaped into furniture for distinctive interiors.",
+        "button_label": "Explore the collection",
+        "button_link": "shopify://collections/all"
+      }
+    },
     "hamam_editorial": {
       "type": "hamam-blog-duo",
       "settings": {
@@ -146,6 +162,7 @@
     "hamam_new_in",
     "hamam_collections",
     "hamam_services",
+    "hamam_video_gallery",
     "hamam_editorial",
     "hamam_prefooter"
   ]

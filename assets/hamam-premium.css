@@ -879,6 +879,218 @@
   margin: 0;
 }
 
+/* Video gallery — player left, picks right */
+.hamam-video-gallery {
+  padding: clamp(2.5rem, 5vw, 4.5rem) 0;
+  background: var(--hamam-bg);
+}
+
+.hamam-video-gallery__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.25rem 2rem;
+  margin-bottom: clamp(1.75rem, 3vw, 2.5rem);
+}
+
+.hamam-video-gallery__head .hamam-row-head__intro {
+  flex: 1;
+  min-width: min(100%, 18rem);
+}
+
+.hamam-video-gallery__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.85rem 1.65rem;
+  border-radius: var(--hamam-radius-pill);
+  background: #b87366;
+  color: #fff;
+  font-family: var(--hamam-sans);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  flex-shrink: 0;
+  margin-top: 0.15rem;
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.hamam-video-gallery__btn:hover {
+  background: #a66559;
+  transform: translateY(-1px);
+  color: #fff;
+}
+
+.hamam-video-gallery__btn-mark {
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+.hamam-video-gallery__layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  align-items: stretch;
+}
+
+@media (min-width: 900px) {
+  .hamam-video-gallery__layout {
+    grid-template-columns: minmax(0, 1.35fr) minmax(0, 0.65fr);
+    gap: 1.25rem;
+  }
+}
+
+.hamam-video-gallery__player {
+  position: relative;
+  min-height: 220px;
+  background: #1a1a1a;
+  border-radius: 3px;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+}
+
+@media (min-width: 900px) {
+  .hamam-video-gallery__player {
+    aspect-ratio: auto;
+    min-height: 100%;
+    height: 100%;
+  }
+
+  .hamam-video-gallery__layout {
+    min-height: clamp(320px, 42vw, 520px);
+  }
+}
+
+.hamam-video-gallery__panel {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.hamam-video-gallery__panel.is-active {
+  position: absolute;
+}
+
+.hamam-video-gallery__video,
+.hamam-video-gallery__iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  object-fit: cover;
+  background: #111;
+}
+
+.hamam-video-gallery__placeholder {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.hamam-video-gallery__placeholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hamam-video-gallery__placeholder-label {
+  position: absolute;
+  inset: auto 1rem 1rem;
+  padding: 0.35rem 0.65rem;
+  font-family: var(--hamam-sans);
+  font-size: 0.6875rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.45);
+  border-radius: 2px;
+}
+
+.hamam-video-gallery__list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  min-height: 0;
+}
+
+.hamam-video-gallery__thumb {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.45rem;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  text-align: left;
+  font: inherit;
+  color: inherit;
+}
+
+.hamam-video-gallery__thumb-media {
+  position: relative;
+  display: block;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 2px;
+  border: 2px solid transparent;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.hamam-video-gallery__thumb.is-active .hamam-video-gallery__thumb-media {
+  border-color: var(--hamam-accent);
+  box-shadow: 0 4px 18px rgba(200, 118, 98, 0.22);
+}
+
+.hamam-video-gallery__thumb-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.45s var(--hamam-ease);
+}
+
+.hamam-video-gallery__thumb:hover .hamam-video-gallery__thumb-media img {
+  transform: scale(1.03);
+}
+
+.hamam-video-gallery__thumb-play {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  background: rgba(0, 0, 0, 0.35);
+  pointer-events: none;
+}
+
+.hamam-video-gallery__thumb-play::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-38%, -50%);
+  width: 0;
+  height: 0;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-left: 8px solid #fff;
+}
+
+.hamam-video-gallery__thumb-title {
+  font-family: var(--hamam-sans);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--hamam-dark);
+  padding-inline: 0.15rem;
+}
+
 /* Story split */
 .hamam-story {
   display: grid;
