@@ -1,0 +1,97 @@
+<section
+  id="hamam-values-{{ section.id }}"
+  class="hamam-section hamam-values"
+  data-section-id="{{ section.id }}"
+>
+  <div class="hamam-container">
+    <div class="hamam-values__grid">
+      {% for block in section.blocks %}
+        <div class="hamam-value" {{ block.shopify_attributes }}>
+          {% if block.settings.icon != blank %}
+            <div class="hamam-value__icon">{{ block.settings.icon }}</div>
+          {% endif %}
+          {% if block.settings.title != blank %}
+            <h3 class="hamam-value__title">{{ block.settings.title }}</h3>
+          {% endif %}
+          {% if block.settings.text != blank %}
+            <p class="hamam-value__text">{{ block.settings.text }}</p>
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Hamam — Values bar",
+  "tag": "section",
+  "class": "hamam-values-section",
+  "max_blocks": 4,
+  "blocks": [
+    {
+      "type": "value",
+      "name": "Value",
+      "settings": [
+        {
+          "type": "text",
+          "id": "icon",
+          "label": "Icon (emoji or character)",
+          "default": "✦"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Free delivery"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Description",
+          "default": "On qualifying orders"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hamam — Values bar",
+      "blocks": [
+        {
+          "type": "value",
+          "settings": {
+            "icon": "◇",
+            "title": "White glove",
+            "text": "Careful delivery & placement"
+          }
+        },
+        {
+          "type": "value",
+          "settings": {
+            "icon": "◆",
+            "title": "Unique pieces",
+            "text": "No two stones are alike"
+          }
+        },
+        {
+          "type": "value",
+          "settings": {
+            "icon": "○",
+            "title": "Secure checkout",
+            "text": "Shop with confidence"
+          }
+        },
+        {
+          "type": "value",
+          "settings": {
+            "icon": "✦",
+            "title": "Expert support",
+            "text": "We're here to help"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

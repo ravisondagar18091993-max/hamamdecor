@@ -151,5 +151,13 @@
     {% if settings.quick_add or settings.mobile_quick_add %}
       {% render 'quick-add-modal' %}
     {% endif %}
+
+    {% if template.name == 'index' %}
+      {{ 'slick.css' | asset_url | stylesheet_tag }}
+      {{ 'hamam-premium.css' | asset_url | stylesheet_tag }}
+      <script src="{{ 'jquery.min.js' | asset_url }}" defer></script>
+      <script src="{{ 'slick.min.js' | asset_url }}" defer></script>
+      <script src="{{ 'hamam-slick-init.js' | asset_url }}" defer></script>
+    {% endif %}
   </body>
 </html>

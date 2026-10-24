@@ -1,0 +1,88 @@
+<section
+  id="hamam-newsletter-{{ section.id }}"
+  class="hamam-section hamam-newsletter hamam-section--cream"
+  data-section-id="{{ section.id }}"
+>
+  <div class="hamam-container" style="max-width: 40rem;">
+    {% if section.settings.eyebrow != blank %}
+      <p class="hamam-eyebrow">{{ section.settings.eyebrow }}</p>
+    {% endif %}
+    <h2 class="hamam-heading">{{ section.settings.heading }}</h2>
+    {% if section.settings.text != blank %}
+      <p class="hamam-subheading" style="margin-inline: auto;">{{ section.settings.text }}</p>
+    {% endif %}
+
+    {% form 'customer', class: 'hamam-newsletter__form' %}
+      <input type="hidden" name="contact[tags]" value="newsletter">
+      <label class="visually-hidden" for="hamam-newsletter-email-{{ section.id }}">Email</label>
+      <input
+        id="hamam-newsletter-email-{{ section.id }}"
+        class="hamam-newsletter__input"
+        type="email"
+        name="contact[email]"
+        value="{{ form.email }}"
+        placeholder="{{ section.settings.placeholder }}"
+        required
+        autocomplete="email"
+      >
+      <button class="hamam-btn" type="submit">{{ section.settings.button_label }}</button>
+      {% if form.posted_successfully? %}
+        <p style="width: 100%; margin: 0.5rem 0 0; color: var(--hamam-warm-gray);">{{ section.settings.success_message }}</p>
+      {% endif %}
+      {% if form.errors %}
+        <div style="width: 100%; margin: 0.5rem 0 0; color: #b00020;">{{ form.errors | default_errors }}</div>
+      {% endif %}
+    {% endform %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Hamam — Newsletter",
+  "tag": "section",
+  "class": "hamam-newsletter-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Stay connected"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Join our list"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Text",
+      "default": "Be first to hear about new collections, studio visits, and exclusive offers."
+    },
+    {
+      "type": "text",
+      "id": "placeholder",
+      "label": "Email placeholder",
+      "default": "Your email address"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Sign up"
+    },
+    {
+      "type": "text",
+      "id": "success_message",
+      "label": "Success message",
+      "default": "Thank you for subscribing."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hamam — Newsletter"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,32 @@
+{% if section.settings.text != blank %}
+  <div
+    class="hamam-promo"
+    id="hamam-promo-{{ section.id }}"
+    data-section-id="{{ section.id }}"
+  >
+    <div class="hamam-container">
+      {{ section.settings.text }}
+    </div>
+  </div>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Hamam — Promo strip",
+  "tag": "section",
+  "class": "hamam-promo-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "text",
+      "label": "Promo text",
+      "default": "Complimentary white-glove delivery on orders over £500"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hamam — Promo strip"
+    }
+  ]
+}
+{% endschema %}

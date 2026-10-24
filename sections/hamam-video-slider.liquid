@@ -1,0 +1,116 @@
+<section
+  id="hamam-videos-{{ section.id }}"
+  class="hamam-section hamam-videos"
+  data-section-id="{{ section.id }}"
+>
+  <div class="hamam-videos__header">
+    {% if section.settings.eyebrow != blank %}
+      <p class="hamam-eyebrow" style="color: rgba(255,255,255,0.6);">{{ section.settings.eyebrow }}</p>
+    {% endif %}
+    <h2 class="hamam-heading hamam-heading--light">{{ section.settings.heading }}</h2>
+  </div>
+
+  <div class="hamam-container--wide">
+    <div class="hamam-video-slider hamam-slick" data-hamam-slick="videos">
+      {% for block in section.blocks %}
+        <div class="hamam-video-card" {{ block.shopify_attributes }}>
+          <a
+            class="hamam-video-card__link"
+            href="{{ block.settings.video_url | default: '#' }}"
+            {% if block.settings.video_url != blank %}
+              target="_blank"
+              rel="noopener"
+            {% endif %}
+          >
+            <div class="hamam-video-card__frame">
+              {% if block.settings.cover_image != blank %}
+                {{
+                  block.settings.cover_image
+                  | image_url: width: 1200
+                  | image_tag: loading: 'lazy', widths: '600,900,1200', sizes: '50vw', alt: block.settings.title
+                }}
+              {% else %}
+                {{ 'hero-apparel-3' | placeholder_svg_tag }}
+              {% endif %}
+              <span class="hamam-video-card__play">
+                <span class="hamam-video-card__play-icon">▶</span>
+                <span class="hamam-video-card__label">{{ section.settings.play_label }}</span>
+              </span>
+            </div>
+          </a>
+          {% if block.settings.title != blank %}
+            <p
+              style="color: rgba(255,255,255,0.85); font-family: var(--hamam-serif); font-size: 1.125rem; margin: 1rem 0.4rem 0;"
+            >
+              {{ block.settings.title }}
+            </p>
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Hamam — Video slider",
+  "tag": "section",
+  "class": "hamam-video-slider-section",
+  "max_blocks": 8,
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Behind the craft"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "From quarry to home"
+    },
+    {
+      "type": "text",
+      "id": "play_label",
+      "label": "Play button label",
+      "default": "Video"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "video",
+      "name": "Video",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "cover_image",
+          "label": "Cover image"
+        },
+        {
+          "type": "url",
+          "id": "video_url",
+          "label": "Video URL (YouTube, Vimeo, etc.)"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Craft process"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hamam — Video slider",
+      "blocks": [
+        { "type": "video" },
+        { "type": "video" },
+        { "type": "video" },
+        { "type": "video" }
+      ]
+    }
+  ]
+}
+{% endschema %}

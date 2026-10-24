@@ -1,0 +1,92 @@
+<section
+  id="hamam-split-{{ section.id }}"
+  class="hamam-section hamam-split{% if section.settings.reverse_layout %} hamam-split--reverse{% endif %}"
+  data-section-id="{{ section.id }}"
+>
+  <div class="hamam-split__media">
+    {% if section.settings.image != blank %}
+      {{
+        section.settings.image
+        | image_url: width: 1600
+        | image_tag: loading: 'lazy', widths: '600,900,1200,1600', sizes: '(min-width: 900px) 50vw, 100vw', alt: section.settings.heading
+      }}
+    {% else %}
+      {{ 'collection-1' | placeholder_svg_tag }}
+    {% endif %}
+  </div>
+  <div class="hamam-split__panel">
+    <div class="hamam-split__panel-inner">
+      {% if section.settings.eyebrow != blank %}
+        <p class="hamam-eyebrow">{{ section.settings.eyebrow }}</p>
+      {% endif %}
+      {% if section.settings.heading != blank %}
+        <h2 class="hamam-heading">{{ section.settings.heading }}</h2>
+      {% endif %}
+      {% if section.settings.text != blank %}
+        <p class="hamam-subheading">{{ section.settings.text }}</p>
+      {% endif %}
+      {% if section.settings.button_label != blank %}
+        <div style="margin-top: 1.75rem;">
+          <a class="hamam-btn" href="{{ section.settings.button_link | default: '#' }}">
+            {{ section.settings.button_label }}
+          </a>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Hamam — Split showcase",
+  "tag": "section",
+  "class": "hamam-split-section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "checkbox",
+      "id": "reverse_layout",
+      "label": "Image on right",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "The edit"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Sculptural silhouettes"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Text",
+      "default": "Organic forms carved from natural stone — designed to anchor your space with quiet drama."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Shop now"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hamam — Split showcase"
+    }
+  ]
+}
+{% endschema %}
