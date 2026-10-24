@@ -16,10 +16,11 @@
           "type": "slide",
           "settings": {
             "eyebrow": "Garden wall lights",
-            "heading": "Set the\nperfect\ngarden\nambience",
+            "heading": "travertıne collectıon",
             "button_label": "Shop now",
             "button_link": "shopify://collections/all",
             "show_product_pill": true,
+            "product": "",
             "dummy_product_title": "Black Victorian Hanging Wall Lantern",
             "dummy_product_price": "£199.00"
           }
@@ -28,16 +29,20 @@
           "type": "slide",
           "settings": {
             "eyebrow": "Handcrafted consoles",
-            "heading": "Bring\nthe outside\nin",
+            "heading": "travertıne collectıon",
             "button_label": "Shop now",
             "button_link": "shopify://collections/all",
             "show_product_pill": true,
+            "product": "",
             "dummy_product_title": "Travertine Console Table",
             "dummy_product_price": "£2,450.00"
           }
         }
       },
-      "block_order": ["slide_1", "slide_2"],
+      "block_order": [
+        "slide_1",
+        "slide_2"
+      ],
       "settings": {
         "autoplay": true,
         "autoplay_speed": 6000,
@@ -47,13 +52,44 @@
     "hamam_usp": {
       "type": "hamam-usp-bar",
       "blocks": {
-        "u1": { "type": "usp", "settings": { "icon": "◇", "label": "Fast UK delivery" } },
-        "u2": { "type": "usp", "settings": { "icon": "◇", "label": "Secure payments" } },
-        "u3": { "type": "usp", "settings": { "icon": "◇", "label": "White-glove delivery" } },
-        "u4": { "type": "usp", "settings": { "icon": "◇", "label": "Expert support" } }
+        "u1": {
+          "type": "usp",
+          "settings": {
+            "icon": "◇",
+            "label": "Fast UK delivery"
+          }
+        },
+        "u2": {
+          "type": "usp",
+          "settings": {
+            "icon": "◇",
+            "label": "Secure payments"
+          }
+        },
+        "u3": {
+          "type": "usp",
+          "settings": {
+            "icon": "◇",
+            "label": "White-glove delivery"
+          }
+        },
+        "u4": {
+          "type": "usp",
+          "settings": {
+            "icon": "◇",
+            "label": "Expert support"
+          }
+        }
       },
-      "block_order": ["u1", "u2", "u3", "u4"],
-      "settings": {}
+      "block_order": [
+        "u1",
+        "u2",
+        "u3",
+        "u4"
+      ],
+      "settings": {
+        "marquee_speed": 45
+      }
     },
     "hamam_new_in": {
       "type": "hamam-product-carousel",
@@ -69,13 +105,49 @@
     "hamam_collections": {
       "type": "hamam-collection-tiles",
       "blocks": {
-        "c1": { "type": "collection", "settings": { "title": "Consoles", "link": "shopify://collections/all" } },
-        "c2": { "type": "collection", "settings": { "title": "Tables", "link": "shopify://collections/all" } },
-        "c3": { "type": "collection", "settings": { "title": "Pedestals", "link": "shopify://collections/all" } },
-        "c4": { "type": "collection", "settings": { "title": "Objects", "link": "shopify://collections/all" } },
-        "c5": { "type": "collection", "settings": { "title": "New in", "link": "shopify://collections/all" } }
+        "c1": {
+          "type": "collection",
+          "settings": {
+            "title": "Consoles",
+            "link": "shopify://collections/all"
+          }
+        },
+        "c2": {
+          "type": "collection",
+          "settings": {
+            "title": "Tables",
+            "link": "shopify://collections/all"
+          }
+        },
+        "c3": {
+          "type": "collection",
+          "settings": {
+            "title": "Pedestals",
+            "link": "shopify://collections/all"
+          }
+        },
+        "c4": {
+          "type": "collection",
+          "settings": {
+            "title": "Objects",
+            "link": "shopify://collections/all"
+          }
+        },
+        "c5": {
+          "type": "collection",
+          "settings": {
+            "title": "New in",
+            "link": "shopify://collections/all"
+          }
+        }
       },
-      "block_order": ["c1", "c2", "c3", "c4", "c5"],
+      "block_order": [
+        "c1",
+        "c2",
+        "c3",
+        "c4",
+        "c5"
+      ],
       "settings": {
         "heading": "Discover our collections",
         "subheading": "Explore consoles, tables, pedestals and curated objects for every room.",
@@ -121,7 +193,12 @@
           }
         }
       },
-      "block_order": ["s1", "s2", "s3", "s4"],
+      "block_order": [
+        "s1",
+        "s2",
+        "s3",
+        "s4"
+      ],
       "settings": {
         "heading": "The Hamam difference",
         "subheading": "Thoughtful delivery, bespoke service, and secure checkout at every step."
@@ -130,17 +207,47 @@
     "hamam_video_gallery": {
       "type": "hamam-video-gallery",
       "blocks": {
-        "v1": { "type": "video_item", "settings": { "title": "The atelier" } },
-        "v2": { "type": "video_item", "settings": { "title": "Stone selection" } },
-        "v3": { "type": "video_item", "settings": { "title": "Hand finishing" } },
-        "v4": { "type": "video_item", "settings": { "title": "In your home" } }
+        "v1": {
+          "type": "video_item",
+          "settings": {
+            "video_url": "",
+            "title": "The atelier"
+          }
+        },
+        "v2": {
+          "type": "video_item",
+          "settings": {
+            "video_url": "",
+            "title": "Stone selection"
+          }
+        },
+        "v3": {
+          "type": "video_item",
+          "settings": {
+            "video_url": "",
+            "title": "Hand finishing"
+          }
+        },
+        "v4": {
+          "type": "video_item",
+          "settings": {
+            "video_url": "",
+            "title": "In your home"
+          }
+        }
       },
-      "block_order": ["v1", "v2", "v3", "v4"],
+      "block_order": [
+        "v1",
+        "v2",
+        "v3",
+        "v4"
+      ],
       "settings": {
         "heading": "See the craft",
         "subheading": "Watch how natural stone is shaped into furniture for distinctive interiors.",
         "button_label": "Explore the collection",
-        "button_link": "shopify://collections/all"
+        "button_link": "shopify://collections/all",
+        "placeholder_label": "Add a video in theme settings"
       }
     },
     "hamam_editorial": {
