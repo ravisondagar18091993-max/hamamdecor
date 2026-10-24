@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "type": "footer",
   "name": "Hamam footer",
@@ -14,15 +23,16 @@
         "menu_shop_title": "Shop by",
         "menu_about_title": "About us",
         "menu_links_title": "Useful links",
-        "copyright_text": "All rights reserved.",
-        "show_social": true,
         "social_x": "https://x.com/",
         "social_facebook": "https://www.facebook.com/",
         "social_instagram": "https://www.instagram.com/",
         "social_youtube": "https://www.youtube.com/",
+        "copyright_text": "All rights reserved.",
         "show_payment_icons": true
       }
     }
   },
-  "order": ["hamam_footer"]
+  "order": [
+    "hamam_footer"
+  ]
 }

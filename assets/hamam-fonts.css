@@ -1,27 +1,14 @@
 /*
-  Adobe Fonts kit txz5okp (linked in layout/theme.liquid):
-  - the-seasons — headings (Hamam serif)
-  - elza — body, 400 normal + 400 italic
+  the-seasons: Adobe Fonts kit txz5okp (linked in layout/theme.liquid).
+
+  elza: NOT in kit txz5okp — add Elza to the same Adobe kit, or upload
+  elza.woff2 (+ medium/semibold) to theme Assets and uncomment @font-face below.
 */
 
-body.hamam-home {
-  font-family: "elza", sans-serif;
+/* @font-face {
+  font-family: "elza";
+  src: url("elza.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
-}
-
-body.hamam-home em,
-body.hamam-home i,
-body.hamam-home cite,
-body.hamam-home var {
-  font-family: inherit;
-  font-style: italic;
-  font-weight: inherit;
-}
-
-/* Dawn theme tokens on Hamam storefront */
-body.hamam-home {
-  --font-body--family: "elza", sans-serif;
-  --font-body--style: normal;
-  --font-body--weight: 400;
-}
+  font-display: swap;
+} */
