@@ -15,142 +15,140 @@
         "slide_1": {
           "type": "slide",
           "settings": {
-            "heading": "Bring the outside in"
+            "eyebrow": "Hamam Decor",
+            "heading": "Bring the outside in",
+            "button_label": "Shop now",
+            "button_link": "shopify://collections/all"
           }
         }
       },
       "block_order": ["slide_1"],
       "settings": {
         "autoplay": true,
-        "autoplay_speed": 6000,
-        "show_subheading": false,
-        "show_button": false,
-        "show_scroll_hint": true
+        "autoplay_speed": 6000
       }
     },
-    "hamam_products": {
+    "hamam_usp": {
+      "type": "hamam-usp-bar",
+      "blocks": {
+        "u1": { "type": "usp", "settings": { "icon": "◇", "label": "Fast UK delivery" } },
+        "u2": { "type": "usp", "settings": { "icon": "◇", "label": "Secure payments" } },
+        "u3": { "type": "usp", "settings": { "icon": "◇", "label": "White-glove delivery" } },
+        "u4": { "type": "usp", "settings": { "icon": "◇", "label": "Expert support" } }
+      },
+      "block_order": ["u1", "u2", "u3", "u4"],
+      "settings": {}
+    },
+    "hamam_new_in": {
+      "type": "hamam-product-carousel",
+      "settings": {
+        "heading": "New in",
+        "collection": "all",
+        "products_to_show": 8,
+        "view_all_label": "View all",
+        "sale_label": "Sale"
+      }
+    },
+    "hamam_best_sellers": {
       "type": "hamam-product-carousel",
       "settings": {
         "heading": "Best sellers",
         "collection": "all",
         "products_to_show": 8,
-        "view_all_label": "View all"
+        "view_all_label": "View all",
+        "sale_label": "Sale"
       }
     },
-    "hamam_promo": {
-      "type": "hamam-promo-strip",
-      "settings": {
-        "text": "Complimentary white-glove delivery on qualifying orders"
-      }
-    },
-    "hamam_banner_1": {
-      "type": "hamam-media-banner",
-      "settings": {
-        "banner_height": 80,
-        "overlay_opacity": 30,
-        "heading": "Sculptural silhouettes",
-        "button_label": "Shop now",
-        "button_link": "shopify://collections/all",
-        "text_alignment": "center"
-      }
-    },
-    "hamam_banner_2": {
-      "type": "hamam-media-banner",
-      "settings": {
-        "banner_height": 70,
-        "overlay_opacity": 15,
-        "heading": "",
-        "button_label": "",
-        "text_alignment": "center",
-        "show_play_overlay": true,
-        "play_label": "Video"
-      }
-    },
-    "hamam_blog": {
-      "type": "hamam-blog-carousel",
-      "settings": {
-        "heading": "Read our blog",
-        "blog": "news",
-        "post_limit": 6,
-        "view_all_label": "View all posts",
-        "read_more_label": "Read more"
-      }
-    },
-    "hamam_newsletter": {
-      "type": "hamam-newsletter",
-      "settings": {
-        "eyebrow": "",
-        "heading": "Join our list",
-        "text": "Be first to hear about new collections and exclusive offers.",
-        "placeholder": "Your email address",
-        "button_label": "Sign up",
-        "success_message": "Thank you for subscribing."
-      }
-    },
-    "hamam_videos": {
-      "type": "hamam-video-stack",
+    "hamam_collections": {
+      "type": "hamam-collection-tiles",
       "blocks": {
-        "video_1": { "type": "video", "settings": {} },
-        "video_2": { "type": "video", "settings": {} },
-        "video_3": { "type": "video", "settings": {} },
-        "video_4": { "type": "video", "settings": {} }
+        "c1": { "type": "collection", "settings": { "title": "Consoles", "link": "shopify://collections/all" } },
+        "c2": { "type": "collection", "settings": { "title": "Tables", "link": "shopify://collections/all" } },
+        "c3": { "type": "collection", "settings": { "title": "Pedestals", "link": "shopify://collections/all" } },
+        "c4": { "type": "collection", "settings": { "title": "Objects", "link": "shopify://collections/all" } },
+        "c5": { "type": "collection", "settings": { "title": "New in", "link": "shopify://collections/all" } }
       },
-      "block_order": ["video_1", "video_2", "video_3", "video_4"],
+      "block_order": ["c1", "c2", "c3", "c4", "c5"],
       "settings": {
-        "show_heading": false,
-        "play_label": "Video",
-        "show_titles": false
+        "heading": "Discover our collections"
       }
     },
-    "hamam_values": {
-      "type": "hamam-values-bar",
+    "hamam_story": {
+      "type": "hamam-split-showcase",
+      "settings": {
+        "reverse_layout": false,
+        "heading": "Handcrafted stone furniture for distinctive interiors",
+        "button_label": "About us",
+        "button_link": "shopify://pages/about"
+      }
+    },
+    "hamam_reviews": {
+      "type": "hamam-testimonials",
       "blocks": {
-        "v1": {
-          "type": "value",
+        "r1": {
+          "type": "review",
           "settings": {
-            "icon": "◇",
-            "title": "White glove",
-            "text": "Careful delivery & placement"
+            "quote": "The console is absolutely stunning — a true statement piece in our hallway.",
+            "name": "Sarah M."
           }
         },
-        "v2": {
-          "type": "value",
+        "r2": {
+          "type": "review",
           "settings": {
-            "icon": "◆",
-            "title": "Unique pieces",
-            "text": "No two stones are alike"
+            "quote": "Impeccable quality and the delivery team were careful and professional throughout.",
+            "name": "James T."
           }
         },
-        "v3": {
-          "type": "value",
+        "r3": {
+          "type": "review",
           "settings": {
-            "icon": "○",
-            "title": "Secure checkout",
-            "text": "Shop with confidence"
-          }
-        },
-        "v4": {
-          "type": "value",
-          "settings": {
-            "icon": "✦",
-            "title": "Expert support",
-            "text": "We're here to help"
+            "quote": "Beautiful natural stone — each piece feels unique and thoughtfully finished.",
+            "name": "Elena R."
           }
         }
       },
-      "block_order": ["v1", "v2", "v3", "v4"],
+      "block_order": ["r1", "r2", "r3"],
+      "settings": {
+        "heading": "What our customers say"
+      }
+    },
+    "hamam_press": {
+      "type": "hamam-press-bar",
+      "blocks": {
+        "p1": { "type": "logo", "settings": { "name": "Vogue Living" } },
+        "p2": { "type": "logo", "settings": { "name": "Elle Decor" } },
+        "p3": { "type": "logo", "settings": { "name": "House & Garden" } },
+        "p4": { "type": "logo", "settings": { "name": "AD" } }
+      },
+      "block_order": ["p1", "p2", "p3", "p4"],
       "settings": {}
+    },
+    "hamam_editorial": {
+      "type": "hamam-blog-duo",
+      "settings": {
+        "blog": "news"
+      }
+    },
+    "hamam_prefooter": {
+      "type": "hamam-prefooter-cta",
+      "settings": {
+        "heading": "Ready to elevate your interior?",
+        "phone": "+44 0000 000000",
+        "email": "hello@hamamdecor.uk",
+        "show_social": true
+      }
     }
   },
   "order": [
     "hamam_hero",
-    "hamam_products",
-    "hamam_promo",
-    "hamam_banner_1",
-    "hamam_banner_2",
-    "hamam_blog",
-    "hamam_newsletter",
-    "hamam_videos",
-    "hamam_values"
+    "hamam_usp",
+    "hamam_new_in",
+    "hamam_best_sellers",
+    "hamam_collections",
+    "hamam_story",
+    "hamam_reviews",
+    "hamam_press",
+    "hamam_editorial",
+    "hamam_prefooter"
   ]
 }

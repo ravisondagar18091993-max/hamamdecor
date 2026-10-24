@@ -1,10 +1,10 @@
 /**
- * Hamam Decor — Slick slider initialization (homepage sections)
+ * Hamam Decor — Slick slider initialization
  */
 (function () {
   'use strict';
 
-  var MAX_RETRIES = 40;
+  var MAX_RETRIES = 50;
 
   function get$() {
     return window.jQuery;
@@ -38,11 +38,12 @@
     $root.find('.hamam-hero-slider[data-hamam-slick="hero"]').each(function () {
       var $el = $(this);
       if ($el.hasClass('slick-initialized')) return;
-      if (slideCount($el) < 1) return;
+      var count = slideCount($el);
+      if (count < 1) return;
 
       var autoplay = $el.data('autoplay') === true || $el.data('autoplay') === 'true';
       var speed = parseInt($el.data('speed'), 10) || 6000;
-      var infinite = slideCount($el) > 1;
+      var infinite = count > 1;
 
       $el.slick({
         slidesToShow: 1,
@@ -50,8 +51,7 @@
         arrows: infinite,
         dots: infinite,
         fade: true,
-        speed: 900,
-        cssEase: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+        speed: 800,
         autoplay: autoplay && infinite,
         autoplaySpeed: speed,
         pauseOnHover: true,
@@ -65,7 +65,6 @@
     $root.find('.hamam-product-slider[data-hamam-slick="products"]').each(function () {
       var $el = $(this);
       if ($el.hasClass('slick-initialized')) return;
-
       var count = slideCount($el);
       if (count < 1) return;
 
@@ -75,36 +74,76 @@
         arrows: count > 4,
         dots: false,
         infinite: false,
-        speed: 500,
         responsive: [
           { breakpoint: 1200, settings: { slidesToShow: Math.min(3, count), arrows: count > 3 } },
-          { breakpoint: 900, settings: { slidesToShow: Math.min(2, count), arrows: count > 2 } },
-          { breakpoint: 550, settings: { slidesToShow: 1, arrows: false } },
+          { breakpoint: 768, settings: { slidesToShow: Math.min(2, count), arrows: false } },
+          { breakpoint: 520, settings: { slidesToShow: 1, arrows: false } },
         ],
       });
     });
   }
 
-  function initBlog($root) {
+  function initCollections($root) {
     var $ = get$();
-    $root.find('.hamam-blog-slider[data-hamam-slick="blog"]').each(function () {
+    $root.find('.hamam-collection-slider[data-hamam-slick="collections"]').each(function () {
       var $el = $(this);
       if ($el.hasClass('slick-initialized')) return;
+      var count = slideCount($el);
+      if (count < 1) return;
 
+      $el.slick({
+        slidesToShow: Math.min(5, count),
+        slidesToScroll: 1,
+        arrows: false,
+        dots: false,
+        infinite: false,
+        responsive: [
+          { breakpoint: 1100, settings: { slidesToShow: Math.min(3, count) } },
+          { breakpoint: 600, settings: { slidesToShow: 1 } },
+        ],
+      });
+    });
+  }
+
+  function initReviews($root) {
+    var $ = get$();
+    $root.find('.hamam-review-slider[data-hamam-slick="reviews"]').each(function () {
+      var $el = $(this);
+      if ($el.hasClass('slick-initialized')) return;
       var count = slideCount($el);
       if (count < 1) return;
 
       $el.slick({
         slidesToShow: Math.min(3, count),
         slidesToScroll: 1,
-        arrows: count > 3,
+        arrows: false,
         dots: false,
         infinite: false,
-        speed: 500,
-        responsive: [
-          { breakpoint: 1000, settings: { slidesToShow: Math.min(2, count), arrows: count > 2 } },
-          { breakpoint: 600, settings: { slidesToShow: 1, arrows: false } },
-        ],
+        responsive: [{ breakpoint: 900, settings: { slidesToShow: 1 } }],
+      });
+    });
+  }
+
+  function initPress($root) {
+    var $ = get$();
+    $root.find('.hamam-press__track[data-hamam-slick="press"]').each(function () {
+      var $el = $(this);
+      if ($el.hasClass('slick-initialized')) return;
+      var count = slideCount($el);
+      if (count < 2) return;
+
+      $el.slick({
+        slidesToShow: Math.min(5, count),
+        slidesToScroll: 1,
+        arrows: false,
+        dots: false,
+        autoplay: true,
+        autoplaySpeed: 0,
+        speed: 5000,
+        cssEase: 'linear',
+        infinite: true,
+        pauseOnHover: true,
+        responsive: [{ breakpoint: 768, settings: { slidesToShow: Math.min(3, count) } }],
       });
     });
   }
@@ -116,7 +155,9 @@
     var $root = root ? $(root) : $(document);
     initHero($root);
     initProducts($root);
-    initBlog($root);
+    initCollections($root);
+    initReviews($root);
+    initPress($root);
     return true;
   }
 

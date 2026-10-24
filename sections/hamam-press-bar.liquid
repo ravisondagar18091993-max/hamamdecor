@@ -1,0 +1,56 @@
+<section class="hamam-press" id="hamam-press-{{ section.id }}" data-section-id="{{ section.id }}">
+  <div class="hamam-press__track">
+    {% for block in section.blocks %}
+      <div class="hamam-press__item" {{ block.shopify_attributes }}>
+        {% if block.settings.logo != blank %}
+          {{
+            block.settings.logo
+            | image_url: width: 200
+            | image_tag: loading: 'lazy', class: 'hamam-press__logo', alt: block.settings.name
+          }}
+        {% else %}
+          <span class="hamam-press__text">{{ block.settings.name }}</span>
+        {% endif %}
+      </div>
+    {% endfor %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Hamam — Press logos",
+  "tag": "section",
+  "class": "hamam-press-section",
+  "max_blocks": 12,
+  "blocks": [
+    {
+      "type": "logo",
+      "name": "Logo",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "logo",
+          "label": "Logo image"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Name (if no image)",
+          "default": "Press"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hamam — Press logos",
+      "blocks": [
+        { "type": "logo", "settings": { "name": "Vogue Living" } },
+        { "type": "logo", "settings": { "name": "Elle Decor" } },
+        { "type": "logo", "settings": { "name": "House & Garden" } },
+        { "type": "logo", "settings": { "name": "Architectural Digest" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

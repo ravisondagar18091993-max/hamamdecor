@@ -1,0 +1,63 @@
+<section class="hamam-usp" id="hamam-usp-{{ section.id }}" data-section-id="{{ section.id }}">
+  <div class="hamam-container hamam-usp__grid">
+    {% for block in section.blocks %}
+      <div class="hamam-usp__item" {{ block.shopify_attributes }}>
+        {% if block.settings.icon_image != blank %}
+          {{
+            block.settings.icon_image
+            | image_url: width: 48
+            | image_tag: loading: 'lazy', class: 'hamam-usp__icon-img', alt: ''
+          }}
+        {% elsif block.settings.icon != blank %}
+          <span class="hamam-usp__icon" aria-hidden="true">{{ block.settings.icon }}</span>
+        {% endif %}
+        <span class="hamam-usp__label">{{ block.settings.label }}</span>
+      </div>
+    {% endfor %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Hamam — USP bar",
+  "tag": "section",
+  "class": "hamam-usp-section",
+  "max_blocks": 6,
+  "blocks": [
+    {
+      "type": "usp",
+      "name": "USP",
+      "settings": [
+        {
+          "type": "text",
+          "id": "icon",
+          "label": "Icon (emoji)",
+          "default": "✓"
+        },
+        {
+          "type": "image_picker",
+          "id": "icon_image",
+          "label": "Icon image (optional)"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "Free UK delivery"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hamam — USP bar",
+      "blocks": [
+        { "type": "usp", "settings": { "label": "Fast UK delivery" } },
+        { "type": "usp", "settings": { "label": "Secure payments" } },
+        { "type": "usp", "settings": { "label": "Expert support" } },
+        { "type": "usp", "settings": { "label": "White-glove delivery" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,81 @@
+<section class="hamam-collections" id="hamam-collections-{{ section.id }}" data-section-id="{{ section.id }}">
+  <div class="hamam-container--wide">
+    <header class="hamam-row-head">
+      <h2 class="hamam-display">{{ section.settings.heading }}</h2>
+    </header>
+
+    <div class="hamam-collection-slider hamam-slick" data-hamam-slick="collections">
+      {% for block in section.blocks %}
+        <div class="hamam-collection-tile" {{ block.shopify_attributes }}>
+          <a class="hamam-collection-tile__link" href="{{ block.settings.link | default: '#' }}">
+            <div class="hamam-collection-tile__media">
+              {% if block.settings.image != blank %}
+                {{
+                  block.settings.image
+                  | image_url: width: 800
+                  | image_tag: loading: 'lazy', widths: '300,500,800', sizes: '(min-width: 1100px) 20vw, 40vw', alt: block.settings.title
+                }}
+              {% else %}
+                <div class="hamam-ph" aria-hidden="true"></div>
+              {% endif %}
+              <span class="hamam-collection-tile__title">{{ block.settings.title }}</span>
+            </div>
+          </a>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Hamam — Collection tiles",
+  "tag": "section",
+  "class": "hamam-collection-tiles-section",
+  "max_blocks": 8,
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Discover our collections"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "collection",
+      "name": "Collection",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Consoles"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hamam — Collection tiles",
+      "blocks": [
+        { "type": "collection", "settings": { "title": "Consoles" } },
+        { "type": "collection", "settings": { "title": "Tables" } },
+        { "type": "collection", "settings": { "title": "Pedestals" } },
+        { "type": "collection", "settings": { "title": "Objects" } },
+        { "type": "collection", "settings": { "title": "New in" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

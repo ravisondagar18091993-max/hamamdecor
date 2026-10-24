@@ -1,0 +1,53 @@
+<section class="hamam-editorial" id="hamam-editorial-{{ section.id }}" data-section-id="{{ section.id }}">
+  <div class="hamam-container--wide">
+    <div class="hamam-editorial__grid">
+      {% if section.settings.blog != blank %}
+        {% for article in section.settings.blog.articles limit: 2 %}
+          <article class="hamam-editorial-card">
+            <a class="hamam-editorial-card__link" href="{{ article.url }}">
+              <div class="hamam-editorial-card__media">
+                {% if article.image %}
+                  {{
+                    article.image
+                    | image_url: width: 1000
+                    | image_tag: loading: 'lazy', widths: '500,800,1000', sizes: '(min-width: 900px) 50vw, 100vw', alt: article.title
+                  }}
+                {% else %}
+                  <div class="hamam-ph" aria-hidden="true"></div>
+                {% endif %}
+              </div>
+              <h3 class="hamam-editorial-card__title">{{ article.title }}</h3>
+            </a>
+          </article>
+        {% endfor %}
+      {% else %}
+        {% for i in (1..2) %}
+          <article class="hamam-editorial-card">
+            <div class="hamam-editorial-card__media"><div class="hamam-ph" aria-hidden="true"></div></div>
+            <h3 class="hamam-editorial-card__title">Editorial story title</h3>
+          </article>
+        {% endfor %}
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Hamam — Blog duo",
+  "tag": "section",
+  "class": "hamam-blog-duo-section",
+  "settings": [
+    {
+      "type": "blog",
+      "id": "blog",
+      "label": "Blog"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hamam — Blog duo"
+    }
+  ]
+}
+{% endschema %}

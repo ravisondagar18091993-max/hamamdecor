@@ -1,18 +1,17 @@
 <section
   id="hamam-products-{{ section.id }}"
-  class="hamam-section hamam-products"
+  class="hamam-section hamam-products hamam-products--luxury"
   data-section-id="{{ section.id }}"
 >
   <div class="hamam-container--wide">
-    <header class="hamam-section-head hamam-section-head--center">
-      <h2 class="hamam-heading">{{ section.settings.heading }}</h2>
+    <header class="hamam-row-head">
+      <h2 class="hamam-display">{{ section.settings.heading }}</h2>
+      {% if section.settings.collection != blank and section.settings.view_all_label != blank %}
+        <a class="hamam-text-link" href="{{ section.settings.collection.url }}">{{ section.settings.view_all_label }}</a>
+      {% endif %}
     </header>
 
-    <div
-      class="hamam-product-slider hamam-slick"
-      data-hamam-slick="products"
-      data-slide-count="{{ section.settings.products_to_show }}"
-    >
+    <div class="hamam-product-slider hamam-slick" data-hamam-slick="products">
       {% assign product_count = 0 %}
       {% if section.settings.collection != blank %}
         {% for product in section.settings.collection.products limit: section.settings.products_to_show %}
@@ -27,14 +26,15 @@
                     | image_tag: loading: 'lazy', widths: '400,600,800,900', sizes: '(min-width: 900px) 25vw, 50vw', alt: product.title
                   }}
                 {% else %}
-                  <div class="hamam-banner__placeholder" aria-hidden="true"></div>
+                  <div class="hamam-ph" aria-hidden="true"></div>
+                {% endif %}
+                {% if product.compare_at_price_max > product.price_min %}
+                  <span class="hamam-product-card__badge">{{ section.settings.sale_label }}</span>
                 {% endif %}
               </div>
-              <div class="hamam-product-card__info">
-                <h3 class="hamam-product-card__title">{{ product.title }}</h3>
-                <div class="hamam-product-card__price">
-                  {% render 'price', product_resource: product, show_sale_price_first: true %}
-                </div>
+              <h3 class="hamam-product-card__title">{{ product.title }}</h3>
+              <div class="hamam-product-card__price">
+                {% render 'price', product_resource: product, show_sale_price_first: true %}
               </div>
             </a>
           </div>
@@ -44,23 +44,13 @@
       {% if product_count == 0 %}
         {% for i in (1..4) %}
           <div class="hamam-product-card">
-            <div class="hamam-product-card__media">
-              <div class="hamam-banner__placeholder" aria-hidden="true"></div>
-            </div>
-            <div class="hamam-product-card__info">
-              <h3 class="hamam-product-card__title">Sample product {{ i }}</h3>
-              <div class="hamam-product-card__price">{% render 'price', product_resource: blank %}</div>
-            </div>
+            <div class="hamam-product-card__media"><div class="hamam-ph" aria-hidden="true"></div></div>
+            <h3 class="hamam-product-card__title">Sample product {{ i }}</h3>
+            <div class="hamam-product-card__price">{% render 'price', product_resource: blank %}</div>
           </div>
         {% endfor %}
       {% endif %}
     </div>
-
-    {% if section.settings.collection != blank and section.settings.view_all_label != blank %}
-      <div class="hamam-section-foot">
-        <a class="hamam-btn" href="{{ section.settings.collection.url }}">{{ section.settings.view_all_label }}</a>
-      </div>
-    {% endif %}
   </div>
 </section>
 
@@ -93,8 +83,14 @@
     {
       "type": "text",
       "id": "view_all_label",
-      "label": "View all button",
+      "label": "View all link",
       "default": "View all"
+    },
+    {
+      "type": "text",
+      "id": "sale_label",
+      "label": "Sale badge",
+      "default": "Sale"
     }
   ],
   "presets": [

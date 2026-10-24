@@ -1,0 +1,84 @@
+<section class="hamam-prefooter" id="hamam-prefooter-{{ section.id }}" data-section-id="{{ section.id }}">
+  <div class="hamam-container hamam-prefooter__inner">
+    <div class="hamam-prefooter__copy">
+      <h2 class="hamam-prefooter__title">{{ section.settings.heading }}</h2>
+      {% if section.settings.phone != blank %}
+        <p class="hamam-prefooter__contact">
+          <a href="tel:{{ section.settings.phone | replace: ' ', '' }}">{{ section.settings.phone }}</a>
+        </p>
+      {% endif %}
+      {% if section.settings.email != blank %}
+        <p class="hamam-prefooter__contact">
+          <a href="mailto:{{ section.settings.email }}">{{ section.settings.email }}</a>
+        </p>
+      {% endif %}
+    </div>
+    {% if section.settings.show_social %}
+      <div class="hamam-prefooter__social">
+        {% if section.settings.social_instagram != blank %}
+          <a href="{{ section.settings.social_instagram }}" rel="noopener" target="_blank">Instagram</a>
+        {% endif %}
+        {% if section.settings.social_facebook != blank %}
+          <a href="{{ section.settings.social_facebook }}" rel="noopener" target="_blank">Facebook</a>
+        {% endif %}
+        {% if section.settings.social_pinterest != blank %}
+          <a href="{{ section.settings.social_pinterest }}" rel="noopener" target="_blank">Pinterest</a>
+        {% endif %}
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Hamam — Footer CTA",
+  "tag": "section",
+  "class": "hamam-prefooter-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Ready to elevate your interior?"
+    },
+    {
+      "type": "text",
+      "id": "phone",
+      "label": "Phone",
+      "default": "+44 0000 000000"
+    },
+    {
+      "type": "text",
+      "id": "email",
+      "label": "Email",
+      "default": "hello@hamamdecor.uk"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_social",
+      "label": "Show social links",
+      "default": true
+    },
+    {
+      "type": "url",
+      "id": "social_instagram",
+      "label": "Instagram URL"
+    },
+    {
+      "type": "url",
+      "id": "social_facebook",
+      "label": "Facebook URL"
+    },
+    {
+      "type": "url",
+      "id": "social_pinterest",
+      "label": "Pinterest URL"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hamam — Footer CTA"
+    }
+  ]
+}
+{% endschema %}
