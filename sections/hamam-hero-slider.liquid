@@ -50,27 +50,27 @@
         </div>
         <div class="hamam-hero__overlay"></div>
 
-        <div class="hamam-container hamam-hero__content">
-          <div class="hamam-hero__content-inner">
-            {% if block.settings.eyebrow != blank %}
-              <p class="hamam-hero__kicker">{{ block.settings.eyebrow }}</p>
-            {% endif %}
-            {% if block.settings.heading != blank %}
-              <h2 class="hamam-hero__title">{{ block.settings.heading }}</h2>
-            {% endif %}
-            {% if block.settings.button_label != blank %}
-              <div class="hamam-hero__actions">
-                <a class="hamam-hero__cta" href="{{ block.settings.button_link | default: '#' }}">
-                  <span class="hamam-hero__cta-mark" aria-hidden="true">›</span>
-                  <span>{{ block.settings.button_label }}</span>
-                </a>
-              </div>
-            {% endif %}
+        <div class="hamam-hero__shell">
+          <div class="hamam-container hamam-hero__content">
+            <div class="hamam-hero__content-inner">
+              {% if block.settings.eyebrow != blank %}
+                <p class="hamam-hero__kicker">{{ block.settings.eyebrow }}</p>
+              {% endif %}
+              {% if block.settings.heading != blank %}
+                <h2 class="hamam-hero__title">{{ block.settings.heading | newline_to_br }}</h2>
+              {% endif %}
+              {% if block.settings.button_label != blank %}
+                <div class="hamam-hero__actions">
+                  <a class="hamam-hero__cta" href="{{ block.settings.button_link | default: '#' }}">
+                    <span class="hamam-hero__cta-mark" aria-hidden="true">›</span>
+                    <span>{{ block.settings.button_label }}</span>
+                  </a>
+                </div>
+              {% endif %}
+            </div>
           </div>
-        </div>
 
-        {% if section.settings.show_featured_product %}
-          {% if block.settings.show_product_pill %}
+          {% if section.settings.show_featured_product and block.settings.show_product_pill %}
             <div class="hamam-hero__product-wrap">
               {% render 'hamam-hero-featured-product',
                 product: block.settings.product,
@@ -80,7 +80,7 @@
               %}
             </div>
           {% endif %}
-        {% endif %}
+        </div>
       </div>
     {% endfor %}
   </div>
@@ -147,10 +147,10 @@
           "default": "Garden wall lights"
         },
         {
-          "type": "text",
+          "type": "textarea",
           "id": "heading",
-          "label": "Heading",
-          "default": "Set the perfect garden ambience"
+          "label": "Heading (one line per row)",
+          "default": "Set the\nperfect\ngarden\nambience"
         },
         {
           "type": "text",
@@ -201,7 +201,7 @@
           "type": "slide",
           "settings": {
             "eyebrow": "Garden wall lights",
-            "heading": "Set the perfect garden ambience",
+            "heading": "Set the\nperfect\ngarden\nambience",
             "button_label": "Shop now",
             "button_link": "shopify://collections/all",
             "dummy_product_title": "Black Victorian Hanging Wall Lantern",
@@ -212,7 +212,7 @@
           "type": "slide",
           "settings": {
             "eyebrow": "Handcrafted consoles",
-            "heading": "Bring the outside in",
+            "heading": "Bring\nthe outside\nin",
             "button_label": "Shop now",
             "button_link": "shopify://collections/all",
             "dummy_product_title": "Travertine Console Table",
