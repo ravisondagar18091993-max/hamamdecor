@@ -1,9 +1,22 @@
-<article class="hamam-editorial-card">
+{%- doc -%}
+  @param {number} index
+  @param {string} title
+  @param {string} [link_label]
+  @param {boolean} [offset]
+{%- enddoc -%}
+
+<article class="hamam-editorial-card{% if offset %} hamam-editorial-card--offset{% endif %}">
   <a class="hamam-editorial-card__link" href="/blogs/news">
     <div class="hamam-editorial-card__media">
       {% assign fb = 'editorial-' | append: index %}
       {% render 'hamam-img', fallback: fb, alt: title, widths: '500,800,1000', sizes: '(min-width: 900px) 50vw, 100vw', width: 1000 %}
     </div>
     <h3 class="hamam-editorial-card__title">{{ title }}</h3>
+    {% if link_label != blank %}
+      <span class="hamam-editorial-card__cta">
+        <span aria-hidden="true">›</span>
+        {{ link_label }}
+      </span>
+    {% endif %}
   </a>
 </article>

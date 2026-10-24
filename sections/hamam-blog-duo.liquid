@@ -1,10 +1,26 @@
 <section class="hamam-editorial" id="hamam-editorial-{{ section.id }}" data-section-id="{{ section.id }}">
   <div class="hamam-container--wide">
+    <header class="hamam-row-head hamam-row-head--editorial">
+      <div class="hamam-row-head__intro">
+        {% if section.settings.heading != blank %}
+          <h2 class="hamam-display">{{ section.settings.heading }}</h2>
+        {% endif %}
+        {% if section.settings.subheading != blank %}
+          <p class="hamam-row-head__subtitle">{{ section.settings.subheading }}</p>
+        {% endif %}
+      </div>
+      {% if section.settings.view_all_label != blank %}
+        <a class="hamam-text-link" href="{{ section.settings.blog.url | default: '/blogs/news' }}">
+          {{ section.settings.view_all_label }}
+        </a>
+      {% endif %}
+    </header>
+
     <div class="hamam-editorial__grid">
       {% if section.settings.blog != blank and section.settings.blog.articles_count > 0 %}
         {% for article in section.settings.blog.articles limit: 2 %}
           {% assign fb = 'editorial-' | append: forloop.index %}
-          <article class="hamam-editorial-card">
+          <article class="hamam-editorial-card{% if forloop.first %} hamam-editorial-card--offset{% endif %}">
             <a class="hamam-editorial-card__link" href="{{ article.url }}">
               <div class="hamam-editorial-card__media">
                 {% render 'hamam-img',
@@ -17,12 +33,27 @@
                 %}
               </div>
               <h3 class="hamam-editorial-card__title">{{ article.title }}</h3>
+              {% if section.settings.article_link_label != blank %}
+                <span class="hamam-editorial-card__cta">
+                  <span aria-hidden="true">›</span>
+                  {{ section.settings.article_link_label }}
+                </span>
+              {% endif %}
             </a>
           </article>
         {% endfor %}
       {% else %}
-        {% render 'hamam-editorial-dummy', index: 1, title: 'Stone in the modern home' %}
-        {% render 'hamam-editorial-dummy', index: 2, title: 'Caring for natural surfaces' %}
+        {% render 'hamam-editorial-dummy',
+          index: 1,
+          title: 'Stone in the modern home',
+          link_label: section.settings.article_link_label,
+          offset: true
+        %}
+        {% render 'hamam-editorial-dummy',
+          index: 2,
+          title: 'Caring for natural surfaces',
+          link_label: section.settings.article_link_label
+        %}
       {% endif %}
     </div>
   </div>
@@ -35,9 +66,33 @@
   "class": "hamam-blog-duo-section",
   "settings": [
     {
+      "type": "text",
+      "id": "heading",
+      "label": "Title",
+      "default": "From the journal"
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subtitle",
+      "default": "Stories on stone, craft, and living well at home."
+    },
+    {
       "type": "blog",
       "id": "blog",
       "label": "Blog"
+    },
+    {
+      "type": "text",
+      "id": "view_all_label",
+      "label": "View all link label",
+      "default": "View all"
+    },
+    {
+      "type": "text",
+      "id": "article_link_label",
+      "label": "Article link label",
+      "default": "View project"
     }
   ],
   "presets": [

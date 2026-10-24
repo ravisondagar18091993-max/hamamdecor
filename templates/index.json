@@ -146,7 +146,11 @@
     "hamam_editorial": {
       "type": "hamam-blog-duo",
       "settings": {
-        "blog": "news"
+        "heading": "From the journal",
+        "subheading": "Stories on stone, craft, and living well at home.",
+        "blog": "news",
+        "view_all_label": "View all",
+        "article_link_label": "View project"
       }
     },
     "hamam_prefooter": {
