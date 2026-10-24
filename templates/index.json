@@ -66,16 +66,6 @@
         "sale_label": "Sale"
       }
     },
-    "hamam_best_sellers": {
-      "type": "hamam-product-carousel",
-      "settings": {
-        "heading": "Best sellers",
-        "collection": "all",
-        "products_to_show": 8,
-        "view_all_label": "View all",
-        "sale_label": "Sale"
-      }
-    },
     "hamam_collections": {
       "type": "hamam-collection-tiles",
       "blocks": {
@@ -160,7 +150,6 @@
     "hamam_hero",
     "hamam_usp",
     "hamam_new_in",
-    "hamam_best_sellers",
     "hamam_collections",
     "hamam_story",
     "hamam_reviews",
