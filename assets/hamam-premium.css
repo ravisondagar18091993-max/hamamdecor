@@ -790,7 +790,7 @@
   width: 100vw;
   max-width: 100vw;
   transform: translateX(-50%);
-  background: #b87366;
+  background: #fff;
 }
 
 .hamam-service-pillars__band > .hamam-container--wide {
@@ -804,7 +804,7 @@
 }
 
 .hamam-service-pillars__head .hamam-display {
-  color: #fff;
+  color: var(--hamam-dark);
   margin: 0;
 }
 
@@ -813,7 +813,7 @@
   font-size: 16px;
   line-height: 1.55;
   font-weight: 400;
-  color: rgba(255, 255, 255, 0.92);
+  color: var(--hamam-muted);
   margin: 0.5rem auto 0;
   max-width: 38rem;
 }
@@ -866,7 +866,7 @@
   }
 
   .hamam-service-pillars__item + .hamam-service-pillars__item {
-    border-left: 1px solid rgba(255, 255, 255, 0.28);
+    border-left: 1px solid rgba(26, 26, 26, 0.14);
   }
 
   .hamam-service-pillars__title {
@@ -888,21 +888,22 @@
   width: 4.25rem;
   height: 4.25rem;
   margin-bottom: 1.15rem;
-  color: #fff;
-  border: 1px solid rgba(255, 255, 255, 0.55);
+  color: var(--hamam-dark);
+  border: 1px solid rgba(26, 26, 26, 0.28);
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.08);
+  background: var(--hamam-bg);
   transition:
     transform 0.35s var(--hamam-ease),
     border-color 0.35s var(--hamam-ease),
-    background 0.35s var(--hamam-ease);
+    background 0.35s var(--hamam-ease),
+    color 0.35s var(--hamam-ease);
 }
 
 .hamam-service-pillars__item:hover .hamam-service-pillars__icon-wrap {
   transform: translateY(-3px);
-  border-color: #fff;
-  background: rgba(255, 255, 255, 0.14);
-  color: #fff;
+  border-color: var(--hamam-accent);
+  background: #fff;
+  color: var(--hamam-accent);
 }
 
 .hamam-service-pillars__title {
@@ -911,7 +912,7 @@
   font-weight: 600;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: #fff;
+  color: var(--hamam-dark);
   margin: 0 0 0.65rem;
   line-height: 1.45;
 }
@@ -920,7 +921,7 @@
   font-family: var(--hamam-sans);
   font-size: 0.875rem;
   line-height: 1.55;
-  color: rgba(255, 255, 255, 0.92);
+  color: var(--hamam-muted);
   margin: 0;
 }
 
