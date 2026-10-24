@@ -1,28 +1,10 @@
 /*
-  Upload font files to theme Assets (Settings → Files or theme assets folder):
-  - the-seasons.woff2 (and/or .woff)
-  - elza.woff2 (and/or .woff)
+  Headings: "the-seasons" — Adobe Fonts (Typekit kit txz5okp), loaded in layout/theme.liquid.
+  Weights: 400 / 700, normal and italic.
+
+  Body: "elza" — upload to theme Assets if not on Typekit:
+  - elza.woff2 (and/or .woff), elza-medium, elza-semibold
 */
-
-@font-face {
-  font-family: "the-seasons";
-  src:
-    url("the-seasons.woff2") format("woff2"),
-    url("the-seasons.woff") format("woff");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "the-seasons";
-  src:
-    url("the-seasons-bold.woff2") format("woff2"),
-    url("the-seasons-bold.woff") format("woff");
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
 
 @font-face {
   font-family: "elza";

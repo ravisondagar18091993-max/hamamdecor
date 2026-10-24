@@ -48,7 +48,7 @@
 /* Typography */
 .hamam-display {
   font-family: var(--hamam-serif);
-  font-weight: 500;
+  font-weight: var(--hamam-font-heading-weight, 400);
   font-size: clamp(1.5rem, 2.8vw, 2rem);
   line-height: 1.2;
   color: var(--hamam-dark);
@@ -240,7 +240,7 @@
 
 .hamam-hero__title {
   font-family: var(--hamam-serif);
-  font-weight: 500;
+  font-weight: var(--hamam-font-heading-weight, 400);
   font-size: clamp(2.25rem, 5.2vw, 3.75rem);
   line-height: 1.02;
   letter-spacing: 0.02em;
@@ -644,7 +644,7 @@
 .hamam-product-card__title {
   font-family: var(--hamam-serif);
   font-size: 0.9375rem;
-  font-weight: 500;
+  font-weight: var(--hamam-font-heading-weight, 400);
   margin: 0 0 0.25rem;
   line-height: 1.35;
 }
@@ -701,7 +701,7 @@
   right: 0.85rem;
   font-family: var(--hamam-serif);
   font-size: 1rem;
-  font-weight: 500;
+  font-weight: var(--hamam-font-heading-weight, 400);
   color: #fff;
   text-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
   letter-spacing: 0.04em;
@@ -882,7 +882,7 @@
 .hamam-editorial-card__title {
   font-family: var(--hamam-serif);
   font-size: clamp(0.95rem, 1.6vw, 1.125rem);
-  font-weight: 500;
+  font-weight: var(--hamam-font-heading-weight, 400);
   letter-spacing: 0.06em;
   text-transform: uppercase;
   line-height: 1.35;
@@ -906,7 +906,7 @@
 
 .hamam-prefooter__title {
   font-family: var(--hamam-serif);
-  font-weight: 500;
+  font-weight: var(--hamam-font-heading-weight, 400);
   font-size: clamp(1.35rem, 2.5vw, 1.85rem);
   letter-spacing: 0.04em;
   text-transform: uppercase;
