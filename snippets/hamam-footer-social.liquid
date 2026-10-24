@@ -1,19 +1,32 @@
 {%- doc -%}
-  @param {string} url
+  @param {string} [url]
   @param {string} icon - x, facebook, instagram, youtube
   @param {string} label
 {%- enddoc -%}
 
-{% if url != blank %}
-  <a
-    class="hamam-footer__social-link"
-    href="{{ url }}"
+{% liquid
+  assign social_href = url
+  assign is_placeholder = false
+  if social_href == blank
+    assign is_placeholder = true
+    assign social_href = '#'
+  endif
+%}
+
+<a
+  class="hamam-footer__social-link{% if is_placeholder %} hamam-footer__social-link--placeholder{% endif %}"
+  href="{{ social_href }}"
+  {% unless is_placeholder %}
     target="_blank"
     rel="noopener noreferrer"
-    aria-label="{{ label }}"
-  >
-    <svg class="hamam-footer__social-icon" aria-hidden="true" focusable="false" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-      {%- render 'icon', icon: icon -%}
-    </svg>
-  </a>
-{% endif %}
+  {% endunless %}
+  aria-label="{{ label }}"
+  {% if is_placeholder %}
+    aria-disabled="true"
+    tabindex="-1"
+  {% endif %}
+>
+  <svg class="hamam-footer__social-icon" aria-hidden="true" focusable="false" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+    {%- render 'icon', icon: icon -%}
+  </svg>
+</a>

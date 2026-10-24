@@ -15,6 +15,11 @@
         "menu_about_title": "About us",
         "menu_links_title": "Useful links",
         "copyright_text": "All rights reserved.",
+        "show_social": true,
+        "social_x": "https://x.com/",
+        "social_facebook": "https://www.facebook.com/",
+        "social_instagram": "https://www.instagram.com/",
+        "social_youtube": "https://www.youtube.com/",
         "show_payment_icons": true
       }
     }
