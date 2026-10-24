@@ -1,0 +1,121 @@
+<section
+  id="hamam-video-stack-{{ section.id }}"
+  class="hamam-section hamam-video-stack"
+  data-section-id="{{ section.id }}"
+>
+  {% if section.settings.show_heading %}
+    <div class="hamam-video-stack__intro">
+      {% if section.settings.eyebrow != blank %}
+        <p class="hamam-eyebrow">{{ section.settings.eyebrow }}</p>
+      {% endif %}
+      {% if section.settings.heading != blank %}
+        <h2 class="hamam-heading">{{ section.settings.heading }}</h2>
+      {% endif %}
+    </div>
+  {% endif %}
+
+  {% for block in section.blocks %}
+    <div class="hamam-video-stack__item" {{ block.shopify_attributes }}>
+      <a
+        class="hamam-video-stack__link"
+        href="{{ block.settings.video_url | default: '#' }}"
+        {% if block.settings.video_url != blank %}
+          target="_blank"
+          rel="noopener noreferrer"
+        {% endif %}
+      >
+        <div class="hamam-video-stack__media">
+          {% if block.settings.cover_image != blank %}
+            {{
+              block.settings.cover_image
+              | image_url: width: 2000
+              | image_tag: loading: 'lazy', widths: '800,1200,1600,2000', sizes: '100vw', alt: block.settings.title
+            }}
+          {% else %}
+            <div class="hamam-banner__placeholder" aria-hidden="true"></div>
+          {% endif %}
+          <span class="hamam-video-stack__play">
+            <span class="hamam-video-stack__play-ring"></span>
+            <span class="hamam-video-stack__play-label">{{ section.settings.play_label }}</span>
+          </span>
+        </div>
+        {% if block.settings.title != blank and section.settings.show_titles %}
+          <p class="hamam-video-stack__title">{{ block.settings.title }}</p>
+        {% endif %}
+      </a>
+    </div>
+  {% endfor %}
+</section>
+
+{% schema %}
+{
+  "name": "Hamam — Video stack",
+  "tag": "section",
+  "class": "hamam-video-stack-section",
+  "max_blocks": 8,
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_heading",
+      "label": "Show section heading",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading"
+    },
+    {
+      "type": "text",
+      "id": "play_label",
+      "label": "Play label",
+      "default": "Video"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_titles",
+      "label": "Show titles below videos",
+      "default": false
+    }
+  ],
+  "blocks": [
+    {
+      "type": "video",
+      "name": "Video",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "cover_image",
+          "label": "Cover image"
+        },
+        {
+          "type": "url",
+          "id": "video_url",
+          "label": "Video URL"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hamam — Video stack",
+      "blocks": [
+        { "type": "video" },
+        { "type": "video" },
+        { "type": "video" },
+        { "type": "video" }
+      ]
+    }
+  ]
+}
+{% endschema %}

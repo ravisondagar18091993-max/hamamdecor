@@ -4,19 +4,9 @@
   data-section-id="{{ section.id }}"
 >
   <div class="hamam-container--wide">
-    <div class="hamam-products__header">
-      <div>
-        {% if section.settings.eyebrow != blank %}
-          <p class="hamam-eyebrow">{{ section.settings.eyebrow }}</p>
-        {% endif %}
-        <h2 class="hamam-heading">{{ section.settings.heading }}</h2>
-      </div>
-      {% if section.settings.blog != blank and section.settings.view_all_label != blank %}
-        <a class="hamam-btn hamam-btn--ghost" href="{{ section.settings.blog.url }}">
-          {{ section.settings.view_all_label }}
-        </a>
-      {% endif %}
-    </div>
+    <header class="hamam-section-head hamam-section-head--center">
+      <h2 class="hamam-heading">{{ section.settings.heading }}</h2>
+    </header>
 
     <div class="hamam-blog-slider hamam-slick" data-hamam-slick="blog">
       {% if section.settings.blog != blank %}
@@ -31,7 +21,7 @@
                     | image_tag: loading: 'lazy', widths: '400,600,800', sizes: '(min-width: 1000px) 33vw, 100vw', alt: article.title
                   }}
                 {% else %}
-                  {{ 'image' | placeholder_svg_tag }}
+                  <div class="hamam-banner__placeholder" aria-hidden="true"></div>
                 {% endif %}
               </div>
               <h3 class="hamam-blog-card__title">{{ article.title }}</h3>
@@ -45,13 +35,19 @@
       {% else %}
         {% for i in (1..3) %}
           <article class="hamam-blog-card">
-            <div class="hamam-blog-card__media">{{ 'image' | placeholder_svg_tag }}</div>
+            <div class="hamam-blog-card__media"><div class="hamam-banner__placeholder" aria-hidden="true"></div></div>
             <h3 class="hamam-blog-card__title">Blog post title</h3>
             <p class="hamam-blog-card__excerpt">Add a blog in section settings to display posts here.</p>
           </article>
         {% endfor %}
       {% endif %}
     </div>
+
+    {% if section.settings.blog != blank and section.settings.view_all_label != blank %}
+      <div class="hamam-section-foot">
+        <a class="hamam-btn" href="{{ section.settings.blog.url }}">{{ section.settings.view_all_label }}</a>
+      </div>
+    {% endif %}
   </div>
 </section>
 

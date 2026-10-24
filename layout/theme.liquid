@@ -47,9 +47,14 @@
     {% endif %}
 
     {{ content_for_header }}
+
+    {% if template.name == 'index' %}
+      {{ 'slick.css' | asset_url | stylesheet_tag }}
+      {{ 'hamam-premium.css' | asset_url | stylesheet_tag }}
+    {% endif %}
   </head>
 
-  <body class="page-width-{{ settings.page_width }} card-hover-effect-{{ settings.card_hover_effect }}">
+  <body class="page-width-{{ settings.page_width }} card-hover-effect-{{ settings.card_hover_effect }} template-{{ template.name }} hamam-home">
     {% render 'skip-to-content-link', href: '#MainContent', text: 'accessibility.skip_to_text' %}
 
     {% render 'chat-drawer' %}
@@ -153,8 +158,6 @@
     {% endif %}
 
     {% if template.name == 'index' %}
-      {{ 'slick.css' | asset_url | stylesheet_tag }}
-      {{ 'hamam-premium.css' | asset_url | stylesheet_tag }}
       <script src="{{ 'jquery.min.js' | asset_url }}" defer></script>
       <script src="{{ 'slick.min.js' | asset_url }}" defer></script>
       <script src="{{ 'hamam-slick-init.js' | asset_url }}" defer></script>

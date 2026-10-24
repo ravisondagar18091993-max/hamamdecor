@@ -15,40 +15,26 @@
         "slide_1": {
           "type": "slide",
           "settings": {
-            "eyebrow": "Hamam Decor",
-            "heading": "Bring the outside in",
-            "subheading": "Sculptural stone furniture — consoles, tables, and objects for considered interiors.",
-            "button_label": "Shop collection",
-            "button_link": "shopify://collections/all"
-          }
-        },
-        "slide_2": {
-          "type": "slide",
-          "settings": {
-            "eyebrow": "New arrivals",
-            "heading": "Form meets function",
-            "subheading": "Each piece is shaped by hand — explore our latest edit.",
-            "button_label": "View all",
-            "button_link": "shopify://collections/all"
+            "heading": "Bring the outside in"
           }
         }
       },
-      "block_order": ["slide_1", "slide_2"],
+      "block_order": ["slide_1"],
       "settings": {
         "autoplay": true,
         "autoplay_speed": 6000,
+        "show_subheading": false,
+        "show_button": false,
         "show_scroll_hint": true
       }
     },
     "hamam_products": {
       "type": "hamam-product-carousel",
       "settings": {
-        "eyebrow": "Curated",
         "heading": "Best sellers",
         "collection": "all",
         "products_to_show": 8,
-        "view_all_label": "View all",
-        "sale_label": "Sale"
+        "view_all_label": "View all"
       }
     },
     "hamam_promo": {
@@ -57,32 +43,32 @@
         "text": "Complimentary white-glove delivery on qualifying orders"
       }
     },
-    "hamam_split_1": {
-      "type": "hamam-split-showcase",
+    "hamam_banner_1": {
+      "type": "hamam-media-banner",
       "settings": {
-        "reverse_layout": false,
-        "eyebrow": "The edit",
+        "banner_height": 80,
+        "overlay_opacity": 30,
         "heading": "Sculptural silhouettes",
-        "text": "Organic forms carved from natural stone — designed to anchor your space with quiet drama.",
         "button_label": "Shop now",
-        "button_link": "shopify://collections/all"
+        "button_link": "shopify://collections/all",
+        "text_alignment": "center"
       }
     },
-    "hamam_split_2": {
-      "type": "hamam-split-showcase",
+    "hamam_banner_2": {
+      "type": "hamam-media-banner",
       "settings": {
-        "reverse_layout": true,
-        "eyebrow": "Materials",
-        "heading": "Stone, perfected",
-        "text": "From raw quarry to finished piece — discover the craft behind every console.",
-        "button_label": "Learn more",
-        "button_link": "shopify://blogs/news"
+        "banner_height": 70,
+        "overlay_opacity": 15,
+        "heading": "",
+        "button_label": "",
+        "text_alignment": "center",
+        "show_play_overlay": true,
+        "play_label": "Video"
       }
     },
     "hamam_blog": {
       "type": "hamam-blog-carousel",
       "settings": {
-        "eyebrow": "Journal",
         "heading": "Read our blog",
         "blog": "news",
         "post_limit": 6,
@@ -93,7 +79,7 @@
     "hamam_newsletter": {
       "type": "hamam-newsletter",
       "settings": {
-        "eyebrow": "Stay connected",
+        "eyebrow": "",
         "heading": "Join our list",
         "text": "Be first to hear about new collections and exclusive offers.",
         "placeholder": "Your email address",
@@ -102,18 +88,18 @@
       }
     },
     "hamam_videos": {
-      "type": "hamam-video-slider",
+      "type": "hamam-video-stack",
       "blocks": {
-        "video_1": { "type": "video", "settings": { "title": "Quarry" } },
-        "video_2": { "type": "video", "settings": { "title": "Cutting" } },
-        "video_3": { "type": "video", "settings": { "title": "Finishing" } },
-        "video_4": { "type": "video", "settings": { "title": "In your home" } }
+        "video_1": { "type": "video", "settings": {} },
+        "video_2": { "type": "video", "settings": {} },
+        "video_3": { "type": "video", "settings": {} },
+        "video_4": { "type": "video", "settings": {} }
       },
       "block_order": ["video_1", "video_2", "video_3", "video_4"],
       "settings": {
-        "eyebrow": "Behind the craft",
-        "heading": "From quarry to home",
-        "play_label": "Video"
+        "show_heading": false,
+        "play_label": "Video",
+        "show_titles": false
       }
     },
     "hamam_values": {
@@ -160,8 +146,8 @@
     "hamam_hero",
     "hamam_products",
     "hamam_promo",
-    "hamam_split_1",
-    "hamam_split_2",
+    "hamam_banner_1",
+    "hamam_banner_2",
     "hamam_blog",
     "hamam_newsletter",
     "hamam_videos",
