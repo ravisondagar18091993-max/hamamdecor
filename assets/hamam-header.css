@@ -1,17 +1,26 @@
 /* Hamam — English Lamp Posts–style header */
 
+.shopify-section.hamam-header-section-wrapper {
+  background: var(--hamam-bg, #f9f8f3);
+}
+
 .hamam-header-wrap {
   position: sticky;
   top: 0;
   z-index: 100;
   width: 100%;
-  background: var(--hamam-header-bg, #f3f1eb);
+  max-width: var(--hamam-page-max, 1440px);
+  margin-inline: auto;
+  padding-inline: var(--hamam-page-pad, 1.5rem);
+  box-sizing: border-box;
+  background: transparent;
   padding-block: 0.5rem 0;
 }
 
 .hamam-header__container {
   display: flex;
   flex-direction: column;
+  width: 100%;
   overflow: hidden;
   border-radius: 2px;
   box-shadow: 0 1px 0 rgba(26, 26, 26, 0.04);

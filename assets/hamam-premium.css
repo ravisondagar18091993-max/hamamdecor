@@ -910,9 +910,9 @@
   }
 }
 
-/* Header polish on homepage */
+/* Header polish on homepage — gutters match main content */
 .hamam-home #header-group {
-  background: transparent;
+  background: var(--hamam-bg);
   box-shadow: none;
 }
 

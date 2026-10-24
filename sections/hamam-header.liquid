@@ -7,11 +7,11 @@
 ></script>
 
 <header
-  class="hamam-header-wrap hamam-header-section"
+  class="hamam-header-wrap hamam-page-wrap hamam-header-section"
   id="hamam-header-{{ section.id }}"
   data-section-id="{{ section.id }}"
 >
-  <div class="hamam-page-wrap hamam-header__container">
+  <div class="hamam-header__container">
     {% if section.settings.show_announcement and section.settings.announcement_text != blank %}
       <div class="hamam-header__announce">
         {% if section.settings.announcement_link != blank %}

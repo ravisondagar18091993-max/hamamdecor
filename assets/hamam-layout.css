@@ -2,6 +2,7 @@
 :root {
   --hamam-page-max: 1440px;
   --hamam-page-pad: 1.5rem;
+  --hamam-bg: #f9f8f3;
   --hamam-font-heading: "the-seasons", sans-serif;
   --hamam-font-body: "elza", sans-serif;
 }
