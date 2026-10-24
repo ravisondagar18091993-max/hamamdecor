@@ -105,11 +105,11 @@
     "hamam_collections": {
       "type": "hamam-collection-tiles",
       "blocks": {
-        "collection_YEidcc": {
+        "collection_rcagU8": {
           "type": "collection",
           "settings": {
-            "image": "shopify://shop_images/red-travertine-round-dining-table-15.jpg",
-            "title": "Entry Tables",
+            "image": "shopify://shop_images/rene-travertine-coffee-table-15.jpg",
+            "title": "Coffee Tables",
             "link": ""
           }
         },
@@ -121,19 +121,28 @@
             "link": ""
           }
         },
-        "collection_rcagU8": {
+        "collection_YEidcc": {
           "type": "collection",
           "settings": {
-            "image": "shopify://shop_images/rene-travertine-coffee-table-15.jpg",
-            "title": "Coffee Tables",
+            "image": "shopify://shop_images/red-travertine-round-dining-table-15.jpg",
+            "title": "Entry Tables",
+            "link": ""
+          }
+        },
+        "collection_dyyxYt": {
+          "type": "collection",
+          "settings": {
+            "image": "shopify://shop_images/cube-travertine-side-table-7.jpg",
+            "title": "Side Tables",
             "link": ""
           }
         }
       },
       "block_order": [
-        "collection_YEidcc",
+        "collection_rcagU8",
         "collection_NpwQii",
-        "collection_rcagU8"
+        "collection_YEidcc",
+        "collection_dyyxYt"
       ],
       "settings": {
         "heading": "Discover our collections",
