@@ -37,6 +37,11 @@
 
     {%- render 'meta-tags' -%}
     {%- render 'stylesheets' -%}
+
+    <link rel="preconnect" href="https://use.typekit.net" crossorigin>
+    <link rel="preconnect" href="https://p.typekit.net" crossorigin>
+    <link rel="stylesheet" href="https://use.typekit.net/txz5okp.css">
+
     {%- render 'fonts' -%}
     {%- render 'scripts' -%}
     {%- render 'theme-styles-variables' -%}
@@ -48,11 +53,9 @@
 
     {{ content_for_header }}
 
-    <link rel="preconnect" href="https://use.typekit.net" crossorigin>
-    <link rel="stylesheet" href="https://use.typekit.net/txz5okp.css">
-
     {{ 'hamam-fonts.css' | asset_url | stylesheet_tag }}
     {{ 'hamam-layout.css' | asset_url | stylesheet_tag }}
+    {{ 'hamam-header.css' | asset_url | stylesheet_tag }}
 
     {% if template.name == 'index' %}
       {{ 'slick.css' | asset_url | stylesheet_tag }}
