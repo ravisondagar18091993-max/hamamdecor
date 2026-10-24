@@ -21,14 +21,13 @@
   background: var(--hamam-bg);
 }
 
-.hamam-container {
-  width: min(100% - 2.5rem, 1280px);
-  margin-inline: auto;
-}
-
+.hamam-container,
 .hamam-container--wide {
-  width: min(100% - 2rem, 1440px);
+  box-sizing: border-box;
+  width: 100%;
+  max-width: var(--hamam-page-max, 1440px);
   margin-inline: auto;
+  padding-inline: var(--hamam-page-pad, 1.5rem);
 }
 
 .hamam-ph {
@@ -178,26 +177,38 @@
   inset: 0;
   z-index: 2;
   pointer-events: none;
+  display: flex;
+  align-items: center;
+}
+
+.hamam-hero__frame {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding-bottom: 3.5rem;
+  pointer-events: none;
+}
+
+.hamam-hero__grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 300px);
+  align-items: end;
+  gap: 2rem 1.5rem;
+  pointer-events: none;
+}
+
+.hamam-hero__copy {
+  justify-self: start;
+  align-self: center;
+  max-width: 34rem;
+  text-align: left;
+  pointer-events: auto;
 }
 
 .hamam-hero__shell a,
 .hamam-hero__shell button {
   pointer-events: auto;
-}
-
-.hamam-hero__content {
-  position: absolute;
-  top: clamp(2rem, 11vh, 5.5rem);
-  left: 0;
-  right: 0;
-  width: 100%;
-  padding: 0;
-  margin: 0;
-}
-
-.hamam-hero__content-inner {
-  max-width: 38rem;
-  text-align: left;
 }
 
 .hamam-hero__kicker {
@@ -257,7 +268,7 @@
   font-weight: 400;
 }
 
-/* Slider segments — bottom left */
+/* Slider segments — bottom left, same grid as header */
 .hamam-hero__chrome {
   position: absolute;
   left: 0;
@@ -266,6 +277,7 @@
   z-index: 4;
   pointer-events: none;
   padding-bottom: 2rem;
+  box-sizing: border-box;
 }
 
 .hamam-hero__segments {
@@ -291,14 +303,13 @@
   transform: scaleY(1.35);
 }
 
-/* Featured product pill — bottom right (reference) */
+/* Featured product pill — right column, aligned with header icons */
 .hamam-hero__product-wrap {
-  position: absolute;
-  right: max(1.25rem, calc((100vw - 1440px) / 2 + 1.25rem));
-  bottom: clamp(3.25rem, 7vh, 4.75rem);
-  z-index: 3;
-  width: min(300px, calc(100% - 2.5rem));
+  justify-self: end;
+  align-self: end;
+  width: 100%;
   max-width: 300px;
+  pointer-events: auto;
 }
 
 .hamam-hero__product {
@@ -365,19 +376,35 @@
   color: inherit;
 }
 
-@media (max-width: 749px) {
-  .hamam-hero__content {
-    top: 1.5rem;
+@media (max-width: 900px) {
+  .hamam-hero__grid {
+    grid-template-columns: 1fr;
+    align-items: start;
+    gap: 1.5rem;
   }
 
-  .hamam-hero__product-wrap {
-    left: 1rem;
-    right: 1rem;
-    bottom: 3.5rem;
-    width: auto;
+  .hamam-hero__copy {
+    align-self: start;
     max-width: none;
   }
 
+  .hamam-hero__product-wrap {
+    justify-self: stretch;
+    max-width: none;
+  }
+
+  .hamam-hero__frame {
+    align-items: flex-start;
+    padding-top: 1.5rem;
+    padding-bottom: 4rem;
+  }
+
+  .hamam-hero__shell {
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 749px) {
   .hamam-hero__chrome {
     padding-bottom: 1.25rem;
   }

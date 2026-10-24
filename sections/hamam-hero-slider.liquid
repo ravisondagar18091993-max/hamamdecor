@@ -51,42 +51,44 @@
         <div class="hamam-hero__overlay"></div>
 
         <div class="hamam-hero__shell">
-          <div class="hamam-container hamam-hero__content">
-            <div class="hamam-hero__content-inner">
-              {% if block.settings.eyebrow != blank %}
-                <p class="hamam-hero__kicker">{{ block.settings.eyebrow }}</p>
-              {% endif %}
-              {% if block.settings.heading != blank %}
-                <h2 class="hamam-hero__title">{{ block.settings.heading | newline_to_br }}</h2>
-              {% endif %}
-              {% if block.settings.button_label != blank %}
-                <div class="hamam-hero__actions">
-                  <a class="hamam-hero__cta" href="{{ block.settings.button_link | default: '#' }}">
-                    <span class="hamam-hero__cta-mark" aria-hidden="true">›</span>
-                    <span>{{ block.settings.button_label }}</span>
-                  </a>
+          <div class="hamam-page-wrap hamam-hero__frame">
+            <div class="hamam-hero__grid">
+              <div class="hamam-hero__copy">
+                {% if block.settings.eyebrow != blank %}
+                  <p class="hamam-hero__kicker">{{ block.settings.eyebrow }}</p>
+                {% endif %}
+                {% if block.settings.heading != blank %}
+                  <h2 class="hamam-hero__title">{{ block.settings.heading | newline_to_br }}</h2>
+                {% endif %}
+                {% if block.settings.button_label != blank %}
+                  <div class="hamam-hero__actions">
+                    <a class="hamam-hero__cta" href="{{ block.settings.button_link | default: '#' }}">
+                      <span class="hamam-hero__cta-mark" aria-hidden="true">›</span>
+                      <span>{{ block.settings.button_label }}</span>
+                    </a>
+                  </div>
+                {% endif %}
+              </div>
+
+              {% if section.settings.show_featured_product and block.settings.show_product_pill %}
+                <div class="hamam-hero__product-wrap">
+                  {% render 'hamam-hero-featured-product',
+                    product: block.settings.product,
+                    fallback_image_key: product_fb,
+                    dummy_title: block.settings.dummy_product_title,
+                    dummy_price: block.settings.dummy_product_price
+                  %}
                 </div>
               {% endif %}
             </div>
           </div>
-
-          {% if section.settings.show_featured_product and block.settings.show_product_pill %}
-            <div class="hamam-hero__product-wrap">
-              {% render 'hamam-hero-featured-product',
-                product: block.settings.product,
-                fallback_image_key: product_fb,
-                dummy_title: block.settings.dummy_product_title,
-                dummy_price: block.settings.dummy_product_price
-              %}
-            </div>
-          {% endif %}
         </div>
       </div>
     {% endfor %}
   </div>
 
   {% if section.blocks.size > 1 %}
-    <div class="hamam-container hamam-hero__chrome">
+    <div class="hamam-page-wrap hamam-hero__chrome">
       <div class="hamam-hero__segments" data-hero-segments aria-hidden="true">
         {% for block in section.blocks %}
           <button

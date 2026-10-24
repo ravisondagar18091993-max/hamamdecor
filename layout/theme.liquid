@@ -48,6 +48,8 @@
 
     {{ content_for_header }}
 
+    {{ 'hamam-layout.css' | asset_url | stylesheet_tag }}
+
     {% if template.name == 'index' %}
       <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
