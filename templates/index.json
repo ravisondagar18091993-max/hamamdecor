@@ -216,8 +216,10 @@
         "v1": {
           "type": "video_item",
           "settings": {
+            "video": "shopify://files/videos/67bbf4b736dc406b8d4f6cba579ea94a.HD-1080p-7.2Mbps-77368888.mp4",
             "video_url": "",
-            "title": "The atelier"
+            "cover_image": "shopify://shop_images/67bbf4b736dc406b8d4f6cba579ea94a.thumbnail.0000000000.jpg",
+            "title": ""
           }
         },
         "v2": {
