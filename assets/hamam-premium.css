@@ -837,29 +837,38 @@
 @media (min-width: 1024px) {
   .hamam-service-pillars__grid {
     grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 0;
+    column-gap: clamp(1.25rem, 2.2vw, 2rem);
+    align-items: stretch;
   }
 
   .hamam-service-pillars__item {
     position: relative;
-    padding: 0 1.75rem;
+    max-width: none;
+    margin-inline: 0;
+    width: 100%;
+    padding: 0;
     text-align: center;
   }
 
-  .hamam-service-pillars__item:not(:last-child)::after {
+  .hamam-service-pillars__item:not(:first-child)::before {
     content: "";
     position: absolute;
-    top: 12%;
-    right: 0;
+    left: calc(-0.5 * clamp(1.25rem, 2.2vw, 2rem));
+    top: 10%;
     width: 1px;
-    height: 76%;
+    height: 80%;
     background: linear-gradient(
       180deg,
       transparent,
-      rgba(255, 255, 255, 0.28) 20%,
-      rgba(255, 255, 255, 0.28) 80%,
+      rgba(255, 255, 255, 0.28) 18%,
+      rgba(255, 255, 255, 0.28) 82%,
       transparent
     );
+    pointer-events: none;
+  }
+
+  .hamam-service-pillars__title {
+    min-height: calc(3 * 1.45em);
   }
 }
 
