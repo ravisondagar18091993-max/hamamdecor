@@ -136,13 +136,22 @@
             "title": "Side Tables",
             "link": ""
           }
+        },
+        "collection_KAfCQx": {
+          "type": "collection",
+          "settings": {
+            "image": "shopify://shop_images/sinai-oval-white-marble-dining-table-40.jpg",
+            "title": "Marble Tables",
+            "link": ""
+          }
         }
       },
       "block_order": [
         "collection_rcagU8",
         "collection_NpwQii",
         "collection_YEidcc",
-        "collection_dyyxYt"
+        "collection_dyyxYt",
+        "collection_KAfCQx"
       ],
       "settings": {
         "heading": "Discover our collections",
