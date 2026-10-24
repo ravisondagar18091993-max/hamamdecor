@@ -5,6 +5,16 @@
   top: 0;
   z-index: 100;
   width: 100%;
+  background: var(--hamam-header-bg, #f3f1eb);
+  padding-block: 0.5rem 0;
+}
+
+.hamam-header__container {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 2px;
+  box-shadow: 0 1px 0 rgba(26, 26, 26, 0.04);
 }
 
 .hamam-header__announce {
@@ -32,6 +42,7 @@
 .hamam-header__main {
   background: #f9f8f3;
   border-bottom: 1px solid rgba(26, 26, 26, 0.06);
+  width: 100%;
 }
 
 .hamam-header__main-inner {
@@ -39,7 +50,8 @@
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
   gap: 1rem;
-  padding-block: 1.15rem;
+  padding: 1.15rem 0;
+  width: 100%;
 }
 
 .hamam-header__phone {
@@ -138,10 +150,12 @@
 .hamam-header__nav-bar {
   background: #eceae4;
   border-bottom: 1px solid rgba(26, 26, 26, 0.05);
+  width: 100%;
 }
 
 .hamam-header__nav-inner {
-  padding-block: 0.7rem;
+  padding: 0.7rem 0;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -238,7 +252,7 @@
     grid-template-areas:
       "phone utilities"
       "brand brand";
-    padding: 0.85rem 1rem;
+    padding: 0.85rem 0;
   }
 
   .hamam-header__phone {

@@ -11,18 +11,19 @@
   id="hamam-header-{{ section.id }}"
   data-section-id="{{ section.id }}"
 >
-  {% if section.settings.show_announcement and section.settings.announcement_text != blank %}
-    <div class="hamam-header__announce">
-      {% if section.settings.announcement_link != blank %}
-        <a href="{{ section.settings.announcement_link }}">{{ section.settings.announcement_text }}</a>
-      {% else %}
-        {{ section.settings.announcement_text }}
-      {% endif %}
-    </div>
-  {% endif %}
+  <div class="hamam-page-wrap hamam-header__container">
+    {% if section.settings.show_announcement and section.settings.announcement_text != blank %}
+      <div class="hamam-header__announce">
+        {% if section.settings.announcement_link != blank %}
+          <a href="{{ section.settings.announcement_link }}">{{ section.settings.announcement_text }}</a>
+        {% else %}
+          {{ section.settings.announcement_text }}
+        {% endif %}
+      </div>
+    {% endif %}
 
-  <div class="hamam-header__main">
-    <div class="hamam-page-wrap hamam-header__main-inner">
+    <div class="hamam-header__main">
+      <div class="hamam-header__main-inner">
       {% if section.settings.phone != blank %}
         <a class="hamam-header__phone" href="tel:{{ section.settings.phone | replace: ' ', '' }}">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -79,12 +80,12 @@
           </cart-icon>
         </a>
       </div>
+      </div>
     </div>
-  </div>
 
-  {% if section.settings.menu != blank %}
-    <div class="hamam-header__nav-bar">
-      <div class="hamam-page-wrap hamam-header__nav-inner">
+    {% if section.settings.menu != blank %}
+      <div class="hamam-header__nav-bar">
+        <div class="hamam-header__nav-inner">
         <nav class="hamam-header__nav-desktop" aria-label="{{ 'content.menu' | t }}">
           <ul class="hamam-header__menu">
             {% for link in section.settings.menu.links %}
@@ -104,9 +105,10 @@
           <span class="svg-wrapper" aria-hidden="true">{{ 'icon-menu.svg' | inline_asset_content }}</span>
           <span class="visually-hidden">{{ 'content.menu' | t }}</span>
         </button>
+        </div>
       </div>
-    </div>
-  {% endif %}
+    {% endif %}
+  </div>
 
   <div
     class="hamam-header__drawer"

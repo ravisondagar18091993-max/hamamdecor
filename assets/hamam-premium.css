@@ -916,8 +916,7 @@
 }
 
 /* Header polish on homepage */
-.hamam-home #header-group,
-#header-group .hamam-header-wrap {
+.hamam-home #header-group {
   background: transparent;
   box-shadow: none;
 }
