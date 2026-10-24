@@ -16,16 +16,10 @@
 
 .hamam-footer__social {
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
   align-items: center;
   gap: 0.85rem;
-  margin-bottom: clamp(1.25rem, 2.5vw, 1.75rem);
-}
-
-@media (min-width: 900px) {
-  .hamam-footer__social {
-    margin-bottom: clamp(1.5rem, 3vw, 2rem);
-  }
+  margin-top: clamp(2rem, 4vw, 2.75rem);
 }
 
 .hamam-footer__social-link {
@@ -236,10 +230,6 @@
 }
 
 @media (max-width: 599px) {
-  .hamam-footer__social {
-    justify-content: flex-start;
-  }
-
   .hamam-footer__headline {
     max-width: none;
   }

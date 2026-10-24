@@ -1,14 +1,5 @@
 <div class="hamam-footer" id="hamam-footer-{{ section.id }}" data-section-id="{{ section.id }}" role="contentinfo">
   <div class="hamam-page-wrap hamam-footer__inner">
-    {% if section.settings.show_social %}
-      <div class="hamam-footer__social" aria-label="{{ 'blocks.social_media_links' | t | default: 'Social media' }}">
-        {% render 'hamam-footer-social', url: section.settings.social_x, icon: 'x', label: 'X' %}
-        {% render 'hamam-footer-social', url: section.settings.social_facebook, icon: 'facebook', label: 'Facebook' %}
-        {% render 'hamam-footer-social', url: section.settings.social_instagram, icon: 'instagram', label: 'Instagram' %}
-        {% render 'hamam-footer-social', url: section.settings.social_youtube, icon: 'youtube', label: 'YouTube' %}
-      </div>
-    {% endif %}
-
     <div class="hamam-footer__main">
       <div class="hamam-footer__brand">
         {% if section.settings.heading != blank %}
@@ -40,6 +31,15 @@
             </div>
           {% endif %}
         </div>
+
+        {% if section.settings.show_social %}
+          <div class="hamam-footer__social" aria-label="{{ 'blocks.social_media_links' | t | default: 'Social media' }}">
+            {% render 'hamam-footer-social', url: section.settings.social_x, icon: 'x', label: 'X' %}
+            {% render 'hamam-footer-social', url: section.settings.social_facebook, icon: 'facebook', label: 'Facebook' %}
+            {% render 'hamam-footer-social', url: section.settings.social_instagram, icon: 'instagram', label: 'Instagram' %}
+            {% render 'hamam-footer-social', url: section.settings.social_youtube, icon: 'youtube', label: 'YouTube' %}
+          </div>
+        {% endif %}
       </div>
 
       <div class="hamam-footer__menus">
