@@ -777,7 +777,7 @@
 
 .hamam-service-pillars__band {
   position: relative;
-  padding: clamp(1.75rem, 3.5vw, 2.5rem) 0;
+  padding: clamp(5.25rem, 10.5vw, 7.5rem) 0;
 }
 
 .hamam-service-pillars__band::before {
