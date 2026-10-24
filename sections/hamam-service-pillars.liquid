@@ -5,6 +5,16 @@
 >
   <div class="hamam-service-pillars__band">
     <div class="hamam-container--wide">
+      {% if section.settings.heading != blank or section.settings.subheading != blank %}
+        <header class="hamam-service-pillars__head">
+          {% if section.settings.heading != blank %}
+            <h2 class="hamam-display">{{ section.settings.heading }}</h2>
+          {% endif %}
+          {% if section.settings.subheading != blank %}
+            <p class="hamam-service-pillars__subtitle">{{ section.settings.subheading }}</p>
+          {% endif %}
+        </header>
+      {% endif %}
       <ul class="hamam-service-pillars__grid" role="list">
         {% for block in section.blocks %}
           <li class="hamam-service-pillars__item" {{ block.shopify_attributes }}>
@@ -30,7 +40,19 @@
   "tag": "section",
   "class": "hamam-service-pillars-section",
   "max_blocks": 6,
-  "settings": [],
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Title",
+      "default": "The Hamam difference"
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subtitle"
+    }
+  ],
   "blocks": [
     {
       "type": "pillar",

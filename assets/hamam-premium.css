@@ -771,13 +771,13 @@
 
 /* Service pillars — after collections */
 .hamam-service-pillars {
-  padding: clamp(3rem, 6vw, 5rem) 0;
+  padding: clamp(1.5rem, 3vw, 2.25rem) 0;
   background: transparent;
 }
 
 .hamam-service-pillars__band {
   position: relative;
-  padding: clamp(2.5rem, 5vw, 3.5rem) 0;
+  padding: clamp(1.75rem, 3.5vw, 2.5rem) 0;
 }
 
 .hamam-service-pillars__band::before {
@@ -796,6 +796,26 @@
 .hamam-service-pillars__band > .hamam-container--wide {
   position: relative;
   z-index: 1;
+}
+
+.hamam-service-pillars__head {
+  text-align: center;
+  margin-bottom: clamp(1.25rem, 2.5vw, 1.75rem);
+}
+
+.hamam-service-pillars__head .hamam-display {
+  color: #fff;
+  margin: 0;
+}
+
+.hamam-service-pillars__subtitle {
+  font-family: var(--hamam-sans);
+  font-size: 16px;
+  line-height: 1.55;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.92);
+  margin: 0.5rem auto 0;
+  max-width: 38rem;
 }
 
 .hamam-service-pillars__grid {
