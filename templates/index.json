@@ -240,11 +240,13 @@
             "title": ""
           }
         },
-        "v4": {
+        "video_item_FJ3GiC": {
           "type": "video_item",
           "settings": {
+            "video": "shopify://files/videos/5bcde34048e540fc8d3b506830b649a1.HD-1080p-4.8Mbps-77369014.mp4",
             "video_url": "",
-            "title": "In your home"
+            "cover_image": "shopify://shop_images/5bcde34048e540fc8d3b506830b649a1.thumbnail.0000000000.jpg",
+            "title": ""
           }
         }
       },
@@ -252,7 +254,7 @@
         "v1",
         "v2",
         "v3",
-        "v4"
+        "video_item_FJ3GiC"
       ],
       "settings": {
         "heading": "See the craft",
