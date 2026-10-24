@@ -796,7 +796,7 @@
   font-family: var(--hamam-serif);
   font-size: 1rem;
   font-weight: var(--hamam-font-heading-weight, 400);
-  color: #fff;
+  color: #1a1a1a;
   text-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
   letter-spacing: 0.04em;
 }
