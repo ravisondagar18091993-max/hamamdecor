@@ -15,6 +15,7 @@
         "slide_1": {
           "type": "slide",
           "settings": {
+            "image": "shopify://shop_images/ayak_fotograflar_2.jpg",
             "eyebrow": "Garden wall lights",
             "heading": "travertıne collectıon",
             "button_label": "Shop now",
