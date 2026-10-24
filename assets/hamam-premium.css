@@ -939,10 +939,10 @@
 }
 
 .hamam-service-pillars__title {
-  font-family: var(--hamam-sans);
-  font-size: 0.6875rem;
-  font-weight: 600;
-  letter-spacing: 0.16em;
+  font-family: var(--hamam-serif);
+  font-size: clamp(0.75rem, 1.1vw, 0.8125rem);
+  font-weight: var(--hamam-font-heading-weight, 400);
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--hamam-dark);
   margin: 0 0 0.65rem;
