@@ -1,0 +1,69 @@
+<section class="arvi-section arvi-split{% if section.settings.reverse %} arvi-split--reverse{% endif %}" id="arvi-split-{{ section.id }}">
+  <div class="arvi-wrap">
+    <div class="arvi-split__grid">
+      <div class="arvi-split__copy">
+        {% if section.settings.eyebrow != blank %}
+          <p class="arvi-eyebrow">{{ section.settings.eyebrow }}</p>
+        {% endif %}
+        <h2 class="arvi-split__title">{{ section.settings.heading }}</h2>
+        {% if section.settings.text != blank %}
+          <div class="arvi-split__body">{{ section.settings.text }}</div>
+        {% endif %}
+        {% if section.settings.button_label != blank %}
+          <a
+            class="arvi-btn{% if section.settings.solid_button %} arvi-btn--solid{% endif %}"
+            href="{{ section.settings.button_link | default: '#' }}"
+          >
+            {{ section.settings.button_label }}
+          </a>
+        {% endif %}
+      </div>
+      <div class="arvi-split__visual">
+        {% if section.settings.use_illustration %}
+          <div class="arvi-split__illustration" aria-hidden="true">
+            <svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="70" cy="60" r="28" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M40 140c0-30 20-50 30-50s30 20 30 50" stroke="currentColor" stroke-width="1.5"/>
+              <circle cx="130" cy="55" r="26" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M100 135c0-28 18-48 30-48s30 20 30 48" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M85 95h30M100 80v30" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+        {% else %}
+          <div class="arvi-split__media">
+            {% if section.settings.image != blank %}
+              {{ section.settings.image | image_url: width: 1200 | image_tag: loading: 'lazy', alt: section.settings.heading }}
+            {% else %}
+              {{ 'collection-1' | placeholder_svg_tag }}
+            {% endif %}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "ARVI — Split content",
+  "tag": "section",
+  "class": "arvi-split-section",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "About us" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Your premium wine shop in Switzerland" },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Body",
+      "default": "<p>ARVI offers rare wines, professional advice, and climate-controlled storage for private clients and collectors across Switzerland.</p>"
+    },
+    { "type": "text", "id": "button_label", "label": "Button label", "default": "Learn more" },
+    { "type": "url", "id": "button_link", "label": "Button link" },
+    { "type": "checkbox", "id": "solid_button", "label": "Solid black button", "default": false },
+    { "type": "checkbox", "id": "reverse", "label": "Image on left", "default": false },
+    { "type": "checkbox", "id": "use_illustration", "label": "Line illustration (no photo)", "default": true },
+    { "type": "image_picker", "id": "image", "label": "Image" }
+  ],
+  "presets": [{ "name": "ARVI — Split content" }]
+}
+{% endschema %}

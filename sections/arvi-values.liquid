@@ -1,0 +1,47 @@
+<section class="arvi-section arvi-values" id="arvi-values-{{ section.id }}">
+  <div class="arvi-wrap">
+    <div class="arvi-values__grid">
+      {% for block in section.blocks %}
+        <div class="arvi-value" {{ block.shopify_attributes }}>
+          <div class="arvi-value__icon" aria-hidden="true">{{ block.settings.icon | default: '○' }}</div>
+          {% if block.settings.title != blank %}
+            <p class="arvi-value__title">{{ block.settings.title }}</p>
+          {% endif %}
+          {% if block.settings.text != blank %}
+            <p class="arvi-value__text">{{ block.settings.text }}</p>
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "ARVI — Values",
+  "tag": "section",
+  "class": "arvi-values-section",
+  "blocks": [
+    {
+      "type": "value",
+      "name": "Value",
+      "settings": [
+        { "type": "text", "id": "icon", "label": "Icon", "default": "❄" },
+        { "type": "text", "id": "title", "label": "Title", "default": "Climate-controlled storage" },
+        { "type": "text", "id": "text", "label": "Text", "default": "Wine vault solutions for your collection." }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "ARVI — Values",
+      "blocks": [
+        { "type": "value", "settings": { "icon": "❄", "title": "Climate-controlled storage", "text": "Store your wines in our wine vault." } },
+        { "type": "value", "settings": { "icon": "🚚", "title": "Personal delivery", "text": "Careful delivery across Switzerland." } },
+        { "type": "value", "settings": { "icon": "✦", "title": "Professional advice", "text": "Speak with our wine advisors." } },
+        { "type": "value", "settings": { "icon": "◎", "title": "Certified authenticity", "text": "Provenance you can trust." } }
+      ]
+    }
+  ]
+}
+{% endschema %}

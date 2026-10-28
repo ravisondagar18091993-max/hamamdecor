@@ -1,285 +1,138 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */{
+{
   "sections": {
-    "hero_jVaWmY": {
-      "type": "hero",
-      "blocks": {
-        "text_YLPk4p": {
-          "type": "text",
-          "name": "t:names.heading",
-          "settings": {
-            "text": "<p>Browse our latest products</p>",
-            "text_color": "{{ settings.color_palette.background }}",
-            "width": "fit-content",
-            "max_width": "normal",
-            "alignment": "left",
-            "type_preset": "h2",
-            "font": "var(--font-body--family)",
-            "font_size": "1rem",
-            "line_height": "normal",
-            "letter_spacing": "normal",
-            "case": "none",
-            "wrap": "pretty",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
-        },
-        "button_H9gpTf": {
-          "type": "button",
-          "name": "t:names.button",
-          "settings": {
-            "label": "Shop all",
-            "link": "shopify://collections/all",
-            "open_in_new_tab": false,
-            "style_class": "button-custom",
-            "custom_button_background": "rgba(0,0,0,0)",
-            "custom_button_text": "{{ settings.color_palette.background }}",
-            "custom_button_border": "{{ settings.color_palette.background }}",
-            "width": "fit-content",
-            "custom_width": 100,
-            "width_mobile": "fit-content",
-            "custom_width_mobile": 100
-          },
-          "blocks": {}
-        }
-      },
-      "block_order": [
-        "text_YLPk4p",
-        "button_H9gpTf"
-      ],
-      "name": "t:names.hero",
+    "arvi_hero": {
+      "type": "arvi-hero",
       "settings": {
-        "media_type_1": "image",
-        "media_type_2": "image",
-        "stack_media_on_mobile": false,
-        "custom_mobile_media": false,
-        "media_type_1_mobile": "image",
-        "media_type_2_mobile": "image",
-        "open_in_new_tab": false,
-        "content_direction": "column",
-        "vertical_on_mobile": true,
-        "horizontal_alignment": "space-between",
-        "vertical_alignment": "flex-end",
-        "align_baseline": true,
-        "horizontal_alignment_flex_direction_column": "center",
-        "vertical_alignment_flex_direction_column": "flex-end",
-        "gap": 24,
-        "section_width": "page-width",
-        "section_height": "medium",
-        "section_height_custom": 50,
-        "background_color": "rgba(0,0,0,0)",
-        "toggle_overlay": true,
-        "overlay_color": "#12121266",
-        "overlay_style": "solid",
-        "gradient_direction": "to bottom",
-        "blurred_reflection": false,
-        "reflection_opacity": 75,
-        "padding-block-start": 100,
-        "padding-block-end": 72
+        "heading": "Hidden Treasures of Autumn",
+        "subheading": "A selection of wines for the cooler days. Rare wines and great collectibles.",
+        "button_label": "Shop all"
       }
     },
-    "product_list_fa6P9H": {
-      "type": "product-list",
+    "arvi_champagne": {
+      "type": "arvi-product-row",
       "blocks": {
-        "static-header": {
-          "type": "_product-list-content",
-          "name": "t:names.header",
-          "static": true,
+        "p1": { "type": "product", "settings": { "title": "Champagne Rosé NV", "tag": "Rosé", "price": "CHF 64.40" } },
+        "p2": { "type": "product", "settings": { "title": "Champagne Blanc de Blancs", "tag": "White", "price": "CHF 72.00" } },
+        "p3": { "type": "product", "settings": { "title": "Champagne Brut Réserve", "tag": "Brut", "price": "CHF 58.90" } },
+        "p4": { "type": "product", "settings": { "title": "Champagne Prestige Cuvée", "tag": "Prestige", "price": "CHF 124.00" } }
+      },
+      "block_order": ["p1", "p2", "p3", "p4"],
+      "settings": {
+        "heading": "Prestigious Champagne Selection",
+        "text": "Your premium wine shop in Switzerland — curated champagnes for every occasion."
+      }
+    },
+    "arvi_reviews": {
+      "type": "arvi-reviews",
+      "blocks": {
+        "r1": { "type": "review", "settings": { "featured": true, "quote": "Trusted by collectors across Switzerland.", "author": "ARVI" } },
+        "r2": { "type": "review", "settings": { "quote": "Professional advice and climate-controlled storage I can rely on.", "author": "Marco L." } },
+        "r3": { "type": "review", "settings": { "quote": "The autumn selection was outstanding — rare finds delivered with care.", "author": "Elena R." } }
+      },
+      "block_order": ["r1", "r2", "r3"],
+      "settings": { "heading": "What our customers are saying…" }
+    },
+    "arvi_about": {
+      "type": "arvi-split",
+      "settings": {
+        "eyebrow": "About us",
+        "heading": "Your premium wine shop in Switzerland",
+        "text": "<p>ARVI brings together rare wines, iconic labels, and personal service for private clients and trade partners across Switzerland and beyond.</p>",
+        "button_label": "Learn more",
+        "use_illustration": true,
+        "solid_button": false
+      }
+    },
+    "arvi_vault": {
+      "type": "arvi-split",
+      "settings": {
+        "eyebrow": "Wine vault",
+        "heading": "Collect your wines with us",
+        "text": "<p>Climate-controlled storage, certified authenticity, and personal delivery — your collection cared for by experts.</p>",
+        "button_label": "Learn more",
+        "use_illustration": false,
+        "solid_button": true,
+        "reverse": true
+      }
+    },
+    "arvi_fine_wines": {
+      "type": "arvi-product-row",
+      "blocks": {
+        "f1": { "type": "product", "settings": { "title": "Château Petrus 1989", "tag": "Iconic", "price": "CHF 5,800.00" } },
+        "f2": { "type": "product", "settings": { "title": "Château Petrus 2003", "tag": "Iconic", "price": "CHF 4,200.00" } },
+        "f3": { "type": "product", "settings": { "title": "Grand Cru Collection", "tag": "Red", "price": "CHF 890.00" } },
+        "f4": { "type": "product", "settings": { "title": "Rare Vintage Selection", "tag": "Collectible", "price": "CHF 1,450.00" } }
+      },
+      "block_order": ["f1", "f2", "f3", "f4"],
+      "settings": {
+        "heading": "Iconic Fine Wines",
+        "text": "Exceptional bottles for collectors — provenance guaranteed."
+      }
+    },
+    "arvi_region": {
+      "type": "arvi-region",
+      "settings": {
+        "eyebrow": "Region in focus",
+        "heading": "Unico & Rovere",
+        "text": "Explore Italian and Swiss icons — Unico, Rovere and Ligornetto, selected by our sommeliers.",
+        "button_label": "Shop now"
+      }
+    },
+    "arvi_duo": {
+      "type": "arvi-duo",
+      "blocks": {
+        "d1": {
+          "type": "card",
           "settings": {
-            "content_direction": "row",
-            "vertical_on_mobile": false,
-            "horizontal_alignment": "space-between",
-            "vertical_alignment": "flex-end",
-            "align_baseline": true,
-            "horizontal_alignment_flex_direction_column": "flex-start",
-            "vertical_alignment_flex_direction_column": "center",
-            "gap": 12,
-            "width": "fill",
-            "custom_width": 100,
-            "width_mobile": "fill",
-            "custom_width_mobile": 100,
-            "height": "fit",
-            "custom_height": 100,
-            "background_media": "none",
-            "video_position": "cover",
-            "background_image_position": "cover",
-            "border": "none",
-            "border_width": 1,
-            "border_opacity": 100,
-            "border_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {
-            "product_list_text_YFtzcL": {
-              "type": "_product-list-text",
-              "name": "t:names.collection_title",
-              "settings": {
-                "text": "<h3>{{ closest.collection.title }}</h3>",
-                "width": "fit-content",
-                "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "h4",
-                "font": "var(--font-body--family)",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
-            "product_list_button_MWeP9V": {
-              "type": "_product-list-button",
-              "name": "t:names.product_list_button",
-              "settings": {
-                "label": "View all",
-                "open_in_new_tab": false,
-                "style_class": "link",
-                "width": "fit-content",
-                "custom_width": 100,
-                "width_mobile": "fit-content",
-                "custom_width_mobile": 100
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": [
-            "product_list_text_YFtzcL",
-            "product_list_button_MWeP9V"
-          ]
+            "icon": "🎁",
+            "title": "Limited edition gift selections",
+            "text": "Exclusive wooden cases and rare bottles for special occasions.",
+            "button_label": "Shop now"
+          }
         },
-        "static-product-card": {
-          "type": "_product-card",
-          "name": "t:names.product_card",
-          "static": true,
+        "d2": {
+          "type": "card",
           "settings": {
-            "product_card_gap": 4,
-            "border": "none",
-            "border_width": 1,
-            "border_opacity": 100,
-            "border_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {
-            "product_card_gallery_677WP3": {
-              "type": "_product-card-gallery",
-              "name": "t:names.product_card_media",
-              "settings": {
-                "image_ratio": "adapt",
-                "border": "none",
-                "border_width": 1,
-                "border_opacity": 100,
-                "border_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
-            "product_title_YXxMTj": {
-              "type": "product-title",
-              "name": "t:names.product_title",
-              "settings": {
-                "width": "100%",
-                "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "rte",
-                "font": "var(--font-body--family)",
-                "font_size": "1rem",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 4,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
-            "price_JQzVV4": {
-              "type": "price",
-              "name": "t:names.product_price",
-              "settings": {
-                "show_sale_price_first": true,
-                "show_installments": false,
-                "show_tax_info": false,
-                "type_preset": "h6",
-                "width": "100%",
-                "alignment": "left",
-                "font": "var(--font-body--family)",
-                "font_size": "1rem",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": [
-            "product_card_gallery_677WP3",
-            "product_title_YXxMTj",
-            "price_JQzVV4"
-          ]
+            "icon": "◆",
+            "title": "Private clients & trade",
+            "text": "Bespoke sourcing and wine vault services for business and collectors.",
+            "button_label": "Find out more"
+          }
         }
       },
-      "name": "t:names.product_list",
-      "settings": {
-        "collection": "all",
-        "layout_type": "grid",
-        "carousel_on_mobile": false,
-        "max_products": 8,
-        "columns": 4,
-        "mobile_columns": "2",
-        "mobile_card_size": "60cqw",
-        "columns_gap": 8,
-        "rows_gap": 24,
-        "icons_style": "arrow",
-        "icons_shape": "none",
-        "section_width": "page-width",
-        "horizontal_alignment": "flex-start",
-        "gap": 28,
-        "background_color": "{{ settings.color_palette.background }}",
-        "padding-block-start": 48,
-        "padding-block-end": 48
-      }
+      "block_order": ["d1", "d2"]
+    },
+    "arvi_stores": {
+      "type": "arvi-stores",
+      "blocks": {
+        "s1": { "type": "store", "settings": { "city": "Milano" } },
+        "s2": { "type": "store", "settings": { "city": "Lugano" } },
+        "s3": { "type": "store", "settings": { "city": "Zurich" } }
+      },
+      "block_order": ["s1", "s2", "s3"],
+      "settings": { "heading": "Our stores" }
+    },
+    "arvi_values": {
+      "type": "arvi-values",
+      "blocks": {
+        "v1": { "type": "value", "settings": { "icon": "❄", "title": "Climate-controlled storage", "text": "Wine vault solutions for your collection." } },
+        "v2": { "type": "value", "settings": { "icon": "🚚", "title": "Personal delivery", "text": "Across Switzerland and the EU." } },
+        "v3": { "type": "value", "settings": { "icon": "✦", "title": "Professional advice", "text": "Personal WhatsApp and showroom support." } },
+        "v4": { "type": "value", "settings": { "icon": "◎", "title": "Certified authenticity", "text": "Provenance you can trust." } }
+      },
+      "block_order": ["v1", "v2", "v3", "v4"]
     }
   },
   "order": [
-    "hero_jVaWmY",
-    "product_list_fa6P9H"
+    "arvi_hero",
+    "arvi_champagne",
+    "arvi_reviews",
+    "arvi_about",
+    "arvi_vault",
+    "arvi_fine_wines",
+    "arvi_region",
+    "arvi_duo",
+    "arvi_stores",
+    "arvi_values"
   ]
 }

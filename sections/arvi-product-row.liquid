@@ -1,0 +1,78 @@
+<section class="arvi-section arvi-products" id="arvi-products-{{ section.id }}">
+  <div class="arvi-wrap">
+    <header class="arvi-products__head">
+      {% if section.settings.heading != blank %}
+        <h2 class="arvi-products__title">{{ section.settings.heading }}</h2>
+      {% endif %}
+      {% if section.settings.text != blank %}
+        <p class="arvi-lead">{{ section.settings.text }}</p>
+      {% endif %}
+    </header>
+    <div class="arvi-products__grid">
+      {% if section.settings.collection != blank %}
+        {% for product in section.settings.collection.products limit: section.settings.limit %}
+          {% render 'arvi-product-card',
+            title: product.title,
+            tag: product.type,
+            price: product.price | money,
+            url: product.url,
+            image: product.featured_image
+          %}
+        {% endfor %}
+      {% else %}
+        {% for block in section.blocks %}
+          {% render 'arvi-product-card',
+            title: block.settings.title,
+            tag: block.settings.tag,
+            meta: block.settings.meta,
+            price: block.settings.price,
+            url: block.settings.link
+          %}
+        {% endfor %}
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "ARVI — Product row",
+  "tag": "section",
+  "class": "arvi-products-section",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Prestigious Champagne Selection" },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Introduction",
+      "default": "Your premium wine shop in Switzerland — curated champagnes and fine bottles for every occasion."
+    },
+    { "type": "collection", "id": "collection", "label": "Collection (optional)" },
+    { "type": "range", "id": "limit", "label": "Products to show", "min": 2, "max": 8, "step": 1, "default": 4 }
+  ],
+  "blocks": [
+    {
+      "type": "product",
+      "name": "Product",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Title", "default": "Champagne Rosé NV" },
+        { "type": "text", "id": "tag", "label": "Tag", "default": "Rosé" },
+        { "type": "text", "id": "meta", "label": "Detail", "default": "75 cl" },
+        { "type": "text", "id": "price", "label": "Price", "default": "CHF 64.40" },
+        { "type": "url", "id": "link", "label": "Link" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "ARVI — Product row",
+      "blocks": [
+        { "type": "product", "settings": { "title": "Champagne Rosé NV", "tag": "Rosé", "price": "CHF 64.40" } },
+        { "type": "product", "settings": { "title": "Champagne Blanc de Blancs", "tag": "White", "price": "CHF 72.00" } },
+        { "type": "product", "settings": { "title": "Champagne Brut Réserve", "tag": "Brut", "price": "CHF 58.90" } },
+        { "type": "product", "settings": { "title": "Champagne Prestige Cuvée", "tag": "Prestige", "price": "CHF 124.00" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

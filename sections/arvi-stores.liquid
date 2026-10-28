@@ -1,0 +1,51 @@
+<section class="arvi-section arvi-stores" id="arvi-stores-{{ section.id }}">
+  <div class="arvi-wrap">
+    {% if section.settings.heading != blank %}
+      <h2 class="arvi-stores__title">{{ section.settings.heading }}</h2>
+    {% endif %}
+    <div class="arvi-stores__grid">
+      {% for block in section.blocks %}
+        <a class="arvi-store-tile" href="{{ block.settings.link | default: '#' }}" {{ block.shopify_attributes }}>
+          <div class="arvi-store-tile__bg">
+            {% if block.settings.image != blank %}
+              {{ block.settings.image | image_url: width: 800 | image_tag: loading: 'lazy', alt: block.settings.city }}
+            {% endif %}
+          </div>
+          <span class="arvi-store-tile__label">{{ block.settings.city }}</span>
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "ARVI — Store locations",
+  "tag": "section",
+  "class": "arvi-stores-section",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Visit our stores" }
+  ],
+  "blocks": [
+    {
+      "type": "store",
+      "name": "Store",
+      "settings": [
+        { "type": "text", "id": "city", "label": "City", "default": "Zurich" },
+        { "type": "url", "id": "link", "label": "Link" },
+        { "type": "image_picker", "id": "image", "label": "Image" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "ARVI — Store locations",
+      "blocks": [
+        { "type": "store", "settings": { "city": "Milano" } },
+        { "type": "store", "settings": { "city": "Lugano" } },
+        { "type": "store", "settings": { "city": "Zurich" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

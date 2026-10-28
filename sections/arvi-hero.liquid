@@ -1,0 +1,43 @@
+<section class="arvi-section arvi-hero" id="arvi-hero-{{ section.id }}">
+  <div class="arvi-hero__media">
+    {% if section.settings.image != blank %}
+      {{ section.settings.image | image_url: width: 2400 | image_tag: loading: 'eager', fetchpriority: 'high', alt: section.settings.heading }}
+    {% else %}
+      {{ 'lifestyle-1' | placeholder_svg_tag: class: 'placeholder' }}
+    {% endif %}
+    <div class="arvi-hero__overlay"></div>
+  </div>
+  <div class="arvi-hero__content">
+    <h1 class="arvi-hero__title">{{ section.settings.heading }}</h1>
+    {% if section.settings.subheading != blank %}
+      <p class="arvi-hero__sub">{{ section.settings.subheading }}</p>
+    {% endif %}
+    {% if section.settings.button_label != blank %}
+      <a class="arvi-btn arvi-btn--ghost-light" href="{{ section.settings.button_link | default: routes.all_products_collection_url }}">
+        {{ section.settings.button_label }}
+      </a>
+    {% endif %}
+  </div>
+</section>
+{% render 'arvi-peaks' %}
+
+{% schema %}
+{
+  "name": "ARVI — Hero",
+  "tag": "section",
+  "class": "arvi-hero-section",
+  "settings": [
+    { "type": "image_picker", "id": "image", "label": "Background image" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Hidden Treasures of Autumn" },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "A selection of wines for the cooler days. Rare wines and great collectibles."
+    },
+    { "type": "text", "id": "button_label", "label": "Button label", "default": "Shop all" },
+    { "type": "url", "id": "button_link", "label": "Button link" }
+  ],
+  "presets": [{ "name": "ARVI — Hero" }]
+}
+{% endschema %}

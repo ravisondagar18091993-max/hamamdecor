@@ -1,0 +1,588 @@
+/* ARVI homepage — Momentum Wines layout, cream minimal */
+
+:root {
+  --arvi-cream: #f4f1ee;
+  --arvi-cream-dark: #ebe6e1;
+  --arvi-ink: #1a1a1a;
+  --arvi-muted: #5c5c5c;
+  --arvi-pill-radius: 999px;
+  --arvi-page-max: 1200px;
+  --arvi-pad: clamp(1.25rem, 4vw, 2.5rem);
+  --arvi-serif: "Cormorant Garamond", "Times New Roman", serif;
+  --arvi-sans: "elza", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.template-index #MainContent {
+  padding: 0;
+  background: var(--arvi-cream);
+}
+
+.arvi-section {
+  font-family: var(--arvi-sans);
+  color: var(--arvi-ink);
+  letter-spacing: 0.03em;
+}
+
+.arvi-wrap {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: var(--arvi-page-max);
+  margin-inline: auto;
+  padding-inline: var(--arvi-pad);
+}
+
+.arvi-display {
+  font-family: var(--arvi-serif);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: 0.02em;
+  margin: 0;
+}
+
+.arvi-eyebrow {
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--arvi-muted);
+  margin: 0 0 0.75rem;
+}
+
+.arvi-lead {
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--arvi-muted);
+  letter-spacing: 0.04em;
+  max-width: 42rem;
+  margin: 0 auto;
+}
+
+.arvi-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.65rem 1.75rem;
+  border-radius: var(--arvi-pill-radius);
+  font-family: var(--arvi-sans);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 1px solid var(--arvi-ink);
+  background: transparent;
+  color: var(--arvi-ink);
+  transition: background 0.2s ease, color 0.2s ease;
+  cursor: pointer;
+}
+
+.arvi-btn:hover {
+  background: var(--arvi-ink);
+  color: #fff;
+}
+
+.arvi-btn--solid {
+  background: var(--arvi-ink);
+  color: #fff;
+}
+
+.arvi-btn--solid:hover {
+  background: #333;
+}
+
+.arvi-btn--ghost-light {
+  border-color: #fff;
+  color: #fff;
+}
+
+.arvi-btn--ghost-light:hover {
+  background: #fff;
+  color: var(--arvi-ink);
+}
+
+.arvi-peaks {
+  display: block;
+  width: 100%;
+  height: 48px;
+  line-height: 0;
+  overflow: hidden;
+  color: var(--arvi-cream);
+}
+
+.arvi-peaks svg {
+  width: 100%;
+  height: 48px;
+  display: block;
+}
+
+/* Hero */
+.arvi-hero {
+  position: relative;
+  min-height: min(85vh, 720px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+}
+
+.arvi-hero__media {
+  position: absolute;
+  inset: 0;
+}
+
+.arvi-hero__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.arvi-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.arvi-hero__content {
+  position: relative;
+  z-index: 1;
+  padding: 2rem var(--arvi-pad);
+  max-width: 36rem;
+}
+
+.arvi-hero__title {
+  font-family: var(--arvi-serif);
+  font-size: clamp(2.25rem, 5vw, 3.5rem);
+  font-weight: 400;
+  line-height: 1.08;
+  margin: 0 0 1rem;
+  color: #fff;
+}
+
+.arvi-hero__sub {
+  font-size: 1rem;
+  line-height: 1.55;
+  letter-spacing: 0.04em;
+  margin: 0 0 1.5rem;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+/* Intro + products */
+.arvi-products {
+  padding: clamp(3rem, 6vw, 4.5rem) 0;
+  background: var(--arvi-cream);
+  text-align: center;
+}
+
+.arvi-products__head {
+  margin-bottom: 2.5rem;
+}
+
+.arvi-products__title {
+  font-family: var(--arvi-serif);
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  margin: 0 0 1rem;
+}
+
+.arvi-products__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .arvi-products__grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1rem;
+  }
+}
+
+.arvi-product-card {
+  text-align: center;
+}
+
+.arvi-product-card__media {
+  aspect-ratio: 3 / 4;
+  background: #e8e4df;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.85rem;
+  overflow: hidden;
+}
+
+.arvi-product-card__media img {
+  max-height: 85%;
+  width: auto;
+  object-fit: contain;
+}
+
+.arvi-product-card__tag {
+  font-size: 0.625rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--arvi-muted);
+  margin: 0 0 0.25rem;
+}
+
+.arvi-product-card__name {
+  font-family: var(--arvi-serif);
+  font-size: 1.05rem;
+  margin: 0 0 0.35rem;
+}
+
+.arvi-product-card__meta {
+  font-size: 0.8125rem;
+  color: var(--arvi-muted);
+  margin: 0 0 0.5rem;
+}
+
+.arvi-product-card__price {
+  font-size: 0.9375rem;
+  font-weight: 500;
+  margin: 0 0 0.75rem;
+}
+
+.arvi-product-card__btn {
+  font-size: 0.625rem;
+  padding: 0.5rem 1.25rem;
+}
+
+/* Testimonials */
+.arvi-reviews {
+  padding: clamp(2.5rem, 5vw, 4rem) 0;
+  background: var(--arvi-cream-dark);
+}
+
+.arvi-reviews__head {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.arvi-reviews__title {
+  font-family: var(--arvi-serif);
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+}
+
+.arvi-reviews__track {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 900px) {
+  .arvi-reviews__track {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.arvi-review-card {
+  background: #fff;
+  padding: 1.5rem;
+  min-height: 10rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.arvi-review-card--featured {
+  background: var(--arvi-ink);
+  color: #fff;
+}
+
+.arvi-review-card__stars {
+  color: #c9a962;
+  letter-spacing: 0.15em;
+  font-size: 0.875rem;
+  margin-bottom: 0.75rem;
+}
+
+.arvi-review-card__text {
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  letter-spacing: 0.03em;
+  margin: 0;
+}
+
+.arvi-review-card__author {
+  font-size: 0.8125rem;
+  margin: 1rem 0 0;
+  opacity: 0.85;
+}
+
+/* Split sections */
+.arvi-split {
+  padding: clamp(3rem, 6vw, 5rem) 0;
+  background: var(--arvi-cream);
+}
+
+.arvi-split__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+@media (min-width: 900px) {
+  .arvi-split__grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+  }
+
+  .arvi-split--reverse .arvi-split__grid {
+    direction: rtl;
+  }
+
+  .arvi-split--reverse .arvi-split__grid > * {
+    direction: ltr;
+  }
+}
+
+.arvi-split__title {
+  font-family: var(--arvi-serif);
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  margin: 0 0 1rem;
+}
+
+.arvi-split__body {
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  letter-spacing: 0.04em;
+  color: var(--arvi-muted);
+  margin: 0 0 1.5rem;
+}
+
+.arvi-split__media {
+  aspect-ratio: 4 / 3;
+  background: #e0dcd6;
+  overflow: hidden;
+}
+
+.arvi-split__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.arvi-split__illustration {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 280px;
+  color: var(--arvi-ink);
+  opacity: 0.85;
+}
+
+/* Region spotlight */
+.arvi-region {
+  position: relative;
+  min-height: 420px;
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 900px) {
+  .arvi-region {
+    grid-template-columns: 1fr 1fr;
+    min-height: 480px;
+  }
+}
+
+.arvi-region__copy {
+  background: var(--arvi-cream);
+  display: flex;
+  align-items: center;
+  padding: clamp(2rem, 5vw, 4rem) var(--arvi-pad);
+}
+
+.arvi-region__inner {
+  max-width: 28rem;
+}
+
+.arvi-region__title {
+  font-family: var(--arvi-serif);
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin: 0 0 1rem;
+}
+
+.arvi-region__visual {
+  position: relative;
+  background: #3a3a3a;
+  min-height: 280px;
+}
+
+.arvi-region__visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(100%);
+  opacity: 0.9;
+}
+
+.arvi-region__bottle {
+  position: absolute;
+  left: 50%;
+  bottom: 10%;
+  transform: translateX(-50%);
+  z-index: 2;
+  max-height: 55%;
+  width: auto;
+  filter: none;
+}
+
+@media (min-width: 900px) {
+  .arvi-region__bottle {
+    left: 0;
+    transform: translateX(-50%);
+  }
+}
+
+/* Dual cards */
+.arvi-duo {
+  padding: clamp(2.5rem, 5vw, 4rem) 0;
+  background: var(--arvi-cream-dark);
+}
+
+.arvi-duo__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .arvi-duo__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.arvi-duo-card {
+  text-align: center;
+  padding: 2rem 1.5rem;
+}
+
+.arvi-duo-card__icon {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  opacity: 0.7;
+}
+
+.arvi-duo-card__title {
+  font-family: var(--arvi-serif);
+  font-size: 1.35rem;
+  margin: 0 0 0.75rem;
+}
+
+.arvi-duo-card__text {
+  font-size: 0.875rem;
+  line-height: 1.6;
+  letter-spacing: 0.04em;
+  color: var(--arvi-muted);
+  margin: 0 0 1.25rem;
+}
+
+/* Stores */
+.arvi-stores {
+  padding: clamp(2.5rem, 5vw, 4rem) 0;
+  background: var(--arvi-cream);
+}
+
+.arvi-stores__title {
+  font-family: var(--arvi-serif);
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  text-align: center;
+  margin: 0 0 2rem;
+}
+
+.arvi-stores__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .arvi-stores__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.arvi-store-tile {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  text-decoration: none;
+  color: #fff;
+}
+
+.arvi-store-tile__bg {
+  position: absolute;
+  inset: 0;
+  background: #2a2a2a;
+}
+
+.arvi-store-tile__bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.75;
+}
+
+.arvi-store-tile__label {
+  position: relative;
+  z-index: 1;
+  padding: 1.25rem;
+  font-family: var(--arvi-serif);
+  font-size: 1.5rem;
+}
+
+/* Values */
+.arvi-values {
+  padding: clamp(2.5rem, 5vw, 3.5rem) 0;
+  background: var(--arvi-cream-dark);
+}
+
+.arvi-values__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+@media (min-width: 900px) {
+  .arvi-values__grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.arvi-value {
+  text-align: center;
+  padding: 1rem 0.5rem;
+}
+
+.arvi-value__icon {
+  width: 3rem;
+  height: 3rem;
+  margin: 0 auto 0.75rem;
+  border: 1px solid rgba(26, 26, 26, 0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+}
+
+.arvi-value__title {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin: 0 0 0.35rem;
+}
+
+.arvi-value__text {
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  letter-spacing: 0.03em;
+  color: var(--arvi-muted);
+  margin: 0;
+}
