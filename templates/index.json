@@ -8,25 +8,25 @@
         "button_label": "Shop all"
       }
     },
-    "arvi_champagne": {
+    "arvi_products": {
       "type": "arvi-product-row",
       "blocks": {
-        "p1": { "type": "product", "settings": { "title": "Champagne Rosé NV", "tag": "Rosé", "price": "CHF 64.40" } },
-        "p2": { "type": "product", "settings": { "title": "Champagne Blanc de Blancs", "tag": "White", "price": "CHF 72.00" } },
-        "p3": { "type": "product", "settings": { "title": "Champagne Brut Réserve", "tag": "Brut", "price": "CHF 58.90" } },
-        "p4": { "type": "product", "settings": { "title": "Champagne Prestige Cuvée", "tag": "Prestige", "price": "CHF 124.00" } }
+        "p1": { "type": "product", "settings": { "title": "Champagne Rosé NV", "tag": "🇫🇷 Rosé", "meta": "75 cl", "price": "CHF 64.40" } },
+        "p2": { "type": "product", "settings": { "title": "Champagne Blanc de Blancs", "tag": "🇫🇷 White", "meta": "75 cl", "price": "CHF 72.00" } },
+        "p3": { "type": "product", "settings": { "title": "Château Petrus 2003", "tag": "🇫🇷 Iconic", "meta": "75 cl", "price": "CHF 4,200.00" } },
+        "p4": { "type": "product", "settings": { "title": "Grand Cru Selection", "tag": "🇮🇹 Red", "meta": "75 cl", "price": "CHF 890.00" } }
       },
       "block_order": ["p1", "p2", "p3", "p4"],
       "settings": {
-        "heading": "Prestigious Champagne Selection",
-        "text": "Your premium wine shop in Switzerland — curated champagnes for every occasion."
+        "heading": "",
+        "text": "Your premium wine shop in Switzerland — browse champagnes, iconic fine wines and rare collectibles for every occasion."
       }
     },
     "arvi_reviews": {
       "type": "arvi-reviews",
       "blocks": {
-        "r1": { "type": "review", "settings": { "featured": true, "quote": "Trusted by collectors across Switzerland.", "author": "ARVI" } },
-        "r2": { "type": "review", "settings": { "quote": "Professional advice and climate-controlled storage I can rely on.", "author": "Marco L." } },
+        "r1": { "type": "review", "settings": { "featured": true, "quote": "★★★★★ Trusted by collectors across Switzerland.", "author": "" } },
+        "r2": { "type": "review", "settings": { "quote": "Professional advice and climate-controlled storage I can rely on.", "author": "Marco L., Zurich" } },
         "r3": { "type": "review", "settings": { "quote": "The autumn selection was outstanding — rare finds delivered with care.", "author": "Elena R." } }
       },
       "block_order": ["r1", "r2", "r3"],
@@ -37,44 +37,31 @@
       "settings": {
         "eyebrow": "About us",
         "heading": "Your premium wine shop in Switzerland",
-        "text": "<p>ARVI brings together rare wines, iconic labels, and personal service for private clients and trade partners across Switzerland and beyond.</p>",
+        "text": "<p>ARVI brings together rare wines, iconic labels, and personal service for private clients and collectors — with showrooms in Zurich, Lugano and Milano.</p>",
         "button_label": "Learn more",
         "use_illustration": true,
-        "solid_button": false
+        "solid_button": false,
+        "reverse": false
       }
     },
-    "arvi_vault": {
+    "arvi_trade": {
       "type": "arvi-split",
       "settings": {
-        "eyebrow": "Wine vault",
-        "heading": "Collect your wines with us",
-        "text": "<p>Climate-controlled storage, certified authenticity, and personal delivery — your collection cared for by experts.</p>",
-        "button_label": "Learn more",
+        "eyebrow": "Trade",
+        "heading": "Looking for a wine partner for your business?",
+        "text": "<p>Private clients, hospitality and trade — bespoke sourcing, wine vault storage, and personal delivery across Switzerland.</p>",
+        "button_label": "Find out more",
         "use_illustration": false,
         "solid_button": true,
         "reverse": true
-      }
-    },
-    "arvi_fine_wines": {
-      "type": "arvi-product-row",
-      "blocks": {
-        "f1": { "type": "product", "settings": { "title": "Château Petrus 1989", "tag": "Iconic", "price": "CHF 5,800.00" } },
-        "f2": { "type": "product", "settings": { "title": "Château Petrus 2003", "tag": "Iconic", "price": "CHF 4,200.00" } },
-        "f3": { "type": "product", "settings": { "title": "Grand Cru Collection", "tag": "Red", "price": "CHF 890.00" } },
-        "f4": { "type": "product", "settings": { "title": "Rare Vintage Selection", "tag": "Collectible", "price": "CHF 1,450.00" } }
-      },
-      "block_order": ["f1", "f2", "f3", "f4"],
-      "settings": {
-        "heading": "Iconic Fine Wines",
-        "text": "Exceptional bottles for collectors — provenance guaranteed."
       }
     },
     "arvi_region": {
       "type": "arvi-region",
       "settings": {
         "eyebrow": "Region in focus",
-        "heading": "Unico & Rovere",
-        "text": "Explore Italian and Swiss icons — Unico, Rovere and Ligornetto, selected by our sommeliers.",
+        "heading": "Ticino & Lombardy",
+        "text": "Discover Unico, Rovere and Ligornetto — iconic labels from Italy and Switzerland, curated by our sommeliers.",
         "button_label": "Shop now"
       }
     },
@@ -84,55 +71,44 @@
         "d1": {
           "type": "card",
           "settings": {
-            "icon": "🎁",
+            "icon": "🍷",
             "title": "Limited edition gift selections",
-            "text": "Exclusive wooden cases and rare bottles for special occasions.",
+            "text": "Curated wooden cases and rare bottles for special occasions.",
             "button_label": "Shop now"
           }
         },
         "d2": {
           "type": "card",
           "settings": {
-            "icon": "◆",
-            "title": "Private clients & trade",
-            "text": "Bespoke sourcing and wine vault services for business and collectors.",
-            "button_label": "Find out more"
+            "icon": "🎁",
+            "title": "Wine vault & private clients",
+            "text": "Collect your wines with us — climate-controlled storage and certified authenticity.",
+            "button_label": "Shop now"
           }
         }
       },
       "block_order": ["d1", "d2"]
     },
-    "arvi_stores": {
-      "type": "arvi-stores",
+    "arvi_contact": {
+      "type": "arvi-contact",
       "blocks": {
-        "s1": { "type": "store", "settings": { "city": "Milano" } },
-        "s2": { "type": "store", "settings": { "city": "Lugano" } },
-        "s3": { "type": "store", "settings": { "city": "Zurich" } }
+        "c1": { "type": "column", "settings": { "title": "Contact", "text": "<p>hello@arvi.ch<br>+41 44 000 00 00</p>" } },
+        "c2": { "type": "column", "settings": { "title": "Visit", "text": "<p>Zurich · Lugano · Milano</p>" } },
+        "c3": { "type": "column", "settings": { "title": "Find us", "text": "<p>Store hours & directions at arvi.ch</p>" } },
+        "c4": { "type": "column", "settings": { "title": "Information", "text": "<p>Delivery · Wine vault · Private clients</p>" } }
       },
-      "block_order": ["s1", "s2", "s3"],
-      "settings": { "heading": "Our stores" }
-    },
-    "arvi_values": {
-      "type": "arvi-values",
-      "blocks": {
-        "v1": { "type": "value", "settings": { "icon": "❄", "title": "Climate-controlled storage", "text": "Wine vault solutions for your collection." } },
-        "v2": { "type": "value", "settings": { "icon": "🚚", "title": "Personal delivery", "text": "Across Switzerland and the EU." } },
-        "v3": { "type": "value", "settings": { "icon": "✦", "title": "Professional advice", "text": "Personal WhatsApp and showroom support." } },
-        "v4": { "type": "value", "settings": { "icon": "◎", "title": "Certified authenticity", "text": "Provenance you can trust." } }
-      },
-      "block_order": ["v1", "v2", "v3", "v4"]
+      "block_order": ["c1", "c2", "c3", "c4"],
+      "settings": { "heading": "Get in touch" }
     }
   },
   "order": [
     "arvi_hero",
-    "arvi_champagne",
+    "arvi_products",
     "arvi_reviews",
     "arvi_about",
-    "arvi_vault",
-    "arvi_fine_wines",
+    "arvi_trade",
     "arvi_region",
     "arvi_duo",
-    "arvi_stores",
-    "arvi_values"
+    "arvi_contact"
   ]
 }

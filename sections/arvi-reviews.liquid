@@ -2,6 +2,13 @@
   <div class="arvi-wrap">
     <header class="arvi-reviews__head">
       <h2 class="arvi-reviews__title">{{ section.settings.heading }}</h2>
+      <div class="arvi-reviews__illustration" aria-hidden="true">
+        <svg width="120" height="140" viewBox="0 0 120 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="60" cy="42" r="22" stroke="currentColor" stroke-width="1.25"/>
+          <path d="M35 115c0-28 11-48 25-48s25 20 25 48" stroke="currentColor" stroke-width="1.25"/>
+          <path d="M48 75h24" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"/>
+        </svg>
+      </div>
     </header>
     <div class="arvi-reviews__track">
       {% for block in section.blocks %}

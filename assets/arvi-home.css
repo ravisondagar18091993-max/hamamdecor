@@ -12,8 +12,29 @@
   --arvi-sans: "elza", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
-.template-index #MainContent {
+.template-index #MainContent,
+body.arvi-home.template-index {
   padding: 0;
+  background: var(--arvi-cream);
+}
+
+/* Hide default Dawn/Horizon footer on Momentum-style homepage */
+body.arvi-home.template-index #footer-group,
+body.arvi-home.template-index .shopify-section-group-footer-group {
+  display: none !important;
+}
+
+body.arvi-home.template-index #header-group {
+  background: var(--arvi-cream);
+  box-shadow: none;
+}
+
+body.arvi-home.template-index .header-section,
+body.arvi-home.template-index .header-announcements {
+  background: var(--arvi-cream) !important;
+}
+
+body.arvi-home.template-index .page-wrapper {
   background: var(--arvi-cream);
 }
 
@@ -255,8 +276,28 @@
 }
 
 .arvi-reviews__head {
+  position: relative;
   text-align: center;
   margin-bottom: 2rem;
+  padding-top: 0.5rem;
+}
+
+.arvi-reviews__illustration {
+  position: absolute;
+  right: 0;
+  top: -0.5rem;
+  opacity: 0.85;
+  display: none;
+}
+
+@media (min-width: 900px) {
+  .arvi-reviews__illustration {
+    display: block;
+  }
+
+  .arvi-reviews__head {
+    padding-right: 8rem;
+  }
 }
 
 .arvi-reviews__title {
@@ -585,4 +626,84 @@
   letter-spacing: 0.03em;
   color: var(--arvi-muted);
   margin: 0;
+}
+
+/* Contact footer — Momentum “Get in touch” */
+.arvi-contact {
+  padding: clamp(3rem, 7vw, 5rem) 0 clamp(2.5rem, 5vw, 4rem);
+  background: var(--arvi-cream);
+  border-top: 1px solid rgba(26, 26, 26, 0.08);
+}
+
+.arvi-contact__title {
+  font-family: var(--arvi-serif);
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 400;
+  text-align: center;
+  margin: 0 0 2.5rem;
+}
+
+.arvi-contact__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .arvi-contact__grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+}
+
+.arvi-contact__col-title {
+  font-family: var(--arvi-serif);
+  font-size: 1.125rem;
+  margin: 0 0 0.65rem;
+}
+
+.arvi-contact__col-body {
+  font-size: 0.875rem;
+  line-height: 1.65;
+  letter-spacing: 0.04em;
+  color: var(--arvi-muted);
+}
+
+.arvi-contact__col-body p {
+  margin: 0;
+}
+
+.arvi-contact__social {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 2.5rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.arvi-contact__social a {
+  color: var(--arvi-ink);
+  text-decoration: none;
+}
+
+.arvi-contact__social a:hover {
+  text-decoration: underline;
+}
+
+/* Full-bleed sections (no Horizon page-width wrapper) */
+body.arvi-home.template-index .shopify-section.arvi-hero-section,
+body.arvi-home.template-index .shopify-section.arvi-products-section,
+body.arvi-home.template-index .shopify-section.arvi-reviews-section,
+body.arvi-home.template-index .shopify-section.arvi-split-section,
+body.arvi-home.template-index .shopify-section.arvi-region-section,
+body.arvi-home.template-index .shopify-section.arvi-duo-section,
+body.arvi-home.template-index .shopify-section.arvi-contact-section {
+  max-width: none;
+  width: 100%;
+}
+
+body.arvi-home.template-index .section {
+  padding: 0;
 }
